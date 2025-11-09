@@ -1,0 +1,70 @@
+#cabecalho {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cabecalho-cima {
+    position: relative;
+    height: 35px;
+    width: 100%;
+    border-top: 0;
+}
+
+#cabecalho-meio {
+    position: relative;
+    bottom: 4px;
+    height: 30px;
+    width: 480px;
+    border-radius: 0 0 100px 100px;
+    border-top: 0;
+}
+
+
+.bg-blbl {
+    background-color: #000000;
+}
+
+
+#titulo {
+    position: absolute;
+    padding: 0.8em 4em;
+    color: white;
+    text-decoration: None;
+}
+
+
+
+@media screen and (max-width: 850px) {
+    #cabecalho-meio {
+        width: 55%;
+    }
+
+    #titulo {
+        padding: 0.8em 2em;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #cabecalho-meio {
+        width: 60%;
+    }
+
+    #titulo {
+        padding: 0.8em;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    #titulo h1 {
+        scale: 0.7;
+    }
+    
+    #titulo {
+        padding: 0.4em 0.4em 0.8em 0.4em;
+    }
+}

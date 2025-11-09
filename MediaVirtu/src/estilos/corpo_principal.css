@@ -1,0 +1,103 @@
+/*Configurações visuais padrões do site*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    word-wrap: break-word;
+}
+
+
+.goldman-bold {
+  font-family: "Goldman", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+#corpo-principal {
+    min-height: 100vh;
+    padding: 15vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(8, 8, 17);
+}
+
+.bloco {
+    min-height: 70px;
+    width: 68%;
+    overflow: hidden;
+    word-wrap: break-word;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-gap: 1.5em;
+    padding: 1em;
+    border-radius: 4px;
+    color: white;
+    border: 3px solid rgb(35, 35, 43);
+}
+
+
+/*Linha horizontal de divisão de sessões*/
+
+.linha-divisoria-sessoes {
+    position: relative;
+    width: 75%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin: 5em 0;
+}
+
+.linha-divisoria {
+    height: 0;
+    flex-grow: 1;
+    border: 1.5px solid white;
+    border-radius: 10px;
+}
+
+.node-divisoria {
+    height: 13px;
+    width: 13px;
+    border: 2px solid white;
+    border-radius: 100%;
+}
+
+.node-divisoria, .linha-divisoria {
+    box-shadow: 0px 0px 6px white;
+}
+
+
+/*configurando responsividade*/
+
+@media screen and (max-width: 800px) {
+    .bloco {
+        width: 560px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .bloco {
+        width: 77%;
+        padding: 0.5em;
+    }
+
+    .linha-divisoria-sessoes {
+        transform: scale(0.8);
+        margin: 3em 0;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .linha-divisoria-sessoes .node-divisoria {
+        transform: scale(0.6);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .bloco {
+        font-size: 70%;
+    }
+}
