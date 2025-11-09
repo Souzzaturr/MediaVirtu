@@ -1,0 +1,37 @@
+[
+    {
+        "nome" : "Josué Neto",
+
+        "link_imagem" : "https://avatars.githubusercontent.com/u/215238939?v=4",
+        
+        "github" : "https://github.com/JoshuaNeto-TheKnight",
+        
+        "ifpb_codes" : "https://ifpb.github.io/projects/people/202514320003/",
+        
+        "linkedin" : "https://www.linkedin.com/in/josu%C3%A9-benedito-neto-505b34395/"
+    },
+    
+    {
+        "nome" : "Artur Souza",
+
+        "link_imagem" : "https://avatars.githubusercontent.com/u/207273864?v=4",
+
+        "github" : "https://github.com/Souzzaturr",
+
+        "ifpb_codes" : "https://ifpb.github.io/projects/people/202514320010/",
+
+        "linkedin" : "https://www.linkedin.com/in/souzza-arturr/"
+    },
+
+    {
+        "nome" : "Matheus Roberto",
+
+        "link_imagem" : "https://avatars.githubusercontent.com/u/215908122?v=4",
+
+        "github" : "https://github.com/Matheus-Rob",
+
+        "ifpb_codes" : "https://ifpb.github.io/projects/people/202514320001/",
+
+        "linkedin" : "https://www.linkedin.com/in/matheus-rrr/"
+    }
+]

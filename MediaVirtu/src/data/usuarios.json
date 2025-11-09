@@ -1,0 +1,14 @@
+{
+    "Adm_Supremo" : {
+        
+        "nome" : "Adm_Supremo",
+
+        "foto_perfil" : "",
+
+        "senha" : "*************",
+
+        "likes" : [],
+
+        "dislikes" : []
+    }
+}
