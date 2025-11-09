@@ -1,0 +1,35 @@
+/*estilos para os posts dos usuários*/
+
+/*descrição do autor do pot (foto de perfil, nome de usuário, data do post)*/
+
+.autor {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.foto-perfil {
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.info-autor {
+    word-break: break-all;
+}
+
+
+/*Imagens do post*/
+
+.conjunto-imagens-shitpost {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+
+}
+
+.imagem-shitpost {
+    max-width: 100%;
+}
