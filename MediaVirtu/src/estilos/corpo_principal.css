@@ -33,23 +33,3 @@ background-color: rgb(8, 8, 17);
     font-weight: 400;
     font-style: normal;   
 }
-
-
-@media screen and (max-width: 800px) {
-    .bloco {
-        width: 560px;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .bloco {
-        width: 77%;
-        padding: 0.5em;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .bloco {
-        font-size: 70%;
-    }
-}
