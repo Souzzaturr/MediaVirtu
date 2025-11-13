@@ -1,4 +1,4 @@
-#menus {
+#barras-navegacao-laterais {
     position: fixed;
     z-index: 1;
     top: 9%;
@@ -9,7 +9,7 @@
     pointer-events: none;
 }
 
-#menu-left, #menu-right {
+#barra-esquerda, #barra-direita {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,18 +22,18 @@
     box-shadow: 0px 0px 25px black;
 }
 
-#menu-left {
+#barra-esquerda {
     border-left: 0;
     border-radius: 0 40px 40px 0;
 }
 
-#menu-right {
+#barra-direita {
     border-right: 0;
     border-radius: 40px 0 0 40px;
 }
 
 
-.opcao-lateral {
+.opcao-barra-lateral {
     display: block;
     height: 10%;
     width: 90%;
@@ -45,7 +45,7 @@
     transition: transform 0.1s;
 }
 
-.icon-menu-ltrl {
+.icon-barra-ltrl {
     max-width: 64px;
 }
 
@@ -58,15 +58,15 @@
 }
 
 
-#menu-left:hover, #menu-right:hover{
+#barra-esquerda:hover, #barra-direita:hover{
     width: 25%;
 }
 
-#menu-left:hover .opcao-lateral .texto-opc-lateral, #menu-right:hover .opcao-lateral .texto-opc-lateral {
+#barra-esquerda:hover .opcao-barra-lateral .texto-opc-lateral, #barra-direita:hover .opcao-barra-lateral .texto-opc-lateral {
     width: 100%;
 }
 
-.opcao-lateral:hover {
+.opcao-barra-lateral:hover {
     transform: scale(1.1);
 }
 

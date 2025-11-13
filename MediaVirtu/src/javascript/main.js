@@ -1,5 +1,5 @@
 import cabecalho from "./cabecalho.js"
-import menus from "./barras_laterais.js"
+import barrasNavegacaoLateral from "./barras_navegacao_lateral.js"
 import pagina from "./corpo_principal.js"
 
 export var pagina_atual = "Inicio";
@@ -10,12 +10,12 @@ const root = document.querySelector("#root");
 function inicializar () {
     root.innerHTML = `
     ${ cabecalho() }
-    ${ menus() }
+    ${ barrasNavegacaoLateral() }
     <main id = "corpo-principal"></main>
     `;
     
     add_conteudo()
-    eventos_menu();
+    eventosBarrasNavegacaoLateral();
 }
 
 inicializar();
@@ -27,7 +27,7 @@ function add_conteudo () {
 }
 
 
-function eventos_menu() {
+function eventosBarrasNavegacaoLateral() {
   const links = document.querySelectorAll("[data-page]");
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
