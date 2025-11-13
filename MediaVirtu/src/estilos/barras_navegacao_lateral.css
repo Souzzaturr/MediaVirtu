@@ -68,6 +68,7 @@
 
 .opcao-barra-lateral:hover {
     transform: scale(1.1);
+    color: gainsboro;
 }
 
 
