@@ -1,19 +1,28 @@
+import lista_shitposts from "../data/shitposts.json" assert { type: "json" };
 import shitpost from "./shitposts.js";
 import linha_divisora from "./linha_divisora.js";
 
+
 export default function inicio () {
 
-    let conteudo = `
-    Rosas são vermelhas
-    Sua cidade vai ao ar
-    Eu sou thomas
-    A BOMBA TERMUCLEAR`
+    return embaralhar_array(lista_shitposts.map((post) => 
+        shitpost(
+            post.nome,
+            post.foto_perfil ? post.foto_perfil : '../../public/pictures/MediaVirtu_icon.png',
+            post.tempo_postagem,
+            post.texto,
+            post.imagens
+        ) +
+        linha_divisora()
 
-    return  shitpost(
-        "Fulano da Silva",
-        "public/icones/MediaVirtu_icons/MediaVirtu_icon.png",
-        "Ontem",
-        conteudo,
-        ['https://preview.redd.it/a6zo3silgzr41.png?width=320&crop=smart&auto=webp&s=806318b90f9fde4fc2fb8698d6dbf298b924385b',]
-    )
+    )).join('');
+}
+
+
+function embaralhar_array(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
