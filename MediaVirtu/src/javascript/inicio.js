@@ -8,7 +8,7 @@ export default function inicio () {
     return embaralhar_array(lista_shitposts.map((post) => 
         shitpost(
             post.nome,
-            post.foto_perfil ? post.foto_perfil : '../../public/pictures/MediaVirtu_icon.png',
+            post.foto_perfil ? post.foto_perfil : 'pictures/MediaVirtu_icon.png',
             post.tempo_postagem,
             post.texto,
             post.imagens
