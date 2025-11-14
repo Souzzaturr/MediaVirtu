@@ -9,7 +9,7 @@
         "texto" : "FINALMENTE, ALGUÉM CONSEGUIU!!",
 
         "imagens" : [
-            "../../public/pictures/lapis.png"
+            "pictures/lapis.png"
         ]
     },
 
@@ -23,8 +23,8 @@
         "texto" : "A saúde mental do estudante ao decorrer do semestre:",
 
         "imagens" : [
-            "../../public/pictures/picapau-bem.png",
-            "../../public/pictures/picapau-endoidado.png"
+            "pictures/picapau-bem.png",
+            "pictures/picapau-endoidado.png"
         ]
     },
 
@@ -38,7 +38,7 @@
         "texto" : "O seu patrão vendo você fazer 1 hora de almoço durante sua hora de almoço",
 
         "imagens" : [
-            "../../public/pictures/patrao-hora-almoco.png"
+            "pictures/patrao-hora-almoco.png"
         ]
     },
 
@@ -66,7 +66,7 @@
         "texto" : "Padeiro chique é outra coisa! \nO pão não basta ser francês, tem que ser da LACOSTE!!!",
 
         "imagens" : [
-            "../../public/pictures/pao-chique.png"
+            "pictures/pao-chique.png"
         ]
     }
 ]
