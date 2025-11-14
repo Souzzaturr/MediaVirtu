@@ -3,9 +3,6 @@
     width: 68%;
     overflow: hidden;
     word-wrap: break-word;
-    display: grid;
-    grid-template-rows: auto auto auto;
-    grid-gap: 1.5em;
     padding: 1em;
     border-radius: 4px;
     color: white;
