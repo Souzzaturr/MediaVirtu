@@ -14,7 +14,8 @@ export default function inicio () {
             post.texto,
             post.imagens,
             post.likes,
-            post.dislikes
+            post.dislikes,
+            post.codigo_post
         ) +
         linha_divisora()
 

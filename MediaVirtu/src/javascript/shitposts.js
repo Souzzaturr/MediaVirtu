@@ -1,6 +1,6 @@
 import tresPontinhos from "./tresPontinhos.js";
 
-export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem, conteudo_texto, lista_imagens = [], qtd_likes = 0, qtd_dislikes = 0) {
+export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem, conteudo_texto, lista_imagens = [], qtd_likes, qtd_dislikes, codigo_post = "xxxxxxxxxx") {
 
     const texto = conteudo_texto.length > 0 ?
     `<div class = "conteudo-shitpost">
@@ -15,7 +15,7 @@ export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem,
     : '';
 
     return `
-    <section class="bloco bloco-shitpost">
+    <section id = "post-${ codigo_post }" class="bloco bloco-shitpost">
         <div class = "topo-shitpost">
             <div class="autor">
                 <img src="${ foto_perfil_autor }" alt="" class="foto-perfil">
@@ -31,8 +31,8 @@ export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem,
             ${ imgs }
         </div>
         <div class = "painel-interacao-shitpost">
-            ${ gostei(nome_autor, qtd_likes) }
-            ${ naoGostei(nome_autor, qtd_dislikes) }
+            ${ gostei(qtd_likes, codigo_post) }
+            ${ naoGostei(qtd_dislikes, codigo_post) }
             ${ comentarios(nome_autor) }
         </div>
     </section>
@@ -41,24 +41,32 @@ export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem,
 
 
 
-function gostei (autor = "ninguem", qtd_likes = 0) {
+function gostei (qtd_likes = 0, codigo) {
+    const lista_likes = JSON.parse(localStorage.getItem("lista_likes") || "[]");
+    
+    const situacao_botao = lista_likes.includes(codigo) ? "-press" : "";
+    qtd_likes = lista_likes.includes(codigo) ? qtd_likes + 1 : qtd_likes;
 
     return `
-        <a class = "botao-gostei" href = "">
-            <img class = "icone-gostei" src = "icones/interacao_shitpost_icons/icone-gostei.png" alt = "gostei">
-            <p id = "gostei-shitpost-${ autor }">${ qtd_likes }</p>
+        <a id = "like-${ codigo }" class = "botao-gostei" href = "#a">
+            <img class = "icone-gostei" src = "icones/interacao_shitpost_icons/icone-gostei${ situacao_botao }.png" alt = "gostei">
+            <p id = "qtd-likes-${ codigo }">${ qtd_likes }</p>
         </a>
     `
 }
 
 
 
-function naoGostei (autor = "ninguem", qtd_dislikes = 0) {
+function naoGostei (qtd_dislikes = 0, codigo) {
+    const lista_dislikes = JSON.parse(localStorage.getItem("lista_dislikes") || "[]");
+
+    const situacao_botao = lista_dislikes.includes(codigo) ? "-press" : "";
+    qtd_dislikes = lista_dislikes.includes(codigo) ? qtd_dislikes + 1 : qtd_dislikes;
 
     return `
-        <a class = "botao-naogostei" href = "">
-            <img class = "icone-naogostei" src = "icones/interacao_shitpost_icons/icone-naogostei.png" alt = "nao-gostei">
-            <p id = "naogostei-shitpost-${ autor }">${ qtd_dislikes }</p>
+        <a id = "dislike-${ codigo }" class = "botao-naogostei" href = "#a">
+            <img class = "icone-naogostei" src = "icones/interacao_shitpost_icons/icone-naogostei${ situacao_botao }.png" alt = "nao-gostei">
+            <p id = "qtd-dislikes-${ codigo }">${ qtd_dislikes }</p>
         </a>
     `
 }
