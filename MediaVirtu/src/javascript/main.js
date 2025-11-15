@@ -2,15 +2,18 @@ import cabecalho from "./cabecalho.js"
 import barrasNavegacaoLateral from "./barras_navegacao_lateral.js"
 import pagina from "./corpo_principal.js"
 import banco_posts from "../data/shitposts.json" assert { type: "json" };
+import addLikesDislikesEventos from "./likes_dislikes.js"
 
 
 localStorage.setItem("banco_posts", JSON.stringify(banco_posts));
 
 localStorage.setItem("pagina_atual", "Inicio");
 
-const root = document.querySelector("#root");
+if (!localStorage.getItem("lista_likes")) localStorage.setItem("lista_likes", []);
 
-console.log(localStorage.getItem("banco_posts"))
+if (!localStorage.getItem("lista_dislikes")) localStorage.setItem("lista_dislikes", []);
+
+const root = document.querySelector("#root");
 
 
 function inicializar () {
@@ -22,6 +25,7 @@ function inicializar () {
     
     add_conteudo()
     eventosBarrasNavegacaoLateral();
+    addLikesDislikesEventos()
 }
 
 inicializar();
