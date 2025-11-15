@@ -1,6 +1,6 @@
 import tresPontinhos from "./tresPontinhos.js";
 
-export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem, conteudo_texto, lista_imagens = []) {
+export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem, conteudo_texto, lista_imagens = [], qtd_likes = 0, qtd_dislikes = 0) {
 
     const texto = conteudo_texto.length > 0 ?
     `<div class = "conteudo-shitpost">
@@ -31,8 +31,8 @@ export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem,
             ${ imgs }
         </div>
         <div class = "painel-interacao-shitpost">
-            ${ gostei(nome_autor) }
-            ${ naoGostei(nome_autor) }
+            ${ gostei(nome_autor, qtd_likes) }
+            ${ naoGostei(nome_autor, qtd_dislikes) }
             ${ comentarios(nome_autor) }
         </div>
     </section>
@@ -41,26 +41,24 @@ export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem,
 
 
 
-function gostei (autor = "ninguem") {
-    let num = 0;
+function gostei (autor = "ninguem", qtd_likes = 0) {
 
     return `
         <a class = "botao-gostei" href = "">
             <img class = "icone-gostei" src = "icones/interacao_shitpost_icons/icone-gostei.png" alt = "gostei">
-            <p id = "gostei-shitpost-${ autor }">${ num }</p>
+            <p id = "gostei-shitpost-${ autor }">${ qtd_likes }</p>
         </a>
     `
 }
 
 
 
-function naoGostei (autor = "ninguem") {
-    let num = 0;
+function naoGostei (autor = "ninguem", qtd_dislikes = 0) {
 
     return `
         <a class = "botao-naogostei" href = "">
             <img class = "icone-naogostei" src = "icones/interacao_shitpost_icons/icone-naogostei.png" alt = "nao-gostei">
-            <p id = "naogostei-shitpost-${ autor }">${ num }</p>
+            <p id = "naogostei-shitpost-${ autor }">${ qtd_dislikes }</p>
         </a>
     `
 }

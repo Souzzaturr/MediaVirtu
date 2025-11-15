@@ -1,6 +1,7 @@
-import lista_shitposts from "../data/shitposts.json" assert { type: "json" };
 import shitpost from "./shitposts.js";
 import linha_divisora from "./linha_divisora.js";
+
+const lista_shitposts = JSON.parse(localStorage.getItem("banco_posts"));
 
 
 export default function inicio () {
@@ -11,7 +12,9 @@ export default function inicio () {
             post.foto_perfil ? post.foto_perfil : 'pictures/MediaVirtu_icon.png',
             post.tempo_postagem,
             post.texto,
-            post.imagens
+            post.imagens,
+            post.likes,
+            post.dislikes
         ) +
         linha_divisora()
 

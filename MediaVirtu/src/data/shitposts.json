@@ -10,7 +10,11 @@
 
         "imagens" : [
             "pictures/lapis.png"
-        ]
+        ],
+
+        "likes" : 10,
+
+        "dislikes" : 37
     },
 
     {
@@ -25,7 +29,11 @@
         "imagens" : [
             "pictures/picapau-bem.png",
             "pictures/picapau-endoidado.png"
-        ]
+        ],
+
+        "likes" : 139,
+
+        "dislikes" : 15
     },
 
     {
@@ -39,7 +47,11 @@
 
         "imagens" : [
             "pictures/patrao-hora-almoco.png"
-        ]
+        ],
+
+        "likes" : 365,
+
+        "dislikes" : 80
     },
 
     {
@@ -53,7 +65,11 @@
 
         "imagens" : [
             "https://preview.redd.it/me-when-i-copy-the-exact-same-code-from-tutorial-and-it-v0-fak7lnhnr5rf1.jpeg?auto=webp&s=7b8a10942eea7622d9c0631afefa81df2a716054"
-        ]
+        ],
+
+        "likes" : 24,
+
+        "dislikes" : 1
     },
 
     {
@@ -67,7 +83,11 @@
 
         "imagens" : [
             "pictures/pao-chique.png"
-        ]
+        ],
+
+        "likes" : 456,
+
+        "dislikes" : 56
     },
 
     {
@@ -80,7 +100,11 @@
         "texto" : "O importante foi tentar ;u;",
 
         "imagens" : [ 
-"https://i.redd.it/2laptr63y19e1.jpeg"
-        ]
+            "https://i.redd.it/2laptr63y19e1.jpeg"
+        ],
+      
+        "likes" : 973,
+      
+        "dislikes" : 0
     }
 ]
