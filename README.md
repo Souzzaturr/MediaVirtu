@@ -5,3 +5,5 @@ O site contará com interface simples, acessível e levemente customizável; os 
 Postagens também poderão ser reportadas por usuários para serem verificadas pela moderação.
 
 > Pequenos momentos são dramas, o escopo de todos esses momentos é uma comédia.
+
+<img src="https://github.com/Souzzaturr/MediaVirtu/blob/main/MediaVirtu/public/icones/MediaVirtu_icons/MediaVirtu_icon.png?raw=true" width="150px">
