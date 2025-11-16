@@ -11,15 +11,15 @@ export default function comentarios (codigo_post) {
                     ).join("")
 
     return `
-                <div id = "bloco-comentarios-${ codigo_post }" class = "bloco-comentarios esconder-comentarios">  
+            <div id = "bloco-comentarios-${ codigo_post }" class = "bloco-comentarios esconder-comentarios">  
+                <button class = "enviar-comentario goldman-bold">
+                    Escreva um comentario:
+                </button>
+    
                 ${ comentarios ? comentarios : "<p class = 'sem-comentarios'>Ninguem comentou nada ainda...</p>" }
-                    
-                    <button class = "enviar-comentario goldman-bold">
-                        <p class = "texto-comentario">Escreva um comentario:</p>
-                    </button>
 
                     
-                </div>
+            </div>
             `
 }
 
