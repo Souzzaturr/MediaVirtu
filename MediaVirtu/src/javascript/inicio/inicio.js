@@ -1,5 +1,5 @@
 import shitpost from "./shitposts.js";
-import linha_divisora from "./linha_divisora.js";
+import linha_divisora from "../componentes_simples/linha_divisora.js";
 
 const lista_shitposts = JSON.parse(localStorage.getItem("banco_posts"));
 
