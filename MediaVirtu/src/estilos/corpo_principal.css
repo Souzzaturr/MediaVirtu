@@ -7,6 +7,9 @@
     padding: 0;
     font-family: sans-serif;
     word-wrap: break-word;
+    scrollbar-color: rgba(255, 255, 255, 0.315) rgb(0, 0, 0);
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
 
