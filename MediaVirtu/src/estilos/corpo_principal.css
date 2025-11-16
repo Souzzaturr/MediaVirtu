@@ -36,3 +36,25 @@
     font-weight: 400;
     font-style: normal;   
 }
+
+
+/*Preloader*/
+
+#preloader {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+    z-index: 2;
+    transition: height 0.5s ease-in-out;
+    overflow: hidden;
+    height: 0px; /*Valor a ser alterado para exibir ou remover preloader*/
+}
+
+#preloader h1 {
+    font-size: 70px;
+}
