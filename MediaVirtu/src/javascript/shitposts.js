@@ -1,3 +1,4 @@
+import comentarios from "./comentarios.js";
 import tresPontinhos from "./tresPontinhos.js";
 
 export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem, conteudo_texto, lista_imagens = [], qtd_likes, qtd_dislikes, codigo_post = "xxxxxxxxxx") {
@@ -31,9 +32,12 @@ export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem,
             ${ imgs }
         </div>
         <div class = "painel-interacao-shitpost">
-            ${ gostei(qtd_likes, codigo_post) }
-            ${ naoGostei(qtd_dislikes, codigo_post) }
-            ${ comentarios(nome_autor) }
+            <div class = "botoes-interacao">
+                ${ iconeGostei(qtd_likes, codigo_post) }
+                ${ iconeNaoGostei(qtd_dislikes, codigo_post) }
+                ${ iconeComentarios(codigo_post) }
+            </div>
+            ${ comentarios(codigo_post) }
         </div>
     </section>
     `
@@ -41,7 +45,7 @@ export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem,
 
 
 
-function gostei (qtd_likes = 0, codigo) {
+function iconeGostei (qtd_likes = 0, codigo) {
     const lista_likes = JSON.parse(localStorage.getItem("lista_likes") || "[]");
     
     const situacao_botao = lista_likes.includes(codigo) ? "-press" : "";
@@ -57,7 +61,7 @@ function gostei (qtd_likes = 0, codigo) {
 
 
 
-function naoGostei (qtd_dislikes = 0, codigo) {
+function iconeNaoGostei (qtd_dislikes = 0, codigo) {
     const lista_dislikes = JSON.parse(localStorage.getItem("lista_dislikes") || "[]");
 
     const situacao_botao = lista_dislikes.includes(codigo) ? "-press" : "";
@@ -73,13 +77,19 @@ function naoGostei (qtd_dislikes = 0, codigo) {
 
 
 
-function comentarios (autor = "ninguem") {
-    let num = 0;
+function iconeComentarios (codigo_post) {
+    const banco_comentarios = JSON.parse(localStorage.getItem("banco_comentarios") || "[]");
+    let qtd_comentarios = 0
+    banco_comentarios.forEach((comentario) => 
+        comentario.para_post == codigo_post ?
+        qtd_comentarios++
+        : ""
+    );
 
     return `
-        <a class = "botao-comentarios" href = "">
+        <a id = "comentarios-${ codigo_post }" class = "botao-comentarios" href = "#a">
             <img class = "icone-comentarios" src = "icones/interacao_shitpost_icons/icone-comentarios.png" alt = "nao-gostei">
-            <p id = "qtd-comentarios-shitpost-${ autor }">${ num }</p>
+            <p id = "qtd-comentarios-shitpost-${ codigo_post }">${ qtd_comentarios }</p>
         </a>
     `
 }

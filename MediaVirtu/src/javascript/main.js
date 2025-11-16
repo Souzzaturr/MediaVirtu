@@ -2,7 +2,9 @@ import cabecalho from "./cabecalho.js"
 import barrasNavegacaoLateral from "./barras_navegacao_lateral.js"
 import pagina from "./corpo_principal.js"
 import banco_posts from "../data/shitposts.json" assert { type: "json" };
+import banco_comentarios from "../data/comentarios.json" assert { type: "json" };
 import addLikesDislikesEventos from "./likes_dislikes.js"
+import addComentarioEvento from "./comentario_evento.js"
 
 
 localStorage.setItem("banco_posts", JSON.stringify(banco_posts));
@@ -12,6 +14,8 @@ localStorage.setItem("pagina_atual", "Inicio");
 if (!localStorage.getItem("lista_likes")) localStorage.setItem("lista_likes", []);
 
 if (!localStorage.getItem("lista_dislikes")) localStorage.setItem("lista_dislikes", []);
+
+if (!localStorage.getItem("banco_comentarios")) localStorage.setItem("banco_comentarios", JSON.stringify(banco_comentarios));
 
 const root = document.querySelector("#root");
 
@@ -23,13 +27,14 @@ function inicializar () {
     <main id = "corpo-principal"></main>
     `;
     
-    add_conteudo()
-    eventosBarrasNavegacaoLateral();
-    addLikesDislikesEventos()
-}
-
+  }
+  
 inicializar();
-
+add_conteudo()
+eventosBarrasNavegacaoLateral();
+addLikesDislikesEventos()
+addComentarioEvento()
+  
 
 function add_conteudo () {
     const conteudo_pagina = document.querySelector("#corpo-principal");

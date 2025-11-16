@@ -4,9 +4,10 @@
 
 .bloco-shitpost {
     display: grid;
-    grid-template-columns: 1fr 10%;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
     grid-row-gap: 15px;
+    grid-column-gap: 15px;
 }
 
 .principal-shitpost {
@@ -15,12 +16,7 @@
     grid-gap: 1.5em;
 }
 
-.painel-interacao-shitpost {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    justify-content: space-evenly;
-}
+
 
 
 /*descrição do autor do pot (foto de perfil, nome de usuário, data do post)*/
@@ -52,19 +48,7 @@
 }
 
 
-/*Imagens do post*/
 
-.conjunto-imagens-shitpost {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-    justify-content: center;
-}
-
-.imagem-shitpost {
-    max-width: 100%;
-    max-height: 60vh;
-}
 
 
 /*três pontinhos*/
@@ -83,9 +67,44 @@
     background: white;
 }
 
+/*Imagens do post*/
 
-/*botao gostei*/
+.conjunto-imagens-shitpost {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
+}
 
+.imagem-shitpost {
+    max-width: 100%;
+    max-height: 60vh;
+}
+
+
+
+
+/*Interação dos shitposts*/
+
+.painel-interacao-shitpost {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1em;
+    align-items: center;
+    height: 100%;
+}    
+
+.botoes-interacao {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: space-evenly;
+    align-items: end;
+    min-height: 100%;
+    width: 40px;
+}    
+
+/*botao gostei naogostei comentarios*/
 .botao-gostei, .botao-naogostei, .botao-comentarios {
     display: flex;
     flex-wrap: wrap;
@@ -94,6 +113,7 @@
     color: white;
     text-decoration: none;
     gap: 0.5em;
+    width: 40px;
 }
 
 .icone-gostei, .icone-naogostei, .icone-comentarios {
@@ -101,32 +121,101 @@
 }
 
 
+/*comentários*/
+.bloco-comentarios {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: top;
+    height: 100%;
+    width: 20vw;
+    overflow-y: auto;
+    border-radius: 4px;
+    border: 3px solid rgb(35, 35, 43);
+    background: rgb(0, 0, 0);
+    scroll-behavior: smooth;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.esconder-comentarios {
+    width: 0px;
+    height: 0px;
+    border: 0px;
+}
+
+.comentario {
+    font-size: 80%;
+    padding: 10px;
+}
+
+.sem-comentarios {
+    margin: 1.5em;
+}
+
+.enviar-comentario {
+    position: sticky;
+    top: 90%;
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    align-self: center;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    border-radius: 8px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.esconder-comentarios .enviar-comentario, .esconder-comentarios .comentario, .esconder-comentarios p{
+    display: none;
+}
+
+
+
+
+
 
 @media screen and (max-width: 800px) {
     .bloco-shitpost {
         grid-template-rows: auto auto auto;
-        grid-template-columns: auto;
-    }
-
-    .topo-shitpost {
-        grid-row: 1 / 2;
+        grid-template-columns: 1fr;
     }
 
     .painel-interacao-shitpost {
         grid-row: 3 / 4;
-        flex-direction: row;
+        flex-direction: column;
     }
-
+    
+    .botoes-interacao {
+        flex-direction: row;
+        align-items: center;
+        min-height: 60px;
+        width: 100%;
+    }
+    
     .icone-gostei, .icone-naogostei, .icone-comentarios {
         width: 30px;
     }
+
+    .bloco-comentarios {
+        width: 100%;
+        height: auto;
+        max-height: 40vh;
+    }
+
+    .texto-comentario {
+        font-size: 120%;
+    }
 }
+
 
 @media screen and (max-width: 600px) {
     .foto-perfil {
         width: 28px;
     }
 }
+
 
 @media screen and (max-width: 550px) {
     .tres-pontinhos {
