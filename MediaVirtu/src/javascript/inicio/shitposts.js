@@ -1,5 +1,5 @@
 import comentarios from "./comentarios.js";
-import tresPontinhos from "./tresPontinhos.js";
+import tresPontinhos from "../componentes_simples/tresPontinhos.js";
 
 export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem, conteudo_texto, lista_imagens = [], qtd_likes, qtd_dislikes, codigo_post = "xxxxxxxxxx") {
 

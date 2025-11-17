@@ -1,7 +1,7 @@
-import inicio from "./inicio.js"
+import inicio from "./inicio/inicio.js"
 
-export default function pagina (pagina) {
-    switch (pagina) {
+export default function pagina (pagina_escolhida) {
+    switch (pagina_escolhida) {
         case "Inicio":
             return inicio()
         case "Sobre":
