@@ -46,32 +46,32 @@ export default function shitpost (nome_autor, foto_perfil_autor, tempo_postagem,
 
 
 function iconeGostei (qtd_likes = 0, codigo) {
-    const lista_likes = JSON.parse(localStorage.getItem("lista_likes") || "[]");
+    const banco_usuarios = JSON.parse(localStorage.getItem("banco_usuarios") || "{}");
+    const usuario_atual = localStorage.getItem("usuario_atual")
     
-    const situacao_botao = lista_likes.includes(codigo) ? "-press" : "";
-    qtd_likes = lista_likes.includes(codigo) ? qtd_likes + 1 : qtd_likes;
+    const situacao_botao = usuario_atual != "" && banco_usuarios[usuario_atual]["likes"].includes(codigo) ? "-press" : "";
 
     return `
-        <a id = "like-${ codigo }" class = "botao-gostei" href = "#a">
+        <button id = "like-${ codigo }" class = "botao-gostei">
             <img class = "icone-gostei" src = "icones/interacao_shitpost_icons/icone-gostei${ situacao_botao }.png" alt = "gostei">
             <p id = "qtd-likes-${ codigo }">${ qtd_likes }</p>
-        </a>
+        </button>
     `
 }
 
 
 
 function iconeNaoGostei (qtd_dislikes = 0, codigo) {
-    const lista_dislikes = JSON.parse(localStorage.getItem("lista_dislikes") || "[]");
+    const banco_usuarios = JSON.parse(localStorage.getItem("banco_usuarios") || "{}");
+    const usuario_atual = localStorage.getItem("usuario_atual");
 
-    const situacao_botao = lista_dislikes.includes(codigo) ? "-press" : "";
-    qtd_dislikes = lista_dislikes.includes(codigo) ? qtd_dislikes + 1 : qtd_dislikes;
+    const situacao_botao = usuario_atual != "" && banco_usuarios[usuario_atual]["dislikes"].includes(codigo) ? "-press" : "";
 
     return `
-        <a id = "dislike-${ codigo }" class = "botao-naogostei" href = "#a">
+        <button id = "dislike-${ codigo }" class = "botao-naogostei">
             <img class = "icone-naogostei" src = "icones/interacao_shitpost_icons/icone-naogostei${ situacao_botao }.png" alt = "nao-gostei">
             <p id = "qtd-dislikes-${ codigo }">${ qtd_dislikes }</p>
-        </a>
+        </button>
     `
 }
 
@@ -87,9 +87,9 @@ function iconeComentarios (codigo_post) {
     );
 
     return `
-        <a id = "comentarios-${ codigo_post }" class = "botao-comentarios" href = "#a">
+        <button id = "comentarios-${ codigo_post }" class = "botao-comentarios">
             <img class = "icone-comentarios" src = "icones/interacao_shitpost_icons/icone-comentarios.png" alt = "nao-gostei">
             <p id = "qtd-comentarios-shitpost-${ codigo_post }">${ qtd_comentarios }</p>
-        </a>
+        </button>
     `
 }

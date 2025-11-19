@@ -119,6 +119,9 @@
     text-decoration: none;
     gap: 0.5em;
     width: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .icone-gostei, .icone-naogostei, .icone-comentarios {
