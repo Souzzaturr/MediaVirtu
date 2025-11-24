@@ -6,13 +6,13 @@ import avancaRetornaSessoes from "./eventos/avanca_retorna_sessoes.js";
 import add_conteudo from "./add_conteudo.js";
 
 export default function ativaEventos () {
-    window.addEventListener("load", function () {
-        
-        eventosBarrasNavegacaoLateral();
-        addLikesDislikesEventos()
-        addComentarioEvento()
-        avancaRetornaSessoes()
-
+    
+    eventosBarrasNavegacaoLateral();
+    addLikesDislikesEventos()
+    addComentarioEvento()
+    avancaRetornaSessoes()
+    
+    window.addEventListener("load", function () {    
         const preloader = document.querySelector("#preloader");
         if (preloader) preloader.style.height = "0px";
         
