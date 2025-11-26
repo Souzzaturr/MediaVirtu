@@ -1,10 +1,12 @@
 import inicio from "./inicio/inicio.js"
+import sobre from "./sobre/sobre.js";
 
 export default function pagina (pagina_escolhida) {
     switch (pagina_escolhida) {
         case "Inicio":
             return inicio()
         case "Sobre":
+            return sobre()
         case "Ajuda":
         case "Feedback":
         case "Configurações":
