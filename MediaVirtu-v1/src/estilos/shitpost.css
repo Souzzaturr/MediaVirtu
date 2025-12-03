@@ -1,0 +1,239 @@
+/*estilos para os posts dos usuários*/
+
+/*Bloco de shitpost*/
+
+.bloco-shitpost {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: min-content auto;
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+    height: 75vh;
+}
+
+.principal-shitpost {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-gap: 1.5em;
+    overflow-y: auto;
+    scrollbar-color: rgba(255, 255, 255, 0.418) rgba(0, 0, 0, 0);
+}
+
+
+
+
+/*descrição do autor do pot (foto de perfil, nome de usuário, data do post)*/
+
+.autor {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.foto-perfil {
+    width: 45px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.info-autor {
+    word-break: break-all;
+    font-size: 80%;
+}
+
+.topo-shitpost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1 / 3;
+    padding: 10px 0;
+}
+
+
+
+
+
+/*três pontinhos*/
+
+.tres-pontinhos {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    width: 40px;
+}
+
+.tres-pontinhos-ponto {
+    width: 5px;
+    height: 5px;
+    background: white;
+}
+
+/*Imagens do post*/
+
+.conjunto-imagens-shitpost {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
+    height: min-content;
+}
+
+.imagem-shitpost {
+    max-width: 90%;
+    max-height: 80%;
+}
+
+
+
+
+/*Interação dos shitposts*/
+
+.painel-interacao-shitpost {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1em;
+    align-items: center;
+    height: 100%;
+}    
+
+.botoes-interacao {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: space-evenly;
+    align-items: end;
+    min-height: 100%;
+    width: 40px;
+}    
+
+/*botao gostei naogostei comentarios*/
+.botao-gostei, .botao-naogostei, .botao-comentarios {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    gap: 0.5em;
+    width: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icone-gostei, .icone-naogostei, .icone-comentarios {
+    width: 40px;
+}
+
+
+/*comentários*/
+.bloco-comentarios {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: top;
+    height: 100%;
+    max-height: 62vh;
+    width: 20vw;
+    overflow-y: auto;
+    border-radius: 4px;
+    border: 3px solid rgb(35, 35, 43);
+    background: rgb(0, 0, 0);
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.esconder-comentarios {
+    width: 0px;
+    height: 0px;
+    border: 0px;
+}
+
+.comentario {
+    font-size: 80%;
+    padding: 10px;
+}
+
+.sem-comentarios {
+    margin: 1.5em;
+}
+
+.enviar-comentario {
+    position: sticky;
+    top: 88%;
+    padding: 10px;
+    margin: 5px;
+    width: 82%;
+    align-self: center;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    border-radius: 8px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.esconder-comentarios .enviar-comentario, .esconder-comentarios .comentario, .esconder-comentarios p{
+    display: none;
+}
+
+
+
+
+/*altura bloco comentarios*/
+
+
+
+@media screen and (max-width: 800px) {
+    .bloco-shitpost {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
+    }
+
+    .painel-interacao-shitpost {
+        grid-row: 3 / 4;
+        flex-direction: column;
+    }
+    
+    .botoes-interacao {
+        flex-direction: row;
+        align-items: center;
+        min-height: 60px;
+        width: 100%;
+    }
+    
+    .icone-gostei, .icone-naogostei, .icone-comentarios {
+        width: 30px;
+    }
+
+    .bloco-comentarios {
+        width: 100%;
+        height: auto;
+        max-height: 40vh;
+    }
+
+    .texto-comentario {
+        font-size: 120%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .foto-perfil {
+        width: 28px;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .tres-pontinhos {
+        gap: 3px;
+    }
+
+    .tres-pontinhos-ponto {
+        width: 3px;
+        height: 3px;
+    }
+}
