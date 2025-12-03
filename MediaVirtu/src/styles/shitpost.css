@@ -78,12 +78,10 @@
     flex-wrap: wrap;
     gap: 0.5em;
     justify-content: center;
-    height: min-content;
 }
 
 .imagem-shitpost {
-    max-width: 90%;
-    max-height: 80%;
+    height: 45vh;
 }
 
 

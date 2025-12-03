@@ -77,3 +77,9 @@
         display: none;
     }
 }
+
+@media screen and (min-width: 1200px) {
+    #barra-esquerda, #barra-direita {
+        width: 85px;
+    }
+}
