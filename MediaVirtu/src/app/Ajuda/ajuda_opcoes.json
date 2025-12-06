@@ -1,0 +1,21 @@
+[
+    {
+        "titulo": "Como postar um shitpost?",
+
+        "conteudo": "Para postar um shitpost, você deve primeiramente estár logado, caso você não esteja logado, não será possível postar um shitpost. Se você já está logado, basta acessara a barra de navegação lateral direita, e apertar na opção \"Postar\". Depois disso você só precisará inserir as informações que você queira que tenha no shitpost, e postar.",
+
+        "lista_imagens": [],
+
+        "tags": ["shitpost", "postar", "postagem", "post", "posta", "publicacao", "publicacão", "publicação", "shit"]
+    },
+
+    {
+        "titulo": "Como criar uma conta?",
+
+        "conteudo": "Para criar uma conta, você deve entrar em \"Meu Perfil\", na barra de navegação que está no canto direito da tela (a opção está representada com um ícone de pessoa 👤). Ao clicar na opção, aparecerá na sua tela, um popup de login com uma opção \"Não tem conta ainda? Cadastre-se agora, clicando aqui\" no canto inferior esquerdo do popup, você deve clicar nessa opção, que levará para um popup de cadastro, e você deve inserir os dados solicitados para poder realizar o cadastro. Após terminar de inserir todos os dados corretamente, basta apertar em cadastrar-se e será criada a sua conta. E para acessa-la basta ir em \"Meu Perfil\" novamente, e quando aparecer o popup de login, inserir os dados que estão sendo solicitados, e que você inseriu em seu cadastro, e apertar em logar agora.",
+
+        "lista_imagens": [],
+
+        "tags": ["conta", "cadastro", "registrar", "registro", "criar conta", "criar", "signup"]
+    }
+]
