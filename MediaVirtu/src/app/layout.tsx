@@ -27,10 +27,12 @@ export default function RootLayout({
   return (
     <html lang="PT-br">
       <body className={`antialiased`}>
-        <Cabecalho/>
-        <BarrasNavegacaoLateral/>
+        <main id="corpo-principal">
+          <Cabecalho/>
+          <BarrasNavegacaoLateral/>
 
-        {children}
+          {children}
+        </main>
       </body>
     </html>
   );
