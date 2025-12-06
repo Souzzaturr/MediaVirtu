@@ -8,6 +8,7 @@ import "../styles/shitpost.css";
 
 import Cabecalho from "../components/Cabecalho";
 import BarrasNavegacaoLateral from "../components/Barras_navegacao_lateral";
+import Preloader from "../components/Preloader";
 
 
 export const metadata = {
@@ -27,9 +28,10 @@ export default function RootLayout({
   return (
     <html lang="PT-br">
       <body className={`antialiased`}>
-        <main id="corpo-principal">
+          <Preloader/>
           <Cabecalho/>
           <BarrasNavegacaoLateral/>
+        <main id="corpo-principal">
 
           {children}
         </main>
