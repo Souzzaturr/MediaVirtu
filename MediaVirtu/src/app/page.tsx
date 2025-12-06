@@ -1,3 +1,7 @@
+"use client";
+
+import useAvancaRetornaSessoes from "../hooks/useAvancaRetornaSessoes";
+
 import Shitpost from "../components/inicio/Shitposts";
 import LinhaDivisora from "../components/componentes_simples/LinhaDivisora";
 import shitposts from "../data/shitposts.json";
@@ -19,6 +23,8 @@ const banco_posts = shitposts;
 
 
 export default function Home () {
+  useAvancaRetornaSessoes();
+
   return <>
     { embaralharArray(banco_posts).map((post: post) =>
     <>
