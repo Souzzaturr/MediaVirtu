@@ -11,8 +11,7 @@ export default function Home () {
     const lista_imagens = opcao.getAll("lista_imagens");
     
     return <>
-        <section id = "corpo-principal">
-            <div className = "bloco bloco-solucao">
+            <section className = "bloco bloco-solucao">
                 <h2 id = "titulo-solucao" className = "goldman-bold">{ titulo }</h2>
 
                 <p id = "conteudo-solucao">{ conteudo }</p>
@@ -27,7 +26,6 @@ export default function Home () {
                 }
 
                 <Link id = "botao-voltar-solucao" href = "/Ajuda"><p className = "goldman-bold">Voltar</p></Link>
-            </div>
-        </section>
+            </section>
     </>
 }

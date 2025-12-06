@@ -3,7 +3,17 @@ import BotaoNaoGostei from "./BotaoNaoGostei";
 import BotaoComentarios from "./BotaoComentarios";
 import MenuComentarios from "./MenuComentarios";
 import TresPontinhos from "../componentes_simples/TresPontinhos";
-import { post } from "./Inicio";
+
+interface post {
+    nome: string;
+    foto_perfil: string;
+    tempo_postagem: string;
+    texto: string;
+    imagens: string[];
+    likes: number;
+    dislikes: number;
+    codigo_post: string;
+}
 
 interface props {
     post: post;
