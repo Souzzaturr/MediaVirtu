@@ -48,3 +48,11 @@
     display: flex;
     justify-content: space-around;
 }
+
+.botao-mudar-nome-email {
+    padding-bottom: 1em;
+}
+
+#imagem-botao-mudar-nome-email {
+    pointer-events: none;
+}
