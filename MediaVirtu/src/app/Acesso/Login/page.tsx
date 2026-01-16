@@ -1,5 +1,7 @@
 "use client";
 
+import PopupMenssagem from "../../../components/popups/PopupMenssagem";
+
 import { verificaNomeUsuario, verificaEmail, verificaSenha } from "../../../utils/verifica_campos_formulario";
 
 import { useState } from "react";
@@ -19,6 +21,13 @@ const valid_fields_default = {
     senha_usuario: true
 }
 
+// Objeto para guardar valores padrões do componente Popup de menssagem
+const popup_empty = {
+    titulo: "",
+    menssagem: "",
+    show: false,
+}
+
 export default function Home () {
     // State para guardar valores inseridos no formulário;
     const [ formValues, setFormValues ] = useState(form_empty);
@@ -30,6 +39,8 @@ export default function Home () {
     const [ mouseInBotaoMuda_nome_or_email, setMouseInBotaoMuda_nome_or_email ] = useState(false);
     // State para guardar se a senha deve ser exibida (true) ou não (false)
     const [ showPassword, setShowPassword ] = useState(false);
+    // State para guardar informações a serem exibidas em Popup, estão sendo armazenadas em um State para o componente atualizar a cada modificação nos dados;
+    const [ popup, setPopup ] = useState(popup_empty);
 
 
     // Função para alterar valores dos campos do formulário recebendo como parâmetro um evento que aponta para o elemento (input) que o ativou, dando acesso as propriedades desse elemento;
@@ -65,6 +76,11 @@ export default function Home () {
         setValidFields(valid_fields_default);
     }
 
+    // Função para fechar Popups de menssagem;
+    const fechaPopup = () => {
+        setPopup(popup_empty);
+    }
+
     // Função para analisar campos preenchidos e enviar dados
     const enviaDados = (event: MouseEvent) => {
         event.preventDefault();
@@ -75,15 +91,16 @@ export default function Home () {
 
         // Se o email/nome ou a senha estiverem vazios
         if (formValues[chave_nome_or_email] === "" || formValues.senha_usuario === "") {
-            window.alert("todos os campos devem ser preenchidos!!");
+            setPopup({titulo: "Campos vazios", menssagem: "Todos os campos devem ser preenchidos!!", show: true});
 
         // Se o email/nome ou a senha estiverem incorretos
         } else if (!validFields[chave_nome_or_email] || !validFields.senha_usuario) {
-            window.alert("Todos os campos devem ser preenchidos corretamente!!");
+            setPopup({titulo: "Dados inválidos", menssagem: "Todos os campos devem ser preenchidos corretamente!!", show: true});
 
         // Tudo ok
         } else {
-            window.alert("Login pode ser realizado com sucesso!!");
+            setPopup({titulo: "Login realizado com sucesso", menssagem: "Seja bem vindo(a) de volta ao MediaVirtu!!", show: true});
+            limpaForms();
         }
     }
 
@@ -139,5 +156,6 @@ export default function Home () {
 
             <Link href = "/Acesso/Cadastro">Novo por aqui?</Link>
         </div>
+        <PopupMenssagem titulo = { popup.titulo } menssagem = { popup.menssagem } show = { popup.show } onClose = { fechaPopup } />
     </>
 }
