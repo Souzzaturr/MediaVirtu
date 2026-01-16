@@ -1,0 +1,58 @@
+.titulo-form {
+    justify-self: center;
+    scale: 1.2;
+}
+
+.texto-acesso {
+    justify-self: center;
+    margin: 0.8em 0;
+}
+
+.formulario-acesso {
+    margin-top: 2em;
+}
+
+.campo-acesso {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 100px;
+}
+
+.campo-formulario {
+    height: 30px;
+    border-radius: 5px;
+    border-style: solid;
+    box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.349);
+}
+
+.campo-formulario:focus {
+    outline: none;
+}
+
+.menssagem-campo-incorreto {
+    color: rgb(248, 103, 18);
+}
+
+.campo-incorreto {
+    border-color: red;
+    background: rgb(253, 222, 222);
+}
+
+#container-formulario-imagem {
+    display: grid;
+    grid-template-columns: 55% auto;
+}
+
+.botoes-formulario-acesso {
+    display: flex;
+    justify-content: space-around;
+}
+
+.botao-mudar-nome-email {
+    padding-bottom: 1em;
+}
+
+#imagem-botao-mudar-nome-email {
+    pointer-events: none;
+}
