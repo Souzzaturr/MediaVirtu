@@ -2,6 +2,7 @@
 
 // Importa componentes
 import PopupMenssagem from "../../../components/popups/PopupMenssagem";
+import { CampoFormulario } from "@/src/components/forms/CampoFormulario";
 
 // Importa funções
 import { verificaNomeUsuario, verificaEmail, verificaSenha } from "../../../utils/verifica_campos_formulario";
@@ -124,23 +125,78 @@ export default function Home () {
 
             <div id="container-formulario-imagem">
                 <form className = "formulario-acesso" action="" onSubmit = { enviarDadosForm }>
-                    <div className="campo-acesso">
-                        <label htmlFor="nome-usuario" className = { valuesCorrect.nome_correto ? "" : "menssagem-campo-incorreto"} >Nome de usuário { valuesCorrect.nome_correto ? "" : "pequeno ou com caracteres inválidos" }</label>
-                        <input type="text" name = "nome_usuario" id = "nome-usuario" className = { "campo-formulario " + (valuesCorrect.nome_correto ? "" : "campo-incorreto")} value = { formState.nome_usuario } onChange = { changeFormValue } onBlur = { verificaValorNome } placeholder = "Seu nome de usuário aqui"/>
-                        { valuesCorrect.nome_correto ? <></> : <p className = "menssagem-campo-incorreto">Nome de usuário deve conter de 5 a 20 caracteres e apenas letras números e underline "_"</p>}
-                    </div>
+                    
+                    <CampoFormulario 
+                                label = {{
+                                    htmlFor: "nome-usuario",
+                                    className: valuesCorrect.nome_correto ? "" : "menssagem-campo-incorreto",
+                                    menssagem: "Nome de usuário " + (valuesCorrect.nome_correto ? "" : "inválido")
+                                }}
 
-                    <div className="campo-acesso">
-                        <label htmlFor="email-usuario" className = { valuesCorrect.email_correto ? "" : "menssagem-campo-incorreto"}>Email { valuesCorrect.email_correto ? "" : "incompleto" }</label>
-                        <input type="email" name = "email_usuario" id = "email-usuario" className = { "campo-formulario " + (valuesCorrect.email_correto ? "" : "campo-incorreto") } value = { formState.email_usuario } onChange = { changeFormValue } onBlur = { verificaValorEmail } placeholder = "Seu melhor email aqui"/>
-                        { valuesCorrect.email_correto ? <></> : <p className = "menssagem-campo-incorreto">Email deve seguir o formato: seunome@dominio.tld</p>}
-                    </div>
+                                input = {{
+                                    type: "text",
+                                    name: "nome_usuario",
+                                    id: "nome-usuario",
+                                    className: "campo-formulario " + (valuesCorrect.nome_correto ? "" : "campo-incorreto"),
+                                    value: formState.nome_usuario,
+                                    onChange: changeFormValue,
+                                    onBlur: verificaValorNome,
+                                    placeholder: "Seu nome de usuário aqui"
+                                }}
 
-                    <div className="campo-acesso">
-                        <label htmlFor="senha-usuario" className = {valuesCorrect.senha_correta ? "" : "menssagem-campo-incorreto"}>Senha { valuesCorrect.senha_correta ? "" : "pequena ou com espaços"}</label>
-                        <input type = { showPassword ? "text" : "password" } name = "senha_usuario" id = "senha-usuario" className = { "campo-formulario " + (valuesCorrect.senha_correta ? "" : "campo-incorreto") } value = { formState.senha_usuario } onChange = { changeFormValue } onBlur = { verificaValorSenha } placeholder = "Sua senha"/>
-                        { valuesCorrect.senha_correta ? <></> : <p className = "menssagem-campo-incorreto">Senha deve conter de 6 a 20 caracteres e não pode conter espaços</p> }
-                    </div>
+                                warningMessage = {{
+                                    show: !valuesCorrect.nome_correto,
+                                    message: "Nomes de usuário tem de 5 a 20 caracteres e possuem apenas letras números e underline \"_\""
+                                }}
+                            />
+
+                    <CampoFormulario 
+                                label = {{
+                                    htmlFor: "email-usuario",
+                                    className: valuesCorrect.email_correto ? "" : "menssagem-campo-incorreto",
+                                    menssagem: "Email " + (valuesCorrect.email_correto ? "" : "incompleto")
+                                }}
+
+                                input = {{
+                                    type: "email",
+                                    name: "email_usuario",
+                                    id: "email-usuario",
+                                    className: "campo-formulario " + (valuesCorrect.email_correto ? "" : "campo-incorreto"),
+                                    value: formState.email_usuario,
+                                    onChange: changeFormValue,
+                                    onBlur: verificaValorEmail,
+                                    placeholder: "Seu melhor email aqui"
+                                }}
+
+                                warningMessage = {{
+                                    show: !valuesCorrect.email_correto,
+                                    message: "Email deve seguir o formato: seunome@dominio.tld"
+                                }}
+                            />
+                    
+                    <CampoFormulario 
+                                label = {{
+                                    htmlFor: "senha-usuario",
+                                    className: valuesCorrect.senha_correta ? "" : "menssagem-campo-incorreto",
+                                    menssagem: "Senha " + (valuesCorrect.senha_correta ? "" : "pequena ou com espaços")
+                                }}
+
+                                input = {{
+                                    type: showPassword ? "text" : "password",
+                                    name: "senha_usuario",
+                                    id: "senha-usuario",
+                                    className: "campo-formulario " + (valuesCorrect.senha_correta ? "" : "campo-incorreto"),
+                                    value: formState.senha_usuario,
+                                    onChange: changeFormValue,
+                                    onBlur: verificaValorSenha,
+                                    placeholder: "Sua senha"
+                                }}
+
+                                warningMessage = {{
+                                    show: !valuesCorrect.senha_correta,
+                                    message: "Senha deve conter de 6 a 20 caracteres e não pode conter espaços"
+                                }}
+                            />
 
                     <div className="botoes-formulario-acesso">                        
                         <button type = "button" className = "botao-fundo-transparente" onClick = {() => setShowPassword(!showPassword) }>{ showPassword ? "Esconder" : "Exibir" } senha</button>
