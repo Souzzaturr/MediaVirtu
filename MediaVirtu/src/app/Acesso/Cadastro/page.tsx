@@ -5,10 +5,11 @@ import PopupMenssagem from "../../../components/popups/PopupMenssagem";
 
 // Importa funções
 import { verificaNomeUsuario, verificaEmail, verificaSenha } from "../../../utils/verifica_campos_formulario";
-
+import { cadastraELoga } from "@/src/actions/cadastraELoga";
 // Importa hooks
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Valor padrão do formulário (quando estiver limpo)
 const default_values_forms = {
@@ -36,6 +37,34 @@ export default function Home () {
     const [ valuesCorrect, setValuesCorrect ] = useState(default_correct_values);       // State que guarda se os campos do formulário estáo preenchidos corretamente ou incorretamente;
     const [ showPassword, setShowPassword ] = useState(false);                          // State para mostrar/esconder a senha;
     const [ popup, setPopup ] = useState(popupValues);                                  // State para re-renderizar o componente atual e atualizar o componente PopupMenssagem com novos valores;
+
+    const [ isPending, startTransition ] = useTransition();
+    // hook para utilizar funções assíncronas;
+
+    // Rotas;
+    const router = useRouter();
+
+
+    // Função assíncrona para mandar dados do formulário para função de cadastro;
+    const iniciarCadastro = async () => {
+            const response = await cadastraELoga(
+                                        formState.nome_usuario,
+                                        formState.email_usuario,
+                                        formState.senha_usuario
+                                    );
+            
+            // Se houver erro no cadastro, exibe menssagem de popup;                                    
+            if (response.error) {
+                setPopup({titulo: "Não foi possível realizar seu cadastro agora", message: "Infelizmente houve um problema técnico, e não foi possível realizar o seu cadastro agora, poderia tentar novamente mais tarde?", show: true});
+
+            // Se cadasto ocorrer com sucesso, exibe menssagem de popup e redireciona para inicio em 2 segundos;                
+            } else {
+                setPopup({titulo: "Cadastro realizado com sucesso", message: `Seja bem vindo(a) ao MediaVirtu, ${formState.nome_usuario}!`, show: true})
+
+                setTimeout(() => router.push("/"), 2000); 
+            }
+        }
+    
 
     // Função para atualizar os campos no formulário
     const changeFormValue = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,15 +98,21 @@ export default function Home () {
     const enviarDadosForm = (event: any) => {
         event.preventDefault();
 
+
+        // Se algum campo estiver vazio;
         if (Object.values(formState).includes("")) {
             setPopup({titulo: "Campos vazios", message: "Todos os campos devem ser preenchidos!!", show: true});
 
+
+        // Se algum campo NÃO esiver preenchido corretamente;
         } else if (Object.values(valuesCorrect).includes(false)) {
             setPopup({titulo: "Cadastro não realizado", message: "Todos os campos devem ser preenchidos corretamente!!", show: true})
 
+
         } else {
-            setPopup({titulo: "Cadastro realizado com sucesso", message: `Seja bem vindo(a) ao MediaVirtu, ${formState.nome_usuario}!`, show: true})
-            limparDadosForm()
+
+            // Inicia o chamado à função de forma assíncrona;
+            startTransition(iniciarCadastro)
         }
     }
     
@@ -112,7 +147,7 @@ export default function Home () {
                     
                         <button type = "reset" className = "botao-fundo-transparente" onClick = { limparDadosForm }>Limpar</button>
 
-                        <button type = "submit" className = "botao-fundo-transparente" onClick = { enviarDadosForm }>Cadastrar-se</button>
+                        <button type = "submit" className = "botao-fundo-transparente" onClick = { enviarDadosForm } disabled = { isPending } >Cadastrar-se</button>
                     </div>
                 </form>
 

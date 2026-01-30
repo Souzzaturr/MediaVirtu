@@ -3,9 +3,11 @@
 import PopupMenssagem from "../../../components/popups/PopupMenssagem";
 
 import { verificaNomeUsuario, verificaEmail, verificaSenha } from "../../../utils/verifica_campos_formulario";
+import { logaUsuario, logaUsuarioComNome } from "@/src/services/supabase/login";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Objeto guardando valores vazios para cada campo do formulário;
 const form_empty = {
@@ -41,6 +43,45 @@ export default function Home () {
     const [ showPassword, setShowPassword ] = useState(false);
     // State para guardar informações a serem exibidas em Popup, estão sendo armazenadas em um State para o componente atualizar a cada modificação nos dados;
     const [ popup, setPopup ] = useState(popup_empty);
+
+    // hook para rodar funções assíncronas;
+    const [ isPending, startTransition ] = useTransition();
+
+    // rota;
+    const router = useRouter();
+    
+
+
+    // Função assíncrona para iniciar login;
+    const iniciarLogin = async () => {
+        var response;
+
+        if (nome_or_email === "nome") {
+            response = await logaUsuarioComNome(
+                            formValues.nome_usuario,
+                            formValues.senha_usuario
+                        );
+
+
+        } else {
+            response = await logaUsuario(
+                            formValues.email_usuario,
+                            formValues.senha_usuario
+                        );
+        }
+
+        if (response.error) {
+            // Exibe menssagem de que login não pode ser realizado;
+            setPopup({ titulo: "Dados de login inválidos", menssagem: "Seu nome/email ou senha estão incorretos, revise se foram inseridos corretamente!!", show: true });
+
+        } else {
+            // Exibe menssagem de que login foi realizado com sucesso;
+            setPopup({titulo: "Login realizado com sucesso", menssagem: "Seja bem vindo(a) de volta ao MediaVirtu!!", show: true});
+
+
+            setTimeout(() => router.push("/"), 2000);
+        }
+    }
 
 
     // Função para alterar valores dos campos do formulário recebendo como parâmetro um evento que aponta para o elemento (input) que o ativou, dando acesso as propriedades desse elemento;
@@ -99,8 +140,10 @@ export default function Home () {
 
         // Tudo ok
         } else {
-            setPopup({titulo: "Login realizado com sucesso", menssagem: "Seja bem vindo(a) de volta ao MediaVirtu!!", show: true});
-            limpaForms();
+            
+            // Inicia o chamado à função de forma assíncrona;
+            startTransition(iniciarLogin);
+
         }
     }
 
@@ -147,7 +190,7 @@ export default function Home () {
 
                         <button type = "reset" className="botao-fundo-transparente" onClick = { limpaForms } >Limpar</button>
 
-                        <button type = "submit" className="botao-fundo-transparente" onClick = { enviaDados }>Entrar</button>
+                        <button type = "submit" className="botao-fundo-transparente" onClick = { enviaDados } disabled = { isPending } >Entrar</button>
                     </div>
                 </form>
 
