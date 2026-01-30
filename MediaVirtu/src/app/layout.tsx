@@ -7,7 +7,7 @@ import "../styles/linha_divisora.css";
 import "../styles/shitpost.css";
 
 import Cabecalho from "../components/Cabecalho";
-import BarrasNavegacaoLateral from "../components/Barras_navegacao_lateral";
+import { BarrasNavegacaoLateral } from "@/src/components/barrasNavegacaoLateral/BarrasNavegacaoLateral";
 import Preloader from "../components/Preloader";
 
 
