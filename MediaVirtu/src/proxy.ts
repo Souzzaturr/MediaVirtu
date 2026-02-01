@@ -6,6 +6,8 @@ import { updateSession } from "@/src/lib/supabase/proxy";
 import * as Routes from "@/src/lib/proxy/routes"
 import { NextResponse, type NextRequest } from "next/server";
 
+import { buscaNomePorId } from "@/src/services/supabase/buscas/buscaNomePorId";
+
 
 
 export async function proxy ( request: NextRequest ) {
@@ -21,6 +23,16 @@ export async function proxy ( request: NextRequest ) {
 
         return NextResponse.redirect(new URL('/', request.url));
     }
+    
+
+
+    // Rota pública, porém, sem argumentos, o valor padrão se torna o nome do usuário se ele estiver autenticado (Se não estiver autenticado e não especificar um parâmetro de rota, será enviado de volta para o início);
+    if (CURRENT_PATH === "/Perfis") {
+        if (user) return NextResponse.redirect(new URL('/Perfis/' + await buscaNomePorId(user.id), request.url));
+
+        return NextResponse.redirect(new URL('/Acesso/Cadastro', request.url));
+    }
+
 
 
     // Retorna resposta HTTP e cookies atualizados para o navegador;
