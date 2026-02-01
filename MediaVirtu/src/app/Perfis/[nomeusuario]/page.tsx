@@ -2,6 +2,8 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
+import { buscaPerfilPorNome } from "@/src/services/supabase/buscas/buscaPerfilPorNome";
+
 import TresPontinhos from "@/src/components/componentes_simples/TresPontinhos";
 
 
@@ -26,28 +28,33 @@ export async function generateMetadata ( { params }: { params: Promise <{ nomeus
 export default async function Home ( { params }: { params: Promise <{ nomeusuario: string }> }) {
     const { nomeusuario } = await params;
 
+    const { data, error } = await buscaPerfilPorNome(nomeusuario);
+
     // Se usuário não existir;
-    if (nomeusuario === "nao_existe") { // "nao_existe" está sendo utilizado apenas para vizualização da funcionalidade;
+    if (error) {
         redirect('/');
     }
 
-    const fotoPerfil = "https://www.bu.edu/files/2024/08/Hey-BU-Blog-Headers-600x392.jpg"; // Imagem de exemplo;
-    const contadorPosts = 0; // Valores para exemplo;
-    const contadorComentarios = 13;
-    const contadorLikes = 10;
+    
+    const { avatar, name, email } = data;
+
+
+    const contadorPosts = null; // Valores para exemplo;
+    const contadorComentarios = null;
+    const contadorLikes = null;
 
 
     return <>
         <div className = "bloco">
             <section id = "cabecalho-perfil">
 
-                <img id = "foto-perfil" src = { fotoPerfil || "/icones/MediaVirtu_icons/MediaVirtu_icon.png" } alt="" />
+                <img id = "foto-perfil" src = { avatar || "/icones/MediaVirtu_icons/MediaVirtu_icon.png" } alt="" />
 
                 <div id = "infos-rapidas-perfil" >
 
-                    <h2 id = "nome-perfil" className = "goldman-bold" >{ nomeusuario }</h2>
+                    <h2 id = "nome-perfil" className = "goldman-bold" >{ name }</h2>
 
-                    <p id = "email-perfil" className = "goldman-regular" >{ "nome.email@dominio.ltd" }</p>
+                    <p id = "email-perfil" className = "goldman-regular" >{ email }</p>
 
 
                     <div id = "contagens-perfil" >
