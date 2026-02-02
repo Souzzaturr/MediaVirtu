@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 import { buscaPerfilPorNome } from "@/src/services/supabase/buscas/buscaPerfilPorNome";
 
+import { SessaoPostsComentariosLikes } from "@/src/components/perfil/SessaoPostsComentariosLikes";
 import TresPontinhos from "@/src/components/componentes_simples/TresPontinhos";
 
 
@@ -79,7 +80,8 @@ export default async function Home ( { params }: { params: Promise <{ nomeusuari
                 <TresPontinhos/>
                 
             </section>
-
+            
+            <SessaoPostsComentariosLikes posts = { [] } />          {/* Alterar essa lista vazia para lista de postagens depois */}
 
             
         </div>

@@ -70,6 +70,42 @@
 
 
 
+#sessoes-perfil {
+    margin: 1.8rem 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.sessao-perfil {
+    padding: 0.8rem 0;
+    flex: 1;
+    font-size: 1rem;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.sessao-perfil-selecionada {
+    flex: 1.02;
+    background: white;
+    color: black;
+}
+
+
+.sessao-perfil:hover {
+    background: rgba(0, 0, 0, 0.13);
+}
+
+.sessao-perfil-selecionada:hover {
+    background: rgba(255, 255, 255, 0.904);
+}
+
+
+
+
+
 
 
 @media screen and (max-width: 705px) {
