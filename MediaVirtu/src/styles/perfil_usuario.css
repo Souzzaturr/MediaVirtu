@@ -107,6 +107,26 @@
 
 
 
+.sessao_perfil {
+    min-height: 30vh;
+
+}
+
+
+
+
+
+
+.msgm-sem-conteudo-sessao {
+    text-align: center;
+    padding-top: 3rem;
+}
+
+
+
+
+
+
 
 @media screen and (max-width: 705px) {
 

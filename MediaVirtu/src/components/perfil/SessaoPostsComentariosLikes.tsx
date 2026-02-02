@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { SessoesPerfil } from "@/src/components/perfil/sessoes/SessoesPerfil";
+import { ExibidorSessoes } from "@/src/components/perfil/sessoes/ExibidorSessoes";
 
 
 
@@ -12,7 +13,7 @@ interface props {
     likes: likes[]
 };
 
-interface posts {
+export interface posts {
     id: string,
     autor_id: string,
     description: string,
@@ -20,11 +21,11 @@ interface posts {
     created_at: string
 };
 
-interface comentarios {
+export interface comentarios {
 
 }
 
-interface likes {
+export interface likes {
 
 }
 
@@ -41,11 +42,17 @@ export function SessaoPostsComentariosLikes ({ posts, comentarios, likes }: prop
 
     
     return <>
+
         <SessoesPerfil 
             setSessaoPosts = { () => setSessaoEscolhida({...valoresPadraoSessaoEscolhida, posts: true}) } 
             setSessaoComentarios = { () => setSessaoEscolhida({...valoresPadraoSessaoEscolhida, comentarios: true}) } 
             setSessaoLikes = { () => setSessaoEscolhida({...valoresPadraoSessaoEscolhida, likes: true}) }
             sessaoEscolhida = { sessaoEscolhida }
             />
+
+
+        <ExibidorSessoes posts = { posts } comentarios = { comentarios } likes = { likes } sessaoEscolhida = { sessaoEscolhida } />
+
+
     </>
 }
