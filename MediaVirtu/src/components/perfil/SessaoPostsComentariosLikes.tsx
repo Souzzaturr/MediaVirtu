@@ -7,7 +7,9 @@ import { SessoesPerfil } from "@/src/components/perfil/sessoes/SessoesPerfil";
 
 
 interface props {
-    posts: posts[]
+    posts: posts[],
+    comentarios: comentarios[],
+    likes: likes[]
 };
 
 interface posts {
@@ -18,6 +20,14 @@ interface posts {
     created_at: string
 };
 
+interface comentarios {
+
+}
+
+interface likes {
+
+}
+
 
 const valoresPadraoSessaoEscolhida = {
     posts: false,
@@ -26,7 +36,7 @@ const valoresPadraoSessaoEscolhida = {
 };
 
 
-export function SessaoPostsComentariosLikes (props: props) {
+export function SessaoPostsComentariosLikes ({ posts, comentarios, likes }: props) {
     const [ sessaoEscolhida, setSessaoEscolhida ] = useState({...valoresPadraoSessaoEscolhida, posts: true});
 
     

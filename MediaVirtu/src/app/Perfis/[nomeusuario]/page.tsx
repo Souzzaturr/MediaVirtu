@@ -81,7 +81,7 @@ export default async function Home ( { params }: { params: Promise <{ nomeusuari
                 
             </section>
             
-            <SessaoPostsComentariosLikes posts = { [] } />          {/* Alterar essa lista vazia para lista de postagens depois */}
+            <SessaoPostsComentariosLikes posts = { [] } comentarios = { [] } likes = { [] } />          {/* Alterar listas vazias para listas contendo conteúdo de cada sessão depois */}
 
             
         </div>
