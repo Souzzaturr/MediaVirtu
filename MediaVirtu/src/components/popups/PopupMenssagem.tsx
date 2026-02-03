@@ -5,13 +5,6 @@ import { usePopupStore } from "@/src/store/usePopupStore";
 
 
 
-interface props {
-    titulo?: string,
-    menssagem?: string,
-    show?: boolean,
-    onClose?: () => void
-}
-
 
 // Para usar esse componente, você precisa importar o usePopupStore,
 // atribuir a função setPopupMenssagem para uma variável,
@@ -19,14 +12,9 @@ interface props {
 // titulo: o titulo que você quer que a menssagem tenha | string;
 // menssagem: a menssagem que você quer passar | string;
 
-// ANTIGA FORMA
-// Para usar esse componente, você precisa passar como props para ele:
-// titulo da menssagem: um titulo breve e claro;
-// menssagem: a menssagem que você quer passar;
-// show (true/false): (true) se quiser que o componente apareça, (false) caso contrario;
-// onClose: Função callback declarada no componente pai para fechar este componente, alterando o valor de sua props show para false;
 
-export default function PopupMenssagem (props: props) {
+
+export default function PopupMenssagem () {
     // Busca dados inseridos no store de PopUps de Menssagem;
     const { titulo, menssagem, show } = usePopupStore((state) => state.popupMensagem);
     // Busca função de fechar PopUp no store de Popups de Menssagem;
