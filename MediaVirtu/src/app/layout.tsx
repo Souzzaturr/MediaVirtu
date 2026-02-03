@@ -8,6 +8,7 @@ import "../styles/shitpost.css";
 
 import Cabecalho from "../components/Cabecalho";
 import { BarrasNavegacaoLateral } from "@/src/components/barrasNavegacaoLateral/BarrasNavegacaoLateral";
+import { Main } from "@/src/components/Main";
 import Preloader from "../components/Preloader";
 
 
@@ -31,10 +32,9 @@ export default function RootLayout({
           <Preloader/>
           <Cabecalho/>
           <BarrasNavegacaoLateral/>
-        <main id="corpo-principal">
-
+        <Main>
           {children}
-        </main>
+        </Main>
       </body>
     </html>
   );
