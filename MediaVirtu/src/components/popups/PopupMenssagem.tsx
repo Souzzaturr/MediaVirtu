@@ -1,35 +1,44 @@
 "use client";
 
-interface props {
-    titulo: string,
-    menssagem: string,
-    show: boolean,
-    onClose: () => void
-}
 
-// Para usar esse componente, você precisa passar como props para ele:
-// titulo da menssagem: um titulo breve e claro;
-// menssagem: a menssagem que você quer passar;
-// show (true/false): (true) se quiser que o componente apareça, (false) caso contrario;
-// onClose: Função callback declarada no componente pai para fechar este componente, alterando o valor de sua props show para false;
+import { usePopupStore } from "@/src/store/usePopupStore";
 
-export default function PopupMenssagem (props: props) {
+
+
+
+// Para usar esse componente, você precisa importar o usePopupStore,
+// atribuir a função setPopupMenssagem para uma variável,
+// e quando utilizar a variável, passar um objeto contendo as seguintes chaves:
+// titulo: o titulo que você quer que a menssagem tenha | string;
+// menssagem: a menssagem que você quer passar | string;
+
+
+
+export default function PopupMenssagem () {
+    // Busca dados inseridos no store de PopUps de Menssagem;
+    const { titulo, menssagem, show } = usePopupStore((state) => state.popupMensagem);
+    // Busca função de fechar PopUp no store de Popups de Menssagem;
+    const close = usePopupStore((state) => state.closePopupMenssagem)
+
+
     // Retorna nada caso "show" for (false)
-    if (!props.show) return null
+    if (!show) return null
+
 
     // Chama a função de fechar o componente caso seja clicado fora do mesmo
     const clickOutPopup = (event: EventTarget) => {
-        if (event.target.id === "fundo-popup") props.onClose()
+        if (event.target.id === "fundo-popup") close
     }
 
+
     return <>
-        <div id="fundo-popup" className = { props.show ? "" : "hide"} onClick = { clickOutPopup }>
+        <div id="fundo-popup" className = { show ? "" : "hide"} onClick = { clickOutPopup }>
             <div id="corpo-popup" className = "rgb-border-fade">
-                <h3 className = "goldman-regular">{ props.titulo }</h3>
+                <h3 className = "goldman-regular">{ titulo }</h3>
 
-                { props.menssagem.split("\n").map((linha: string) => <p>{ linha }</p>) }
+                { menssagem.split("\n").map((linha: string) => <p>{ linha }</p>) }
 
-                <button className = "botao-fundo-transparente" onClick = { props.onClose }>Ok</button>
+                <button className = "botao-fundo-transparente" onClick = { close }>Ok</button>
             </div>
         </div>
     </>

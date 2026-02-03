@@ -1,6 +1,6 @@
 "use client";
 
-
+import { PopupManager } from "@/src/components/popups/PopupsManager";
 
 
 export function Main ({ children }: { children: React.ReactNode }) {
@@ -12,6 +12,8 @@ export function Main ({ children }: { children: React.ReactNode }) {
         <main id = "corpo-principal" >
             { children }
         </main>
+
+        <PopupManager />
     
     </>
 }
