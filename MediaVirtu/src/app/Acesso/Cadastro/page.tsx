@@ -12,6 +12,10 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import { usePopupStore } from "@/src/store/usePopupStore";
+
+
+
 // Valor padrão do formulário (quando estiver limpo)
 const default_values_forms = {
     nome_usuario: "",
@@ -37,7 +41,9 @@ export default function Home () {
     const [ formState, setFormState ] = useState(default_values_forms);                 // State de valores do formulário;
     const [ valuesCorrect, setValuesCorrect ] = useState(default_correct_values);       // State que guarda se os campos do formulário estáo preenchidos corretamente ou incorretamente;
     const [ showPassword, setShowPassword ] = useState(false);                          // State para mostrar/esconder a senha;
-    const [ popup, setPopup ] = useState(popupValues);                                  // State para re-renderizar o componente atual e atualizar o componente PopupMenssagem com novos valores;
+
+
+    const PopUpMenssagem = usePopupStore((state) => state.setPopupMenssagem);
 
     const [ isPending, startTransition ] = useTransition();
     // hook para utilizar funções assíncronas;
@@ -56,11 +62,11 @@ export default function Home () {
             
             // Se houver erro no cadastro, exibe menssagem de popup;                                    
             if (response.error) {
-                setPopup({titulo: "Não foi possível realizar seu cadastro agora", message: "Infelizmente houve um problema técnico, e não foi possível realizar o seu cadastro agora, poderia tentar novamente mais tarde?", show: true});
+                PopUpMenssagem({ titulo: "Não foi possível realizar seu cadastro agora", menssagem: "Infelizmente houve um problema técnico, e não foi possível realizar o seu cadastro agora, poderia tentar novamente mais tarde?" });
 
             // Se cadasto ocorrer com sucesso, exibe menssagem de popup e redireciona para inicio em 2 segundos;                
             } else {
-                setPopup({titulo: "Cadastro realizado com sucesso", message: `Seja bem vindo(a) ao MediaVirtu, ${formState.nome_usuario}!`, show: true})
+                PopUpMenssagem({ titulo: "Cadastro realizado com sucesso", menssagem: `Seja bem vindo(a) ao MediaVirtu, ${formState.nome_usuario}!` });
 
                 setTimeout(() => router.push("/"), 2000); 
             }
@@ -102,12 +108,12 @@ export default function Home () {
 
         // Se algum campo estiver vazio;
         if (Object.values(formState).includes("")) {
-            setPopup({titulo: "Campos vazios", message: "Todos os campos devem ser preenchidos!!", show: true});
+            PopUpMenssagem({ titulo: "Campos vazios", menssagem: "Todos os campos devem ser preenchidos!!" });
 
 
         // Se algum campo NÃO esiver preenchido corretamente;
         } else if (Object.values(valuesCorrect).includes(false)) {
-            setPopup({titulo: "Cadastro não realizado", message: "Todos os campos devem ser preenchidos corretamente!!", show: true})
+            PopUpMenssagem({ titulo: "Cadastro não realizado", menssagem: "Todos os campos devem ser preenchidos corretamente!!" })
 
 
         } else {
@@ -212,7 +218,5 @@ export default function Home () {
 
             <Link href = "/Acesso/Login">Já possui uma conta?</Link>
         </div>
-
-        <PopupMenssagem titulo = { popup.titulo } menssagem = { popup.message } show = { popup.show } onClose = { () => setPopup({titulo: "", message: "", show: false}) }/>
     </>
 }
