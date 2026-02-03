@@ -10,6 +10,10 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import { usePopupStore } from "@/src/store/usePopupStore";
+
+
+
 // Objeto guardando valores vazios para cada campo do formulário;
 const form_empty = {
     nome_usuario: "",
@@ -42,8 +46,9 @@ export default function Home () {
     const [ mouseInBotaoMuda_nome_or_email, setMouseInBotaoMuda_nome_or_email ] = useState(false);
     // State para guardar se a senha deve ser exibida (true) ou não (false)
     const [ showPassword, setShowPassword ] = useState(false);
-    // State para guardar informações a serem exibidas em Popup, estão sendo armazenadas em um State para o componente atualizar a cada modificação nos dados;
-    const [ popup, setPopup ] = useState(popup_empty);
+    
+    // Função para exibir uma menssagem em PopUp.
+    const PopUpMenssagem = usePopupStore((state) => state.setPopupMenssagem)
 
     // hook para rodar funções assíncronas;
     const [ isPending, startTransition ] = useTransition();
@@ -73,11 +78,11 @@ export default function Home () {
 
         if (response.error) {
             // Exibe menssagem de que login não pode ser realizado;
-            setPopup({ titulo: "Dados de login inválidos", menssagem: "Seu nome/email ou senha estão incorretos, revise se foram inseridos corretamente!!", show: true });
+            PopUpMenssagem({ titulo: "Dados de login inválidos", menssagem: "Seu nome/email ou senha estão incorretos, revise se foram inseridos corretamente!!" })
 
         } else {
             // Exibe menssagem de que login foi realizado com sucesso;
-            setPopup({titulo: "Login realizado com sucesso", menssagem: "Seja bem vindo(a) de volta ao MediaVirtu!!", show: true});
+            PopUpMenssagem({ titulo: "Login realizado com sucesso", menssagem: "Seja bem vindo(a) de volta ao MediaVirtu!!"})
 
 
             setTimeout(() => router.push("/"), 2000);
@@ -118,11 +123,6 @@ export default function Home () {
         setValidFields(valid_fields_default);
     }
 
-    // Função para fechar Popups de menssagem;
-    const fechaPopup = () => {
-        setPopup(popup_empty);
-    }
-
     // Função para analisar campos preenchidos e enviar dados
     const enviaDados = (event: MouseEvent) => {
         event.preventDefault();
@@ -133,11 +133,11 @@ export default function Home () {
 
         // Se o email/nome ou a senha estiverem vazios
         if (formValues[chave_nome_or_email] === "" || formValues.senha_usuario === "") {
-            setPopup({titulo: "Campos vazios", menssagem: "Todos os campos devem ser preenchidos!!", show: true});
+            PopUpMenssagem({ titulo: "Campos vazios", menssagem: "Todos os campos devem ser preenchidos!!" });
 
         // Se o email/nome ou a senha estiverem incorretos
         } else if (!validFields[chave_nome_or_email] || !validFields.senha_usuario) {
-            setPopup({titulo: "Dados inválidos", menssagem: "Todos os campos devem ser preenchidos corretamente!!", show: true});
+            PopUpMenssagem({ titulo: "Dados inválidos", menssagem: "Todos os campos devem ser preenchidos corretamente!!" });
 
         // Tudo ok
         } else {
@@ -257,6 +257,5 @@ export default function Home () {
 
             <Link href = "/Acesso/Cadastro">Novo por aqui?</Link>
         </div>
-        <PopupMenssagem titulo = { popup.titulo } menssagem = { popup.menssagem } show = { popup.show } onClose = { fechaPopup } />
     </>
 }
