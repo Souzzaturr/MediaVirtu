@@ -15,8 +15,8 @@ interface props {
         id?: string,
         className?: string,
         value?: string,
-        onChange?: () => {},
-        onBlur?: () => {},
+        onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
+        onBlur?: () => void,
         placeholder?: string
     },
 
