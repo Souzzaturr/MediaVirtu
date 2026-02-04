@@ -2,6 +2,7 @@
 import Link from "next/link";
 
 import { BotaoSair } from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoSair";
+import { BotaoPostar } from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoPostar";
 
 
 export function BarraNavegacaoDireita () {
@@ -16,13 +17,7 @@ export function BarraNavegacaoDireita () {
 
             </Link>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Postar" data-page = "" >
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-postar.png" alt = "" width = "100%" />
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Postar</h3>
-
-            </Link>
+            <BotaoPostar opcao = {"Postar"} imagem = {"/icones/menu_lateral_icons/icone-postar.png" } />
 
             <Link id = "" className = "opcao-barra-lateral" href = "/Excluir" data-page = "" >
 

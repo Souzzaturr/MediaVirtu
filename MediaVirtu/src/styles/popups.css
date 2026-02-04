@@ -1,0 +1,245 @@
+
+#fundo-popup-form-post {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.527);
+    backdrop-filter: blur(4px);
+    /* z-index: 1; */
+    position: fixed;
+    top: 0px;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden; 
+}
+
+
+
+
+#corpo-popup-form-post {
+    padding: 5em 1em 1em 1em;
+    background: rgb(6, 1, 36);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+    min-height: 20vh;
+    min-width: 55vw;
+    border-radius: 8px;
+    word-break: break-all;
+    border-top: none;
+}
+
+
+
+@media screen and ( max-width: 700 ) {
+    #corpo-popup-form-post {
+        width: 72vw;
+    }
+}
+
+
+
+
+.esconder {
+    height: 0 !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    opacity: 0;
+    border: none; /* Evita que a borda apareça quando zerado */
+}
+
+
+
+
+#botoes {
+    display: flex;
+    gap: 10px
+}
+
+
+
+
+.campo-descricao-shitpost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    width: 100%;
+}
+
+
+
+#descricao-shitpost {
+    /* 1. O TRUQUE PARA CRESCER AUTOMATICAMENTE */
+    width: 50vw;          /* Ocupa a largura total do contêiner pai */
+    max-width: 50vw;
+    
+    /* 2. ESTILO MODERNO E SIMPLES */
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05); /* Fundo sutil para o seu tema escuro */
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    
+    /* 3. REFINAMENTOS */
+    /* resize: none; */
+    outline: none;
+}
+
+/* Efeito ao focar no campo */
+#descricao-shitpost:focus {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Estilo do placeholder */
+#descricao-shitpost::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+
+
+
+
+.label-shitpost-form-campos {
+    font-size: clamp(1rem, 1rem + 0.3vw, 2rem);
+}
+
+
+
+
+#lista-imagens {
+    display: flex;
+    gap: 10px;
+    flex-Wrap: wrap;
+    padding-Bottom: 20px;
+    padding-Bottom: 10px;
+}
+
+
+
+.bloco-imagem-salva {
+    position: relative;
+    padding: 1rem 0.5rem;
+    height: 40px;
+}
+
+
+
+.imagem-salva {
+    height: 100%;
+    object-Fit: cover;
+    border-Radius: 4px;
+}
+
+
+
+
+.botao-remover-imagem-salva {
+    position: absolute;
+    top: 2;
+    right: -3;
+    background: red;
+    color: white;
+    border: none;
+    border-Radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    font-Size: 12px
+}
+
+
+
+
+#inputs-url-upload-imagem {
+    display: flex;
+    flex-Direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+
+
+
+#campo-input-url {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+
+
+#input-url {
+    flex: 1;
+    padding: 8px;
+    border-Radius: 4px;
+    border: 1px solid #444;
+    background: #111;
+    color: white;
+    outline: none;
+}
+
+
+
+
+#entrada-imagens-forms {
+    width: 100%;
+}
+
+
+
+
+#container-input-upload-imagem {
+    border: 1px dashed #444;
+    padding: 10px;
+    border-Radius: 4px;
+    text-Align: center;
+    transition: all 0.3s;
+}
+
+#container-input-upload-imagem:hover {
+    background: #0a0625;
+}
+
+
+
+
+
+#label-input-upload-imagem {
+    cursor: pointer;
+    color: #aaa;
+}
+
+
+
+
+#input-upload-imagem {
+    display: none;
+}
+
+
+
+
+
+
+
+@media screen and ( max-width: 700px ) {
+    #corpo-popup-form-post {
+        width: 72vw;
+    }
+
+    #descricao-shitpost {
+        width: 65vw;
+        max-width: 65vw;
+    }
+}

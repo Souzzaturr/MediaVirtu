@@ -5,6 +5,7 @@ import "../styles/corpo_principal.css";
 import "../styles/blocos.css";
 import "../styles/linha_divisora.css";
 import "../styles/shitpost.css";
+import "@/src/styles/popups.css";
 
 import Cabecalho from "../components/Cabecalho";
 import { BarrasNavegacaoLateral } from "@/src/components/barrasNavegacaoLateral/BarrasNavegacaoLateral";
