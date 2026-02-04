@@ -124,7 +124,7 @@ export default function Home () {
     }
 
     // Função para analisar campos preenchidos e enviar dados
-    const enviaDados = (event: MouseEvent) => {
+    const enviaDados = (event: React.MouseEvent) => {
         event.preventDefault();
 
         // Define chave_nome_or_email como sendo uma chave válida de formValues e validFields
