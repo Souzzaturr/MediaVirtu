@@ -1,5 +1,9 @@
 "use client";
 
+import { usePopupStore } from "@/src/store/usePopupStore";
+
+
+
 import React, { useState } from "react";
 
 
@@ -16,14 +20,9 @@ export function PopupPostForm () {
     const [ descricao, setDescricao ] = useState("");
     const [images, setImages] = useState<ImageItem[]>([]);
     const [urlInput, setUrlInput] = useState('');
-    const [ hide, setHide ] = useState(false);
 
 
-    const esconder = () => {
-        setHide(true)
-
-        setTimeout(() => setHide(false), 1500)
-    }
+    const { show } = usePopupStore((state) => state.popupPostForm)
 
 
     const pegaValorDescricao = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -69,7 +68,7 @@ export function PopupPostForm () {
 
 
     return <>
-        <div id="fundo-popup-form-post" className = { hide ? "esconder" : "" } >
+        <div id="fundo-popup-form-post" className = { show ? "" : "esconder" } >
             <div id="corpo-popup-form-post" className = "rgb-border-fade">
                 
                 
