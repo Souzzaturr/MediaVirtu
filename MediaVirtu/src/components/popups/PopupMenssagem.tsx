@@ -2,7 +2,7 @@
 
 
 import { usePopupStore } from "@/src/store/usePopupStore";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 
 
@@ -29,7 +29,7 @@ export default function PopupMenssagem () {
     // Chama a função de fechar o componente caso seja clicado fora do mesmo
     const clickOutPopup = (event: React.MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement;
-        if (target.id === "fundo-popup") close
+        if (target.id === "fundo-popup") close()
     }
 
 
