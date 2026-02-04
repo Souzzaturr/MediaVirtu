@@ -22,7 +22,8 @@ export function PopupPostForm () {
     const [urlInput, setUrlInput] = useState('');
 
 
-    const { show } = usePopupStore((state) => state.popupPostForm)
+    const show = usePopupStore((state) => state.popupPostForm.show);
+    const fecharPopup = usePopupStore((state) => state.closePopupPostForm);
 
 
     const pegaValorDescricao = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -57,12 +58,18 @@ export function PopupPostForm () {
     };
 
 
+    
+    
+    const enviaDados = () => {
+        if (descricao !== "" && images.length > 0) {
+            setDescricao("");
+            setImages([]);
+            setUrlInput("");
+            fecharPopup();
+        }
 
-    // Exibir na tela informações das imagens salvas (para fins de melhor vizualização dos dados por desenvolvedores)
-    // Função será removira quanto popup se integrar com Store;
-    const exibee = () => {
-        alert(JSON.stringify(images))
-    }
+    };
+
 
 
 
@@ -146,7 +153,7 @@ export function PopupPostForm () {
 
 
             
-            <button className = "botao-fundo-transparente" onClick = { exibee } >Enviar</button>
+            <button className = "botao-fundo-transparente" onClick = { enviaDados } >Enviar</button>
 
             </div>
         </div>
