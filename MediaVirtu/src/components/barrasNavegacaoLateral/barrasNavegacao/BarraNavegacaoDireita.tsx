@@ -1,6 +1,8 @@
 
 import Link from "next/link";
 
+import { BotaoSair } from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoSair";
+
 
 export function BarraNavegacaoDireita () {
     return <>
@@ -38,13 +40,7 @@ export function BarraNavegacaoDireita () {
 
             </Link>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/sair" data-page = "" >
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-sair.png" alt = "" width = "100%" />
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Sair</h3>
-
-            </Link>
+            <BotaoSair opcao = { "Sair" } imagem = { "/icones/menu_lateral_icons/icone-sair.png" } />
 
         </section>
     </>
