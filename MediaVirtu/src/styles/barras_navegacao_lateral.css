@@ -58,6 +58,14 @@
 }
 
 
+.botao-barra-lateral {
+    font-size: 1.15rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
 #barra-esquerda:hover, #barra-direita:hover{
     width: 25%;
 }
