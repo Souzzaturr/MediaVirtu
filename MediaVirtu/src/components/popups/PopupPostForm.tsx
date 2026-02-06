@@ -80,7 +80,7 @@ export function PopupPostForm () {
                 
                 
                 
-                <h2 className = "goldman-bold"> ShitPost - Creator </h2>
+                <h1 className = "goldman-bold"> ShitPost - Creator </h1>
 
 
 
@@ -88,7 +88,7 @@ export function PopupPostForm () {
 
                     <label htmlFor = "" className = "goldman-regular label-shitpost-form-campos" >Descrição do shitpost</label>
 
-                    <textarea name = "descricao_shitpost" id = "descricao-shitpost" className = "" value = { descricao } onChange = { pegaValorDescricao } onBlur = { () => {} } placeholder = "" ></textarea>
+                    <textarea name = "descricao_shitpost" id = "descricao-shitpost" className = "" value = { descricao } onChange = { pegaValorDescricao } onBlur = { () => {} } placeholder = "Qual a gracinha de hoje?" ></textarea>
 
                 </div>
 
@@ -153,7 +153,7 @@ export function PopupPostForm () {
 
 
             
-            <button className = "botao-fundo-transparente" onClick = { enviaDados } >Enviar</button>
+            <button className = "botao-fundo-transparente" onClick = { enviaDados } >Postar</button>
 
             </div>
         </div>

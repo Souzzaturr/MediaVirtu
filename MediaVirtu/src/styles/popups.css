@@ -7,7 +7,9 @@
     /* z-index: 1; */
     position: fixed;
     top: 0px;
+    display: flex;
     justify-content: center;
+    align-items: center;
     transition: all 0.3s ease-in-out;
     overflow: hidden; 
 }
@@ -16,20 +18,20 @@
 
 
 #corpo-popup-form-post {
-    padding: 5em 1em 1em 1em;
+    padding: 1em;
     background: rgb(6, 1, 36);
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0.5em;
     color: white;
     justify-content: space-around;
     align-items: center;
     justify-self: center;
     min-height: 20vh;
-    min-width: 55vw;
+    width: 55vw;
     border-radius: 8px;
-    word-break: break-all;
-    border-top: none;
+    word-break: normal;
+    max-height: 88vh;
 }
 
 
@@ -69,7 +71,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 1.5rem 0;
+    padding: 0.5rem 0;
     width: 100%;
 }
 
@@ -77,17 +79,19 @@
 
 #descricao-shitpost {
     /* 1. O TRUQUE PARA CRESCER AUTOMATICAMENTE */
-    width: 50vw;          /* Ocupa a largura total do contêiner pai */
-    max-width: 50vw;
+    width: 98%;          /* Ocupa a largura total do contêiner pai */
+    height: 70px;
+
+    resize: none;
     
     /* 2. ESTILO MODERNO E SIMPLES */
-    padding: 12px 16px;
+    padding: 0.5em;
     background: rgba(255, 255, 255, 0.05); /* Fundo sutil para o seu tema escuro */
     border: 1.5px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     color: white;
     font-family: 'Segoe UI', sans-serif;
-    font-size: 1rem;
+    font-size: 0.75rem;
     line-height: 1.5;
     
     /* 3. REFINAMENTOS */
@@ -122,6 +126,8 @@
     flex-Wrap: wrap;
     padding-Bottom: 20px;
     padding-Bottom: 10px;
+    max-height: 21vh;
+    overflow-y: auto;
 }
 
 
