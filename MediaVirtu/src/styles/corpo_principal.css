@@ -87,7 +87,7 @@
 
 #corpo-popup {
     padding: 1em;
-    width: 30vw;
+    min-width: 300px;
     background: rgb(6, 1, 36);
     display: flex;
     flex-direction: column;
