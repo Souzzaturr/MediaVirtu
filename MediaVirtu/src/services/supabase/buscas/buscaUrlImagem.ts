@@ -1,15 +1,13 @@
-"use server";
-
-import { createClient } from "@/src/lib/supabase/server";
+import { createClient } from "@/src/lib/supabase/client";
 
 
 
 // Função para buscar URL da imagem no Storage do supabase, por nome do arquivo;
 
-export async function buscaUrlImagem (imageName: string) {
-    const supabase = await createClient();
+export function buscaUrlImagem (imageName: string) {
+    const supabase = createClient();
 
-    const { data: { publicUrl } } = await supabase.storage
+    const { data: { publicUrl } } = supabase.storage
                                             .from("shitposts-images")
                                             .getPublicUrl(imageName);
 
