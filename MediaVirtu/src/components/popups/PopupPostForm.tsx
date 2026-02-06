@@ -26,6 +26,15 @@ export function PopupPostForm () {
     const fecharPopup = usePopupStore((state) => state.closePopupPostForm);
 
 
+
+    // Função para fechar popup quando for clicado fora dele;
+    const clickFora = (event: React.MouseEvent<HTMLDivElement>) => {
+        const target = event.target as HTMLElement;
+        if (target.id === "fundo-popup-form-post") fecharPopup()
+    }
+
+
+
     const pegaValorDescricao = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const value = event.target.value;
 
@@ -75,7 +84,7 @@ export function PopupPostForm () {
 
 
     return <>
-        <div id="fundo-popup-form-post" className = { show ? "" : "esconder" } >
+        <div id="fundo-popup-form-post" className = { show ? "" : "esconder" } onClick = { clickFora } >
             <div id="corpo-popup-form-post" className = "rgb-border-fade">
                 
                 
