@@ -24,9 +24,8 @@ export function BotaoPostar({ opcao, imagem }: props) {
     return (
         <button 
             type="button" // Evita submissão acidental de formulários
-            className="opcao-barra-lateral" 
+            className="opcao-barra-lateral botao-barra-lateral" 
             onClick={handleAction}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}
         >
             <img className="icon-barra-ltrl" src={imagem} alt="" width="100%" />
             <h4 className="texto-opc-lateral goldman-bold">{opcao}</h4>
