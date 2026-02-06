@@ -84,6 +84,11 @@
     .texto-opc-lateral {
         display: none;
     }
+    
+    #barra-esquerda:hover, #barra-direita:hover {
+        width: 7%;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
