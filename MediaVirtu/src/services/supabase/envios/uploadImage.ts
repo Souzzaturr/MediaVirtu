@@ -1,14 +1,14 @@
-"use server";
+"use client";
 
 
-import { createClient } from "@/src/lib/supabase/server";
+import { createClient } from "@/src/lib/supabase/client";
 
 
 
 // Função para fazer upload de imagem para o storage no supabase;
 
 export async function uploadImage (imagem: File, imageName: string) {
-    const supabase = await createClient();
+    const supabase = createClient();
 
     const { error } = await supabase.storage
                                 .from("shitposts-images")
@@ -16,7 +16,6 @@ export async function uploadImage (imagem: File, imageName: string) {
 
     if (error) {
         console.error(`Erro no upload: ${error.message}`);
-        console.error("./src/services/supabase/storage/uploadImage.ts");
         
         return { error: "erro ao realizar upload" };
     }
