@@ -2,16 +2,21 @@
 
 import { usePopupStore } from "@/src/store/usePopupStore";
 
+import { uploadImage } from "@/src/services/supabase/envios/uploadImage";
+import { buscaUrlImagem } from "@/src/services/supabase/buscas/buscaUrlImagem";
+import { criaShitpost } from "@/src/services/supabase/criaShitpost";
 
 
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 
 
 
 interface ImageItem {
   id: number;
   type: 'url' | 'file';
-  content: string;
+  url: string;
+  file?: File;
+  name?: string;
 }
 
 
@@ -20,12 +25,46 @@ export function PopupPostForm () {
     const [ descricao, setDescricao ] = useState("");
     const [images, setImages] = useState<ImageItem[]>([]);
     const [urlInput, setUrlInput] = useState('');
-
-
+    const [ isPending, startTransition ] = useTransition();
+    
     const show = usePopupStore((state) => state.popupPostForm.show);
     const fecharPopup = usePopupStore((state) => state.closePopupPostForm);
+    const popupMenssagem = usePopupStore((state) => state.setPopupMenssagem);
+
+    
 
 
+
+    // Faz o upload das imagens e troca url das imagens tipo file para a url de lá do storage no supabase;
+    const enviaShitPost = async () => {
+        try {
+
+            for (let i = 0; i < images.length; i++) {
+                if (images[i].type === "file") {
+                // Espera cada upload terminar antes de ir para o próximo
+                    await uploadImage(images[i].file!, images[i].name!);
+                    images[i].url = await buscaUrlImagem(images[i].name!);
+                }
+            }
+            
+            // Cria shitpost após o fim do upload das imagens;
+            const { success } = await criaShitpost({ descricao: descricao, images: images.map((image) => image.url) });
+            
+            
+            if (!success) throw new Error("Erro na criação de shitpost");
+            
+            
+            popupMenssagem({ titulo: "Shitpost enviado com sucesso!", menssagem: "Seu Shitpost foi criado com sucesso, e em instantes aparecerá no feed principal!!" })
+
+        } catch {
+            popupMenssagem({ titulo: "Não foi possível criar o shitpost :(", menssagem: "Parece que houve um problema na criação do seu shitpost, por favor, tente novamente mais tarde!" })
+        }
+
+    }
+
+
+
+    
 
     // Função para fechar popup quando for clicado fora dele;
     const clickFora = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -46,7 +85,7 @@ export function PopupPostForm () {
     // Adicionar via URL
     const addImageUrl = () => {
         if (urlInput.trim()) {
-        setImages([...images, { id: Date.now(), type: 'url', content: urlInput }]);
+        setImages([...images, { id: Date.now(), type: 'url', url: urlInput }]);
         setUrlInput('');
         }
     };
@@ -54,11 +93,14 @@ export function PopupPostForm () {
     // Adicionar via Upload
     const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
+
         if (file) {
-        const objectUrl = URL.createObjectURL(file);
-        setImages([...images, { id: Date.now(), type: 'file', content: objectUrl }]);
+
+            const objectUrl = URL.createObjectURL(file);
+            setImages([...images, { id: Date.now(), type: 'file', url: objectUrl, file: file, name: `${Date.now()}-${file.name}` }]);
+
         e.target.value = ''; // Limpa o input de arquivo
-        }
+    }
     };
 
     // Remover imagem
@@ -68,13 +110,20 @@ export function PopupPostForm () {
 
 
     
-    
+    // Envia dados para o supabase e limpa o formulario;
     const enviaDados = () => {
-        if (descricao !== "" && images.length > 0) {
+        if (descricao || images.length > 0) {
+            // Inicia envio do ShitPost para o banco de dados
+            startTransition(enviaShitPost);
+
+            // Limpa e fecha o Popup
             setDescricao("");
             setImages([]);
             setUrlInput("");
             fecharPopup();
+
+        } else {
+            popupMenssagem({ titulo: "Post vazio...", menssagem: "Insira ao menos uma descrição, ou envie pelo menos uma imagem!" });
         }
 
     };
@@ -114,7 +163,7 @@ export function PopupPostForm () {
                     <div className = "bloco-imagem-salva" key={img.id} >
                         <img 
                         className = "imagem-salva"
-                        src={img.content} 
+                        src={img.url} 
                         alt="Preview" 
                         />
                         <button 
@@ -162,7 +211,7 @@ export function PopupPostForm () {
 
 
             
-            <button className = "botao-fundo-transparente" onClick = { enviaDados } >Postar</button>
+            <button className = "botao-fundo-transparente" onClick = { enviaDados } disabled = { isPending } >Postar</button>
 
             </div>
         </div>
