@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { usePopupStore } from "@/src/store/usePopupStore";
+import { useAuthStore } from "@/src/store/useAuthStore";
 
 
 
@@ -42,8 +43,11 @@ export default function Home () {
     const [ valuesCorrect, setValuesCorrect ] = useState(default_correct_values);       // State que guarda se os campos do formulário estáo preenchidos corretamente ou incorretamente;
     const [ showPassword, setShowPassword ] = useState(false);                          // State para mostrar/esconder a senha;
 
-
+    // Função para exibir uma menssagem em PopUp.
     const PopUpMenssagem = usePopupStore((state) => state.setPopupMenssagem);
+    // Função para marcar que usuário está logado;
+    const setUser = useAuthStore((state) => state.setUser);
+
 
     const [ isPending, startTransition ] = useTransition();
     // hook para utilizar funções assíncronas;
@@ -64,11 +68,14 @@ export default function Home () {
             if (response.error) {
                 PopUpMenssagem({ titulo: "Não foi possível realizar seu cadastro agora", menssagem: "Infelizmente houve um problema técnico, e não foi possível realizar o seu cadastro agora, poderia tentar novamente mais tarde?" });
 
-            // Se cadasto ocorrer com sucesso, exibe menssagem de popup e redireciona para inicio em 2 segundos;                
+            // Se cadasto ocorrer com sucesso, exibe menssagem de popup e redireciona para inicio;                
             } else {
                 PopUpMenssagem({ titulo: "Cadastro realizado com sucesso", menssagem: `Seja bem vindo(a) ao MediaVirtu, ${formState.nome_usuario}!` });
 
-                setTimeout(() => router.push("/"), 2000); 
+                // Marca usuário logado com sucesso;
+                setUser(true);
+
+                router.push("/")
             }
         }
     

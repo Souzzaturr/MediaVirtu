@@ -1,11 +1,14 @@
 "use client";
 
 import { usePopupStore } from "@/src/store/usePopupStore";
+import { useAuthStore } from "@/src/store/useAuthStore";
+
 import { useTransition } from "react";
+
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 import { deslogar } from "@/src/services/supabase/deslogar";
+import { setupMaster } from "node:cluster";
 
 
 interface props {
@@ -17,6 +20,7 @@ interface props {
 // Botão de sair
 export function BotaoSair ({ opcao, imagem }: props) {
     const [ isPending, startTransition ] = useTransition();
+    const setUser = useAuthStore((state) => state.setUser);
 
     // Cria função para setar PopUp de Menssagem;
     const PopUpMenssagem = usePopupStore((state) => state.setPopupMenssagem);
@@ -31,16 +35,19 @@ export function BotaoSair ({ opcao, imagem }: props) {
         if (!error) {
             PopUpMenssagem({ titulo: "Deslogado com sucesso", menssagem: "Você foi deslogado com sucesso!!\nSentiremos sua falta :(" });
 
+            // Limpa usuário no zustand;
+            setUser(null);
+
            router.push("/");
         }
     }
 
 
-    return <Link id = "" className = "opcao-barra-lateral" href = "" onClick = { () => startTransition(fazerLogOut) } >
+    return <button id = "" className = "opcao-barra-lateral botao-barra-lateral" onClick = { () => startTransition(fazerLogOut) } >
 
                 <img className = "icon-barra-ltrl" src = { imagem } alt = "" width = "100%" />
 
                 <h3 className = "texto-opc-lateral goldman-bold" >{ opcao }</h3>
 
-            </Link>
+            </button>
 }
