@@ -13,7 +13,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { usePopupStore } from "@/src/store/usePopupStore";
-import { useAuthStore } from "@/src/store/useAuthStore";
 
 
 
@@ -45,8 +44,6 @@ export default function Home () {
 
     // Função para exibir uma menssagem em PopUp.
     const PopUpMenssagem = usePopupStore((state) => state.setPopupMenssagem);
-    // Função para marcar que usuário está logado;
-    const setUser = useAuthStore((state) => state.setUser);
 
 
     const [ isPending, startTransition ] = useTransition();
@@ -72,10 +69,7 @@ export default function Home () {
             } else {
                 PopUpMenssagem({ titulo: "Cadastro realizado com sucesso", menssagem: `Seja bem vindo(a) ao MediaVirtu, ${formState.nome_usuario}!` });
 
-                // Marca usuário logado com sucesso;
-                setUser(true);
-
-                router.push("/")
+                router.push("/");
             }
         }
     

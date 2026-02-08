@@ -38,7 +38,7 @@ export function BotaoSair ({ opcao, imagem }: props) {
             // Limpa usuário no zustand;
             setUser(null);
 
-           router.push("/");
+           router.push("/")
         }
     }
 

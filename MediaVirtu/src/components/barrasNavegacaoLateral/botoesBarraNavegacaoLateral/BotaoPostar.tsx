@@ -18,13 +18,19 @@ export function BotaoPostar({ opcao, imagem }: props) {
     const fecharPopup = usePopupStore((state) => state.closePopupPostForm);
     const Menssagem = usePopupStore((state) => state.setPopupMenssagem);
     const show = usePopupStore((state) => state.popupPostForm.show);
-    const tahlogado = useAuthStore((state) => state.user);
+    const user = useAuthStore((state) => state.user);
+    const userIsLoading = useAuthStore((state) => state.loading);
     const router = useRouter();
 
     const handleAction = (e: React.MouseEvent) => {
         e.preventDefault(); // Segurança extra
 
-        if (!tahlogado) {
+        if (userIsLoading) {
+            fecharPopup();
+
+            router.refresh();
+
+        } else if (!user) {
             Menssagem({ titulo: "Você precisa criar uma conta!", menssagem: "Para postar um shitpost, você precisa ter uma conta!\nVocê será redirecionado para a página de Cadastro..."});
 
             fecharPopup();
