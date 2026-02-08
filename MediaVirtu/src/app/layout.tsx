@@ -7,6 +7,9 @@ import "../styles/linha_divisora.css";
 import "../styles/shitpost.css";
 import "@/src/styles/popups.css";
 
+import { createClient } from "@/src/lib/supabase/server";
+
+
 import Cabecalho from "../components/Cabecalho";
 import { BarrasNavegacaoLateral } from "@/src/components/barrasNavegacaoLateral/BarrasNavegacaoLateral";
 import { Main } from "@/src/components/Main";
@@ -23,17 +26,17 @@ export const metadata = {
 };
 
 
-export default function RootLayout({
-  children,
+export default async function RootLayout({ children, }: Readonly<{children: React.ReactNode;}>) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
-}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="PT-br">
       <body className={`antialiased`}>
           <Preloader/>
           <Cabecalho/>
           <BarrasNavegacaoLateral/>
-        <Main>
+        <Main initialUser = { user } >
           {children}
         </Main>
       </body>
