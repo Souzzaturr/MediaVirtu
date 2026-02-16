@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 import { buscaPerfilPorNome } from "@/src/services/supabase/buscas/buscaPerfilPorNome";
 
-import { SessaoPostsComentariosLikes } from "@/src/components/perfil/SessaoPostsComentariosLikes";
+import { SessaoPostsComentariosLikes } from "@/src/components/paginas/perfil/SessaoPostsComentariosLikes";
 import TresPontinhos from "@/src/components/componentes_simples/TresPontinhos";
 
 
