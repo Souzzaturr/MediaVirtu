@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import { SessoesPerfil } from "@/src/components/perfil/sessoes/SessoesPerfil";
-import { ExibidorSessoes } from "@/src/components/perfil/sessoes/ExibidorSessoes";
+import { SessoesPerfil } from "@/src/components/paginas/perfil/sessoes/SessoesPerfil";
+import { ExibidorSessoes } from "@/src/components/paginas/perfil/sessoes/ExibidorSessoes";
 
 
 

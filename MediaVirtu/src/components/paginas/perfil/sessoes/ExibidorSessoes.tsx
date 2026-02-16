@@ -1,6 +1,6 @@
 "use client";
 
-import { type posts, type comentarios, type likes } from "@/src/components/perfil/SessaoPostsComentariosLikes";
+import { type posts, type comentarios, type likes } from "@/src/components/paginas/perfil/SessaoPostsComentariosLikes";
 
 
 

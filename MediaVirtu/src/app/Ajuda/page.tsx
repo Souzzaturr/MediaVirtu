@@ -1,28 +1,15 @@
 "use client";
 
+// Componentes Next
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import lista_opcoes from "./ajuda_opcoes.json";
 
-interface opcao {
-    titulo: string;
-    conteudo: string;
-    lista_imagens: string[];
-    tags: string[];
-};
+// Hooks
+import { useControllerAjuda } from "@/src/hooks/useControllerAjuda";
+
+
 
 export default function Home () {
-    const [textoPesquisa, setTextoPesquisa] = useState("");
-    const [opcoesPesquisadas, setOpcoesPesquisadas] = useState<opcao[]>([]);
-    
-    useEffect(() => {
-        setOpcoesPesquisadas(
-            textoPesquisa == "" ? lista_opcoes :
-            lista_opcoes.filter((opcao) =>
-                textoPesquisa.split(' ').some((palavra) => opcao.tags.includes(palavra.toLowerCase()))
-            )
-        )
-    }, [textoPesquisa]);
+    const { textoPesquisa, setTextoPesquisa, opcoesPesquisadas } = useControllerAjuda();
 
     return <>
         <section className="bloco bloco-ajuda">
