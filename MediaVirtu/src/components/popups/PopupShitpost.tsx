@@ -35,7 +35,7 @@ export function PopupShitpost () {
     }
 
 
-    if (!show) return <></>
+    if (!show) return null
 
 
 
