@@ -2,6 +2,7 @@
 
 import PopupMenssagem from "@/src/components/popups/PopupMenssagem";
 import { PopupPostForm } from "@/src/components/popups/PopupPostForm";
+import { PopupShitpost } from "@/src/components/popups/PopupShitpost";
 
 
 export function PopupManager () {
@@ -10,6 +11,8 @@ export function PopupManager () {
         <PopupMenssagem />
 
         <PopupPostForm />
+
+        <PopupShitpost />
     
     </>
 }

@@ -2,6 +2,9 @@
 
 import { type posts, type comentarios, type likes } from "@/src/components/paginas/perfil/SessaoPostsComentariosLikes";
 
+// Stores
+import { usePopupStore } from "@/src/store/usePopupStore";
+
 
 
 interface props {
@@ -22,6 +25,7 @@ interface sessaoEscolhida {
 
 // Componente que exibe apenas a sessão escolhida;
 export function ExibidorSessoes ({ posts, comentarios, likes, sessaoEscolhida }: props) {
+    const visualizar = usePopupStore((state) => state.setPopupShitpost);
 
     // Sessão de Posts do usuário;
 
@@ -32,7 +36,7 @@ export function ExibidorSessoes ({ posts, comentarios, likes, sessaoEscolhida }:
             
 
             posts.map((post) => <>
-                <button className = "post-mini" >
+                <button className = "post-mini" onClick = { () => visualizar({ ...post }) } >
                     <img className = "imagem-post-mini" src={ post.images[0] } alt="" />
                 </button>
             </>)
