@@ -26,11 +26,17 @@ export function ExibidorSessoes ({ posts, comentarios, likes, sessaoEscolhida }:
     // Sessão de Posts do usuário;
 
     if (sessaoEscolhida.posts) return <>
-        <div className = "sessao_perfil" >
+        <div className = "sessao_perfil sessao_posts" >
 
             { (posts.length === 0) ? <h3 className = "msgm-sem-conteudo-sessao goldman-regular" >Parece que o usuário não tem nenhum post... :(</h3> : 
             
-            <p>Posts...</p> // adicionar compnente que recebe lista de posts e organiza tudo...
+
+            posts.map((post) => <>
+                <button className = "post-mini" >
+                    <img className = "imagem-post-mini" src={ post.images[0] } alt="" />
+                </button>
+            </>)
+            
             
             }
 
