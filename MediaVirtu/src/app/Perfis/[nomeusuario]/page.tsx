@@ -44,7 +44,7 @@ export default async function Home ( { params }: { params: Promise <{ nomeusuari
     const { postsList } = await buscaPostsPorAutorId(id);
 
 
-    const contadorPosts = null; // Valores para exemplo;
+    const contadorPosts = postsList?.length;
     const contadorComentarios = null;
     const contadorLikes = null;
 
