@@ -18,7 +18,12 @@ export interface posts {
     autor_id: string,
     description: string,
     images: string[],
-    created_at: string
+    created_at: string,
+    profiles: {
+        id: string,
+        name: string,
+        avatar: string
+    }
 };
 
 export interface comentarios {
