@@ -188,6 +188,7 @@
     .bloco-shitpost {
         grid-template-rows: auto auto auto;
         grid-template-columns: 1fr;
+        width: 88vw;
     }
 
     .painel-interacao-shitpost {
