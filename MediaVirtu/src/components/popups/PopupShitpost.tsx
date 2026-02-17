@@ -5,6 +5,7 @@ import { usePopupStore } from "@/src/store/usePopupStore";
 
 // Componentes
 import Shitposts from "@/src/components/inicio/Shitposts";
+import { ButtonCloseX } from "@/src/components/componentes_simples/ButtonCloseX";
 
 
 
@@ -41,9 +42,11 @@ export function PopupShitpost () {
     return <>
         <div className = "fundo-popup" onClick = { clickOut } >
 
-            
-            <Shitposts post = { { nome: profiles.name, foto_perfil: profiles.avatar, tempo_postagem: created_at, texto: description, imagens: images, likes: 0, dislikes: 0, codigo_post: id } } />
+            <ButtonCloseX closeFunction = { close } >
 
+                <Shitposts post = { { nome: profiles.name, foto_perfil: profiles.avatar, tempo_postagem: created_at, texto: description, imagens: images, likes: 0, dislikes: 0, codigo_post: id } } />
+
+            </ButtonCloseX>
 
         </div>
     </>

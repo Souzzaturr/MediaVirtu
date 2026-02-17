@@ -131,3 +131,33 @@
     background: rgb(204, 204, 204);
     border-color: rgb(204, 204, 204);
 }
+
+
+
+/* Botao fechar vermelho X */
+
+.container-botao-fechar {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+}
+
+
+.botao-fechar {
+    background: red;
+    color: white;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    width: 35px;
+    align-self: end;
+    margin-bottom: -15px;
+    margin-right: -15px;
+    z-index: 1;
+}
+
+.botao-fechar:hover {
+    background: rgb(211, 2, 2);
+}
