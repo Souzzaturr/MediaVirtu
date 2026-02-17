@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { buscaPerfilPorNome } from "@/src/services/supabase/buscas/buscaPerfilPorNome";
+import { buscaPostsPorAutorId } from "@/src/services/supabase/buscas/buscaPostsPorAutorId";
 
 import { SessaoPostsComentariosLikes } from "@/src/components/paginas/perfil/SessaoPostsComentariosLikes";
 import TresPontinhos from "@/src/components/componentes_simples/TresPontinhos";
@@ -37,7 +38,10 @@ export default async function Home ( { params }: { params: Promise <{ nomeusuari
     }
 
     
-    const { avatar, name, email } = data;
+    const { avatar, name, email, id } = data;
+
+
+    const { postsList } = await buscaPostsPorAutorId(id);
 
 
     const contadorPosts = null; // Valores para exemplo;
@@ -81,7 +85,7 @@ export default async function Home ( { params }: { params: Promise <{ nomeusuari
                 
             </section>
             
-            <SessaoPostsComentariosLikes posts = { [] } comentarios = { [] } likes = { [] } />          {/* Alterar listas vazias para listas contendo conteúdo de cada sessão depois */}
+            <SessaoPostsComentariosLikes posts = { postsList || [] } comentarios = { [] } likes = { [] } />          {/* Alterar listas vazias para listas contendo conteúdo de cada sessão depois */}
 
             
         </div>
