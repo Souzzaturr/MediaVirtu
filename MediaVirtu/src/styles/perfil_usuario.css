@@ -129,11 +129,10 @@
 /* sessao de posts */
 
 .sessao_posts {
-    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     row-gap: 0.5rem;
-    gap: 3vw;
+    gap: 2vw;
 }
 
 
