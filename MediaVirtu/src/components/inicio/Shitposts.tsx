@@ -3,6 +3,7 @@ import BotaoNaoGostei from "./BotaoNaoGostei";
 import BotaoComentarios from "./BotaoComentarios";
 import MenuComentarios from "./MenuComentarios";
 import TresPontinhos from "../componentes_simples/TresPontinhos";
+import { comparaTempo } from "@/src/utils/tempo/comparaTempo";
 
 interface post {
     nome: string;
@@ -20,6 +21,9 @@ interface props {
 }
 
 export default function Shitpost ({post}: props) {
+
+    const tempoPostagem = "Há " + comparaTempo(post.tempo_postagem) + " atrás";
+
     const texto = post.texto.length > 0 ? <>
         <div className = "conteudo-shitpost">
             { post.texto.split("\n").map((linha: string) => 
@@ -43,7 +47,7 @@ export default function Shitpost ({post}: props) {
                     <img src = { post.foto_perfil ? post.foto_perfil : "icones/MediaVirtu_icons/MediaVirtu_icon.png" } alt = "foto-perfil" className = "foto-perfil"/>
                     <div className = "info-autor">
                         <h3 className = "nome-autor goldman-bold">{ post.nome }</h3>
-                        <p className = "tempo-post">{ post.tempo_postagem }</p>
+                        <p className = "tempo-post">{ tempoPostagem !== "Há NaN segundo atrás" ? tempoPostagem : post.tempo_postagem }</p>
                     </div>
                 </div>
                 <TresPontinhos/>
