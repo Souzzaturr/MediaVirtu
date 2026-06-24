@@ -1,61 +1,93 @@
-/*estilos para os posts dos usuários*/
+/* ======================================
+    estilos para os posts dos usuários
+=========================================*/
 
-/*Bloco de shitpost*/
+
+/* link sem coloração azul ou roxa, apenas com underline */
+.link-branco {
+    color: white;
+    text-decoration: none;
+}
+
+.link-branco:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ======================================
+    Bloco de shitpost
+=========================================*/
 
 .bloco-shitpost {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: min-content auto;
-    grid-row-gap: 15px;
-    grid-column-gap: 15px;
-    height: 75vh;
-}
-
-.principal-shitpost {
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-gap: 1.5em;
-    overflow-y: auto;
-    scrollbar-color: rgba(255, 255, 255, 0.418) rgba(0, 0, 0, 0);
+    grid-template-columns: 65% 35%;
+    padding: 0;
+    height: calc(75vh + 1em);
+    width: calc(68vw + 1em);
 }
 
 
 
 
-/*descrição do autor do pot (foto de perfil, nome de usuário, data do post)*/
 
-.autor {
-    overflow: hidden;
+
+/* ==========================================
+    Cabeçalho do shitpost
+============================================= */
+
+/* Cabeçaho do shitpost (contém perfil do autor e três pontinhos) */
+.cabecalho-shitpost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+}
+
+/* Perfil do autor do shitpost */
+.autor-info {
     display: flex;
     align-items: center;
     gap: 0.5em;
 }
 
+/* Foto de perfil do autor do shitpost */
 .foto-perfil {
     width: 45px;
+    height: 45px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 100px;
 }
 
-.info-autor {
-    word-break: break-all;
-    font-size: 80%;
+
+
+
+/* ========================================
+    Conteúdo principal do shitpost
+=========================================== */
+
+/* corpo do shitpost */
+.corpo-shitpost {
+    display: grid;
+    grid-template-rows: min-content;
 }
 
-.topo-shitpost {
+/* consteudo do shitpost */
+.conteudo-shitpost {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    grid-column: 1 / 3;
-    padding: 10px 0;
+    padding: 0.5em;
+    gap: 0.5em;
 }
 
 
 
 
-
-/*três pontinhos*/
+/* =================================
+    três pontinhos
+==================================== */
 
 .tres-pontinhos {
     display: flex;
@@ -63,6 +95,7 @@
     gap: 6px;
     align-items: center;
     width: 40px;
+    height: min-content;
 }
 
 .tres-pontinhos-ponto {
@@ -71,40 +104,38 @@
     background: white;
 }
 
-/*Imagens do post*/
+
+
+
+/* =========================================
+    Imagens do post
+============================================ */
 
 .conjunto-imagens-shitpost {
     display: flex;
     flex-wrap: wrap;
+    max-height: 45dvh;
     gap: 0.5em;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .imagem-shitpost {
-    height: 45vh;
+    height: clamp(calc(10dvh + 1em), calc(40dvh + 1em), 700px);
 }
 
 
 
 
-/*Interação dos shitposts*/
+/* =======================================
+    Interação do shitpost
+========================================== */  
 
-.painel-interacao-shitpost {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 1em;
-    align-items: center;
-    height: 100%;
-}    
-
+/* Estilo dos botões (gostei, não gostei, abrir comentários) de um shitpost */
 .botoes-interacao {
     display: flex;
-    flex-direction: column;
-    gap: 2em;
     justify-content: space-evenly;
-    align-items: end;
-    min-height: 100%;
-    width: 40px;
+    width: 100%;
 }    
 
 /*botao gostei naogostei comentarios*/
@@ -127,6 +158,12 @@
 }
 
 
+
+
+/* ======================================
+    Comentários
+========================================= */
+
 /*comentários*/
 .bloco-comentarios {
     position: relative;
@@ -135,11 +172,8 @@
     gap: 6px;
     align-items: top;
     height: 100%;
-    max-height: 62vh;
-    width: 20vw;
+    width: 100%;
     overflow-y: auto;
-    border-radius: 4px;
-    border: 3px solid rgb(35, 35, 43);
     background: rgb(0, 0, 0);
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
 }

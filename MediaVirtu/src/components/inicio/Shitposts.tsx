@@ -4,6 +4,7 @@ import BotaoComentarios from "./BotaoComentarios";
 import MenuComentarios from "./MenuComentarios";
 import TresPontinhos from "../componentes_simples/TresPontinhos";
 import { comparaTempo } from "@/src/utils/tempo/comparaTempo";
+import Link from "next/link";
 
 interface post {
     nome: string;
@@ -24,46 +25,73 @@ export default function Shitpost ({post}: props) {
 
     const tempoPostagem = "Há " + comparaTempo(post.tempo_postagem) + " atrás";
 
-    const texto = post.texto.length > 0 ? <>
-        <div className = "conteudo-shitpost">
-            { post.texto.split("\n").map((linha: string) => 
-                <p>{ linha }</p>
-            )}
-        </div>
-    </> : <></>;
+    return <>        
+        
+        <article id={ "post-" + post.codigo_post } className="bloco bloco-shitpost">
+            
+            <div className="corpo-shitpost">
 
-    const imgs = post.imagens.length > 0 ? <>
-        <div className = "conjunto-imagens-shitpost">
-            { post.imagens.map((endereco: string) => 
-                <img className = "imagem-shitpost" src = { endereco } alt = "imagem-shitpost"/>
-            )}
-        </div>
-    </> : <></>;
+                <section className="cabecalho-shitpost">
+            
+                    <div className="autor-info">
+                    
+                        <img src = { post.foto_perfil ? post.foto_perfil : "icones/MediaVirtu_icons/MediaVirtu_icon.png" } alt = "foto-perfil" className = "foto-perfil"/>
 
-    return <>
-        <section id = { "post-" + post.codigo_post } className = "bloco bloco-shitpost">
-            <div className = "topo-shitpost">
-                <div className = "autor">
-                    <img src = { post.foto_perfil ? post.foto_perfil : "icones/MediaVirtu_icons/MediaVirtu_icon.png" } alt = "foto-perfil" className = "foto-perfil"/>
-                    <div className = "info-autor">
-                        <h3 className = "nome-autor goldman-bold">{ post.nome }</h3>
-                        <p className = "tempo-post">{ tempoPostagem !== "Há NaN segundo atrás" ? tempoPostagem : post.tempo_postagem }</p>
+                        <div>
+                            <Link href={ "/Perfis/" + post.nome } className="link-branco">
+                                <h3 className="goldman-bold">{ post.nome }</h3>
+                            </Link>
+
+                            <p>{ tempoPostagem !== "Há NaN segundo atrás" ? tempoPostagem : post.tempo_postagem }</p>
+
+                        </div>
+
                     </div>
-                </div>
-                <TresPontinhos/>
+
+                    <TresPontinhos/>
+                
+                </section>
+            
+                <section className="conteudo-shitpost">
+                
+                    <div className="texto-shitpost">
+                    
+                        { post.texto.length > 0 && post.texto.split("\n").map((linha: string) => 
+                            <p>{ linha }</p>
+                        )}
+                    
+                    </div>
+
+                    <div className="conjunto-imagens-shitpost">
+                    
+                        { post.imagens.length > 0 && post.imagens.map((endereco: string) => 
+                            <img className = "imagem-shitpost" src = { endereco } alt = "imagem-shitpost"/>
+                        )}
+                    
+                    </div>
+
+                    <div className="botoes-interacao">
+                    
+                        <BotaoGostei qtd_likes = { post.likes } codigo_post = { post.codigo_post }/>
+
+                        <BotaoNaoGostei qtd_dislikes = { post.dislikes } codigo_post = { post.codigo_post }/>
+
+                        <BotaoComentarios codigo_post = { post.codigo_post }/>
+
+                    </div>
+                
+                </section>
+
+
             </div>
-            <div className = "principal-shitpost">
-                { texto }
-                { imgs }
-            </div>
-            <div className = "painel-interacao-shitpost">
-                <div className = "botoes-interacao">
-                    <BotaoGostei qtd_likes = { post.likes } codigo_post = { post.codigo_post }/>
-                    <BotaoNaoGostei qtd_dislikes = { post.dislikes } codigo_post = { post.codigo_post }/>
-                    <BotaoComentarios codigo_post = { post.codigo_post }/>
-                </div>
-                <MenuComentarios codigo_post = { post.codigo_post }/>
-            </div>
-        </section>
+
+            <section className="sessao-comentarios">
+            
+                <MenuComentarios codigo_post={ post.codigo_post }/>
+            
+            </section>
+        
+        </article>        
+       
     </>
 } 
