@@ -113,11 +113,10 @@
 
 .conjunto-imagens-shitpost {
     display: flex;
-    flex-wrap: wrap;
     max-height: 45dvh;
     gap: 0.5em;
     justify-content: center;
-    overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 .imagem-shitpost {

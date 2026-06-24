@@ -54,30 +54,16 @@ export default function Shitpost ({post}: props) {
             
                 <section className="conteudo-shitpost">
                 
-                    <div className="texto-shitpost">
-                    
+                    <div className="texto-shitpost">                    
                         { post.texto.length > 0 && post.texto.split("\n").map((linha: string) => 
                             <p>{ linha }</p>
-                        )}
-                    
+                        )}                    
                     </div>
 
                     <div className="conjunto-imagens-shitpost">
-                    
                         { post.imagens.length > 0 && post.imagens.map((endereco: string) => 
                             <img className = "imagem-shitpost" src = { endereco } alt = "imagem-shitpost"/>
-                        )}
-                    
-                    </div>
-
-                    <div className="botoes-interacao">
-                    
-                        <BotaoGostei qtd_likes = { post.likes } codigo_post = { post.codigo_post }/>
-
-                        <BotaoNaoGostei qtd_dislikes = { post.dislikes } codigo_post = { post.codigo_post }/>
-
-                        <BotaoComentarios codigo_post = { post.codigo_post }/>
-
+                        )}                    
                     </div>
                 
                 </section>
