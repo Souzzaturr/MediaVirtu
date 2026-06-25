@@ -1,6 +1,6 @@
 "use client";
 
-import useAvancaRetornaSessoes from "../hooks/useAvancaRetornaSessoes";
+import useAvancaRetornaSessoes from "@/src/hooks/useAvancaRetornaSessoes";
 
 import Shitpost from "../components/inicio/Shitposts";
 import LinhaDivisora from "../components/componentes_simples/LinhaDivisora";
