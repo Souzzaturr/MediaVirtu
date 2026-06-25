@@ -19,7 +19,6 @@
     width: 7%;
     transition: width 0.4s;
     pointer-events: auto;
-    box-shadow: 0px 0px 25px black;
 }
 
 #barra-esquerda {
