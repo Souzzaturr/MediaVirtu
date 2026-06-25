@@ -1,7 +1,7 @@
+import "@/src/styles/globals.css";
 import "../styles/border_rgb.css";
 import "../styles/cabecalho.css";
 import "../styles/barras_navegacao_lateral.css";
-import "../styles/corpo_principal.css";
 import "../styles/blocos.css";
 import "../styles/linha_divisora.css";
 import "../styles/shitpost.css";

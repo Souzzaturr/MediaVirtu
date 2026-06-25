@@ -24,7 +24,7 @@
     grid-template-columns: 68% 32%;
     padding: 0;
     height: calc(75vh + 1em);
-    width: calc(68vw + 1em);
+    width: calc(68vw + 2em);
 }
 
 
