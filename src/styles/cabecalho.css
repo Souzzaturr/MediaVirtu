@@ -11,7 +11,7 @@
 #cabecalho-cima {
     position: relative;
     height: 35px;
-    width: 100%;
+    width: 100vw;
     border-top: 0;
 }
 
