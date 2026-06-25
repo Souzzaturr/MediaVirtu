@@ -42,7 +42,7 @@ export default function Shitpost ({post}: props) {
                                 <h3 className="goldman-bold">{ post.nome }</h3>
                             </Link>
 
-                            <p>{ tempoPostagem !== "Há NaN segundo atrás" ? tempoPostagem : post.tempo_postagem }</p>
+                            <p className="text-xs">{ tempoPostagem !== "Há NaN segundo atrás" ? tempoPostagem : post.tempo_postagem }</p>
 
                         </div>
 
