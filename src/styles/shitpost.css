@@ -21,7 +21,7 @@
 
 .bloco-shitpost {
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 68% 32%;
     padding: 0;
     height: calc(75vh + 1em);
     width: calc(68vw + 1em);
