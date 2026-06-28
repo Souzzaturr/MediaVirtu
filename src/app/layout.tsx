@@ -31,7 +31,7 @@ export default async function RootLayout({ children, }: Readonly<{children: Reac
   const { data: { user } } = await supabase.auth.getUser();
 
   return (
-    <html lang="PT-br">
+    <html lang="PT-br" suppressHydrationWarning>
       <body className={`antialiased`}>
           <Preloader/>
           <Cabecalho/>
