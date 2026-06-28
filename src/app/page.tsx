@@ -4,6 +4,8 @@ import useAvancaRetornaSessoes from "@/src/hooks/useAvancaRetornaSessoes";
 
 import Shitpost from "../components/inicio/Shitposts";
 import LinhaDivisora from "../components/componentes_simples/LinhaDivisora";
+import { Fragment } from "react";
+
 import shitposts from "../data/shitposts.json";
 
 import embaralharArray from "../utils/embaralharArray";
@@ -26,11 +28,11 @@ export default function Home () {
   useAvancaRetornaSessoes();
 
   return <>
-    { embaralharArray(banco_posts).map((post: post) =>
-    <>
-      <Shitpost key = { post.codigo_post } post = { post }/>
+    { embaralharArray(banco_posts).map((post: post, index) =>
+    <Fragment key = { index }>
+      <Shitpost post = { post }/>
       <LinhaDivisora/>
-    </>
+    </Fragment>
     ) }
   </>
 }
