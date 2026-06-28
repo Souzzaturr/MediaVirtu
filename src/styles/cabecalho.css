@@ -11,7 +11,7 @@
 #cabecalho-cima {
     position: relative;
     height: 35px;
-    width: 100vw;
+    width: 102vw;
     border-top: 0;
 }
 
@@ -25,15 +25,9 @@
 }
 
 
-.bg-blbl {
-    background-color: #000000;
-}
-
-
 #titulo {
     position: absolute;
     padding: 0.1em 2em;
-    color: white;
     font-size: 2.1em;
 }
 
@@ -43,28 +37,10 @@
     #cabecalho-meio {
         width: 55%;
     }
-
-    #titulo {
-        padding: 0.8em 2em;
-    }
 }
 
 @media screen and (max-width: 420px) {
     #cabecalho-meio {
-        width: 60%;
-    }
-
-    #titulo {
-        padding: 0.8em;
-    }
-}
-
-@media screen and (max-width: 280px) {
-    #titulo h1 {
-        scale: 0.7;
-    }
-    
-    #titulo {
-        padding: 0.4em 0.4em 0.8em 0.4em;
+        width: 80%;
     }
 }
