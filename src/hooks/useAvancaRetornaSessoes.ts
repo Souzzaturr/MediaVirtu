@@ -40,7 +40,6 @@ export default function useAvancaRetornaSessoes (selector = ".bloco") {
         function handleTouchEnd(e: TouchEvent) {
             /* Sensibilidade do avanço no touch */
             if (Math.abs(diferenca) > 40) {
-                e.preventDefault();
                 touchDisparado = true;
 
                 if (diferenca < 0) {
@@ -52,6 +51,7 @@ export default function useAvancaRetornaSessoes (selector = ".bloco") {
             }
 
             touchStart = 0;
+            diferenca = 0;
             touchDisparado = false;
         }
 
@@ -94,9 +94,9 @@ export default function useAvancaRetornaSessoes (selector = ".bloco") {
 
         document.addEventListener("keydown", handleScrollKeyDown);
         document.addEventListener("wheel", handleScrollKeyDown, { passive: false });
-        document.addEventListener("touchstart", handleTouchStart, { passive: false });
-        document.addEventListener("touchmove", handleTouchMove, { passive: false });
-        document.addEventListener("touchend", handleTouchEnd, { passive: false });
+        document.addEventListener("touchstart", handleTouchStart);
+        document.addEventListener("touchmove", handleTouchMove);
+        document.addEventListener("touchend", handleTouchEnd);
 
         return () => {
             document.removeEventListener("keydown", handleScrollKeyDown);
