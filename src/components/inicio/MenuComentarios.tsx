@@ -15,8 +15,8 @@ export default function MenuComentarios ({codigo_post}: props) {
     const lista_comentarios = banco_comentarios.filter((comentario: comentario) =>
         comentario.para_post === codigo_post
     )
-    let comentarios = lista_comentarios.map((comentario: comentario) =>
-        <div className = "comentario">
+    let comentarios = lista_comentarios.map((comentario: comentario, index) =>
+        <div className = "comentario" key = {index}>
             <p className = "texto-comentario">{comentario.autor}: {comentario.conteudo}</p>
         </div>
     )

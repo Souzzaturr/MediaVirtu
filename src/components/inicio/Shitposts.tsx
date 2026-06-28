@@ -55,14 +55,14 @@ export default function Shitpost ({post}: props) {
                 <section className="conteudo-shitpost">
                 
                     <div className="texto-shitpost">                    
-                        { post.texto.length > 0 && post.texto.split("\n").map((linha: string) => 
-                            <p>{ linha }</p>
+                        { post.texto.length > 0 && post.texto.split("\n").map((linha: string, index) => 
+                            <p key = { index } >{ linha }</p>
                         )}                    
                     </div>
 
                     <div className="conjunto-imagens-shitpost">
-                        { post.imagens.length > 0 && post.imagens.map((endereco: string) => 
-                            <img className = "imagem-shitpost" src = { endereco } alt = "imagem-shitpost"/>
+                        { post.imagens.length > 0 && post.imagens.map((endereco: string, index) => 
+                            <img className = "imagem-shitpost" key = {index} src = { endereco } alt = "imagem-shitpost"/>
                         )}                    
                     </div>
                 

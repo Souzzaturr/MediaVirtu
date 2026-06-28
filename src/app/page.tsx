@@ -8,8 +8,6 @@ import { Fragment } from "react";
 
 import shitposts from "../data/shitposts.json";
 
-import embaralharArray from "../utils/embaralharArray";
-
 export interface post {
   nome: string,
   foto_perfil: string,
@@ -28,7 +26,7 @@ export default function Home () {
   useAvancaRetornaSessoes();
 
   return <>
-    { embaralharArray(banco_posts).map((post: post, index) =>
+    { banco_posts.map((post: post, index) =>
     <Fragment key = { index }>
       <Shitpost post = { post }/>
       <LinhaDivisora/>
