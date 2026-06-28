@@ -7,9 +7,10 @@ import { BotaoPostar } from "@/src/components/barrasNavegacaoLateral/botoesBarra
 
 export function BarraNavegacaoDireita () {
     return <>
-        <section id = "barra-direita" className = "bg-blbl rgb-border-fade" >
+        <section id = "barra-direita" className = "rgb-border-fade bg-black text-white" >
 
             <Link id = "" className = "opcao-barra-lateral" href = "/Perfis" data-page = "" >
+                <div className="hover-opcao-color"></div>
 
                 <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-perfil.png" alt = "" width = "100%" />
 
@@ -20,6 +21,7 @@ export function BarraNavegacaoDireita () {
             <BotaoPostar opcao = {"Postar"} imagem = {"/icones/menu_lateral_icons/icone-postar.png" } />
 
             <Link id = "" className = "opcao-barra-lateral" href = "/Excluir" data-page = "" >
+                <div className="hover-opcao-color"></div>
 
                 <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-excluir.svg" alt = "" width = "100%" />
 
@@ -28,6 +30,7 @@ export function BarraNavegacaoDireita () {
             </Link>
 
             <Link id = "" className = "opcao-barra-lateral" href = "/Denunciar" data-page = "" >
+                <div className="hover-opcao-color"></div>
 
                 <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-denunciar.png" alt = "" width = "100%" />
 

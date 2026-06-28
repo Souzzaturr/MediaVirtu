@@ -45,13 +45,13 @@ export function BotaoPostar({ opcao, imagem }: props) {
     };
 
     return (
-        <button 
-            type="button" // Evita submissão acidental de formulários
-            className="opcao-barra-lateral botao-barra-lateral" 
-            onClick={handleAction}
-        >
+        <button type="button" className="opcao-barra-lateral botao-barra-lateral" onClick={handleAction} >
+            <div className="hover-opcao-color"></div>
+
             <img className="icon-barra-ltrl" src={imagem} alt="" width="100%" />
+
             <h4 className="texto-opc-lateral goldman-bold">{opcao}</h4>
+
         </button>
     );
 }

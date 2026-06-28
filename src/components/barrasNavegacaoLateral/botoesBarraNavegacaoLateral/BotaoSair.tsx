@@ -43,11 +43,14 @@ export function BotaoSair ({ opcao, imagem }: props) {
     }
 
 
-    return <button id = "" className = "opcao-barra-lateral botao-barra-lateral" onClick = { () => startTransition(fazerLogOut) } >
+    return (
+         <button id = "" className = "opcao-barra-lateral botao-barra-lateral" onClick = { () => startTransition(fazerLogOut) } >
+            <div className="hover-opcao-color"></div>
 
-                <img className = "icon-barra-ltrl" src = { imagem } alt = "" width = "100%" />
+            <img className = "icon-barra-ltrl" src = { imagem } alt = "" width = "100%" />
 
-                <h3 className = "texto-opc-lateral goldman-bold" >{ opcao }</h3>
+            <h3 className = "texto-opc-lateral goldman-bold" >{ opcao }</h3>
 
-            </button>
+        </button>
+    )
 }
