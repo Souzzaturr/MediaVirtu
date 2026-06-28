@@ -6,6 +6,8 @@ export default function useAvancaRetornaSessoes (selector = ".bloco") {
         let currentSectionIndex = -1;
         let touchStart = 0;
         let touchDisparado = false;
+        let touchAtual = 0;
+        let diferenca = 0;
 
 
         function handleScrollKeyDown (e: any) {
@@ -31,10 +33,13 @@ export default function useAvancaRetornaSessoes (selector = ".bloco") {
         function handleTouchMove(e: TouchEvent) {
             if (!touchStart || touchDisparado) return;
 
-            const touchAtual = e.touches[0].clientY;
-            const diferenca = touchStart - touchAtual;
+            touchAtual = e.touches[0].clientY;
+            diferenca = touchStart - touchAtual;
+        }
 
-            if (Math.abs(diferenca) > 30) {
+        function handleTouchEnd(e: TouchEvent) {
+            /* Sensibilidade do avanço no touch */
+            if (Math.abs(diferenca) > 40) {
                 e.preventDefault();
                 touchDisparado = true;
 
@@ -45,9 +50,7 @@ export default function useAvancaRetornaSessoes (selector = ".bloco") {
                     descer();
                 }
             }
-        }
 
-        function handleTouchEnd(e: TouchEvent) {
             touchStart = 0;
             touchDisparado = false;
         }
