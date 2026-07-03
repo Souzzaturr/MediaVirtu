@@ -71,7 +71,7 @@ export default function Shitpost ({post}: props) {
 
             </div>
 
-            <section className="sessao-comentarios">
+            <section className="sessao-comentarios flex justify-center items-center">
             
                 <MenuComentarios codigo_post={ post.codigo_post }/>
             

@@ -66,10 +66,28 @@
 }
 
 
-/* Esconder */
+/* Genéricos */
 
 .hide {
     display: none;
+}
+
+.hideOnDesktop {
+    display: none;
+}
+
+.hideOnMobile {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+    .hideOnDesktop {
+        display: block !important;
+    }
+
+    .hideOnMobile {
+        display: none !important;
+    }
 }
 
 

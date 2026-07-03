@@ -1,5 +1,7 @@
 import banco_comentarios from "../../data/comentarios.json";
 
+import BotaoComentarios from "@/src/components/inicio/BotaoComentarios";
+
 interface comentario {
     autor: string,
     para_post: string,
@@ -22,7 +24,7 @@ export default function MenuComentarios ({codigo_post}: props) {
     )
 
     return <>
-        <div id = { "bloco-comentarios" + codigo_post } className = "bloco-comentarios enconder-comentarios">
+        <div id = { "bloco-comentarios" + codigo_post } className = "bloco-comentarios hideOnMobile">
             <button className = "enviar-comentario goldman-bold">
                 Escreva um comentário:
             </button>
@@ -33,5 +35,7 @@ export default function MenuComentarios ({codigo_post}: props) {
             }
 
         </div>
+
+        <BotaoComentarios className = "hideOnDesktop  self-end" codigo_post = {codigo_post} />
     </>
 }

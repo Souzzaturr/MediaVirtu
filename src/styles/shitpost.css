@@ -138,7 +138,7 @@
 }    
 
 /*botao gostei naogostei comentarios*/
-.botao-gostei, .botao-naogostei, .botao-comentarios {
+.botao-gostei, .botao-naogostei {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -152,7 +152,7 @@
     cursor: pointer;
 }
 
-.icone-gostei, .icone-naogostei, .icone-comentarios {
+.icone-gostei, .icone-naogostei {
     width: 40px;
 }
 
@@ -175,6 +175,11 @@
     overflow-y: auto;
     background: rgb(0, 0, 0);
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.botao-comentarios {
+    width: 50px;
+    height: 50px;
 }
 
 .esconder-comentarios {
@@ -236,7 +241,7 @@
         width: 100%;
     }
     
-    .icone-gostei, .icone-naogostei, .icone-comentarios {
+    .icone-gostei, .icone-naogostei {
         width: 30px;
     }
 
