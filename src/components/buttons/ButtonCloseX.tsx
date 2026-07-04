@@ -1,10 +1,11 @@
 interface props {
-    closeFunction: () => void
-    children: React.ReactNode;
+    children: React.ReactNode,
+    closeFunction?: () => void,
+
 }
 
 
-export function ButtonCloseX ({ children, closeFunction }: props) {
+export default function ButtonCloseX ({ children, closeFunction }: props) {
     return <>
         <div className="container-botao-fechar">
 

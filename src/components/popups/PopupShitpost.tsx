@@ -5,7 +5,7 @@ import { usePopupStore } from "@/src/store/usePopupStore";
 
 // Componentes
 import Shitposts from "@/src/components/inicio/Shitposts";
-import { ButtonCloseX } from "@/src/components/buttons/ButtonCloseX";
+import ButtonCloseX from "@/src/components/buttons/ButtonCloseX";
 
 
 
