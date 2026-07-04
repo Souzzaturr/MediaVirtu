@@ -10,10 +10,12 @@ interface comentario {
 
 interface props {
     codigo_post: string;
-    className?: string;
+    classeAdicional?: string | "";
 }
 
-export default function BotaoComentarios ({codigo_post, className}: props) {
+export default function BotaoComentarios ({codigo_post, classeAdicional}: props) {
+    const classe = "" + " " + classeAdicional;
+
     //const banco_comentarios = JSON.parse(localStorage.getItem("banco_comentarios") || "[]");
     let qtd_comentarios = 0;
     banco_comentarios.forEach((comentario: comentario) => 
@@ -23,7 +25,7 @@ export default function BotaoComentarios ({codigo_post, className}: props) {
     );
 
     return <>
-        <button id = { "comentarios-" + codigo_post } className = {"botao-comentarios " + className}>
+        <button id = { "comentarios-" + codigo_post } className = {"botao-comentarios " + classe}>
             <img className = "icone-comentarios" src = "icones/interacao_shitpost_icons/icone-comentarios.png" alt = "comentarios"/>
         </button>
     </>

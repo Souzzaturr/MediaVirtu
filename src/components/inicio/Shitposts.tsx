@@ -73,7 +73,9 @@ export default function Shitpost ({post}: props) {
 
             <section className="sessao-comentarios flex justify-center items-center">
             
-                <MenuComentarios codigo_post={ post.codigo_post }/>
+                <MenuComentarios codigo_post={ post.codigo_post } classeAdicional = "hideOnMobile" />
+
+                <BotaoComentarios classeAdicional = "hideOnDesktop  self-end" codigo_post = {post.codigo_post} />
             
             </section>
         
