@@ -172,7 +172,9 @@
     align-items: top;
     height: 100%;
     width: 100%;
-    overflow-y: auto;
+    min-height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: contain;
     background: rgb(0, 0, 0);
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
 }

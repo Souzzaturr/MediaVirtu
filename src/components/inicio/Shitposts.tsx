@@ -93,7 +93,7 @@ export default function Shitpost ({post}: props) {
                 <BotaoComentarios classeAdicional = "hideOnDesktop  self-end" codigo_post = {post.codigo_post} onClick={openComentariosModal} />
 
                 {modalComentariosOpen && 
-                    <SimpleModal id={"modal-" + post.codigo_post} classeAdicionalFundo="hideOnDesktop" closeModalFunction={closeComentariosModal} >
+                    <SimpleModal id={"modal-" + post.codigo_post} classeAdicionalFundo="hideOnDesktop notApplyAvancaRetornaSessoesEvent" closeModalFunction={closeComentariosModal} >
                         <MenuComentarios codigo_post={ post.codigo_post } />
                     </SimpleModal>
                 }

@@ -68,6 +68,9 @@
 
 /* Genéricos */
 
+.notApplyAvancaRetornaSessoesEvent {
+}
+
 .hide {
     display: none !important;
 }
