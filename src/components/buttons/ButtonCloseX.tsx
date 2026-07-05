@@ -1,17 +1,19 @@
 interface props {
     children: React.ReactNode,
+    classeAdicional?: string | "",
     closeFunction?: () => void,
-
 }
 
 
-export default function ButtonCloseX ({ children, closeFunction }: props) {
+export default function ButtonCloseX({children, classeAdicional, closeFunction}: props) {
+    const classe = "botao-fechar" + " " + classeAdicional;
+
     return <>
         <div className="container-botao-fechar">
 
-            <button className = "botao-fechar" onClick = { closeFunction } >X</button>
+            <button className={classe} onClick={closeFunction} >X</button>
 
-            { children }
+            {children}
 
         </div>
     </>
