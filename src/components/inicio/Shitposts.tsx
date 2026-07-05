@@ -1,9 +1,16 @@
+"use client"
+
 import BotaoGostei from "./BotaoGostei";
 import BotaoNaoGostei from "./BotaoNaoGostei";
 import BotaoComentarios from "./BotaoComentarios";
 import MenuComentarios from "./MenuComentarios";
 import TresPontinhos from "../componentes_simples/TresPontinhos";
+import SimpleModal from "@/src/components/modal/SimpleModal";
+
 import { comparaTempo } from "@/src/utils/tempo/comparaTempo";
+
+import { useState } from "react";
+
 import Link from "next/link";
 
 interface post {
@@ -22,6 +29,14 @@ interface props {
 }
 
 export default function Shitpost ({post}: props) {
+    const [modalComentariosOpen, setModalComentariosOpen] = useState(false);
+
+    const openComentariosModal = () => {
+        setModalComentariosOpen(true);
+    }
+    const closeComentariosModal = () => {
+        setModalComentariosOpen(false);
+    }
 
     const tempoPostagem = "Há " + comparaTempo(post.tempo_postagem) + " atrás";
 
@@ -75,7 +90,13 @@ export default function Shitpost ({post}: props) {
             
                 <MenuComentarios codigo_post={ post.codigo_post } classeAdicional = "hideOnMobile" />
 
-                <BotaoComentarios classeAdicional = "hideOnDesktop  self-end" codigo_post = {post.codigo_post} />
+                <BotaoComentarios classeAdicional = "hideOnDesktop  self-end" codigo_post = {post.codigo_post} onClick={openComentariosModal} />
+
+                {modalComentariosOpen && 
+                    <SimpleModal id={"modal-" + post.codigo_post} classeAdicionalFundo="hideOnDesktop" closeModalFunction={closeComentariosModal} >
+                        <MenuComentarios codigo_post={ post.codigo_post } />
+                    </SimpleModal>
+                }
             
             </section>
         
