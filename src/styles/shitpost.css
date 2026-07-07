@@ -1,0 +1,284 @@
+/* ======================================
+    estilos para os posts dos usuários
+=========================================*/
+
+
+/* link sem coloração azul ou roxa, apenas com underline */
+.link-branco {
+    color: white;
+    text-decoration: none;
+}
+
+.link-branco:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ======================================
+    Bloco de shitpost
+=========================================*/
+
+.bloco-shitpost {
+    display: grid;
+    grid-template-columns: 68% 32%;
+    grid-template-rows: 100%;
+    padding: 0;
+    max-height: 600px;
+    height: calc(75vh + 1em);
+    width: calc(68vw + 2em);
+    color: white;
+    border: 3px solid rgb(35, 35, 43);
+    background: #060124;
+    scroll-margin-top: 15vh;
+}
+
+
+
+
+
+
+/* ==========================================
+    Cabeçalho do shitpost
+============================================= */
+
+/* Cabeçaho do shitpost (contém perfil do autor e três pontinhos) */
+.cabecalho-shitpost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+}
+
+/* Perfil do autor do shitpost */
+.autor-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+/* Foto de perfil do autor do shitpost */
+.foto-perfil {
+    width: 45px;
+    height: 45px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+
+
+
+/* ========================================
+    Conteúdo principal do shitpost
+=========================================== */
+
+/* corpo do shitpost */
+.corpo-shitpost {
+    display: grid;
+    grid-template-rows: min-content;
+}
+
+/* consteudo do shitpost */
+.conteudo-shitpost {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5em;
+    gap: 0.5em;
+}
+
+
+
+
+/* =================================
+    três pontinhos
+==================================== */
+
+.tres-pontinhos {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    width: 40px;
+    height: min-content;
+}
+
+.tres-pontinhos-ponto {
+    width: 5px;
+    height: 5px;
+    background: white;
+}
+
+
+
+
+/* =========================================
+    Imagens do post
+============================================ */
+
+.conjunto-imagens-shitpost {
+    display: flex;
+    max-height: 45dvh;
+    gap: 0.5em;
+    justify-content: center;
+    overflow-x: scroll;
+}
+
+.imagem-shitpost {
+    height: clamp(calc(10dvh + 1em), calc(40dvh + 1em), 700px);
+}
+
+
+
+
+/* =======================================
+    Interação do shitpost
+========================================== */  
+
+/* Estilo dos botões (gostei, não gostei, abrir comentários) de um shitpost */
+.botoes-interacao {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}    
+
+/*botao gostei naogostei comentarios*/
+.botao-gostei, .botao-naogostei {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    gap: 0.5em;
+    width: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icone-gostei, .icone-naogostei {
+    width: 40px;
+}
+
+
+
+
+/* ======================================
+    Comentários
+========================================= */
+
+/*comentários*/
+.bloco-comentarios {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: top;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: contain;
+    background: rgb(0, 0, 0);
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.botao-comentarios {
+    width: 50px;
+    height: 50px;
+}
+
+.esconder-comentarios {
+    width: 0px;
+    height: 0px;
+    border: 0px;
+}
+
+.comentario {
+    font-size: 80%;
+    padding: 10px;
+}
+
+.sem-comentarios {
+    margin: 1.5em;
+}
+
+.enviar-comentario {
+    position: sticky;
+    top: 88%;
+    padding: 10px;
+    margin: 5px;
+    width: 82%;
+    align-self: center;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    border-radius: 8px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.esconder-comentarios .enviar-comentario, .esconder-comentarios .comentario, .esconder-comentarios p{
+    display: none;
+}
+
+
+
+
+/*altura bloco comentarios*/
+
+
+
+@media screen and (max-width: 800px) {
+    .bloco-shitpost {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
+        width: 88vw;
+    }
+
+    .painel-interacao-shitpost {
+        grid-row: 3 / 4;
+        flex-direction: column;
+    }
+    
+    .botoes-interacao {
+        flex-direction: row;
+        align-items: center;
+        min-height: 60px;
+        width: 100%;
+    }
+    
+    .icone-gostei, .icone-naogostei {
+        width: 30px;
+    }
+
+    .bloco-comentarios {
+        width: 100%;
+        height: auto;
+        max-height: 40vh;
+    }
+
+    .texto-comentario {
+        font-size: 120%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .foto-perfil {
+        width: 28px;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .tres-pontinhos {
+        gap: 3px;
+    }
+
+    .tres-pontinhos-ponto {
+        width: 3px;
+        height: 3px;
+    }
+}
