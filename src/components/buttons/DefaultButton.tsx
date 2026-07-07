@@ -1,5 +1,7 @@
 "use client";
 
+import { ReactElement } from "react";
+
 interface props {
     children?: ReactElement | string,
     type: string,
