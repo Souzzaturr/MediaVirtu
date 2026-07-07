@@ -23,7 +23,7 @@ const banco_posts = shitposts;
 
 
 export default function Home () {
-  useAvancaRetornaSessoes();
+  useAvancaRetornaSessoes(".bloco-shitpost");
 
   return <>
     { banco_posts.map((post: post, index) =>
