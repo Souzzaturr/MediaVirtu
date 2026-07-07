@@ -22,9 +22,15 @@
 .bloco-shitpost {
     display: grid;
     grid-template-columns: 68% 32%;
+    grid-template-rows: 100%;
     padding: 0;
+    max-height: 600px;
     height: calc(75vh + 1em);
     width: calc(68vw + 2em);
+    color: white;
+    border: 3px solid rgb(35, 35, 43);
+    background: #060124;
+    scroll-margin-top: 15vh;
 }
 
 

@@ -42,7 +42,7 @@ export default function Shitpost ({post}: props) {
 
     return <>        
         
-        <article id={ "post-" + post.codigo_post } className="bloco bloco-shitpost">
+        <article id={ "post-" + post.codigo_post } className="bloco-shitpost">
             
             <div className="corpo-shitpost">
 
