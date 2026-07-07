@@ -13,7 +13,7 @@ interface props {
 
 
 export default function DefaultButton ({children, type, style, disabled}: props) {
-    return <button type={type} className={style}>
+    return <button className={style}>
         {children}
     </button>
 }
