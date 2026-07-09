@@ -20,21 +20,21 @@ export function BarraNavegacaoDireita () {
 
             <BotaoPostar opcao = {"Postar"} imagem = {"/icones/menu_lateral_icons/icone-postar.png" } />
 
+            <Link id = "" className = "opcao-barra-lateral" href = "/user/mensagens" data-page = "" >
+                <div className="hover-opcao-color"></div>
+
+                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-mensagens.png" alt = "" width = "100%" />
+
+                <h3 className = "texto-opc-lateral goldman-bold" >Mensagens</h3>
+
+            </Link>
+
             <Link id = "" className = "opcao-barra-lateral" href = "/Excluir" data-page = "" >
                 <div className="hover-opcao-color"></div>
 
                 <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-excluir.svg" alt = "" width = "100%" />
 
                 <h3 className = "texto-opc-lateral goldman-bold" >Excluir</h3>
-
-            </Link>
-
-            <Link id = "" className = "opcao-barra-lateral" href = "/Denunciar" data-page = "" >
-                <div className="hover-opcao-color"></div>
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-denunciar.png" alt = "" width = "100%" />
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Denunciar</h3>
 
             </Link>
 
