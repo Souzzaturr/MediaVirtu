@@ -1,11 +1,10 @@
 "use client"
 
-import BotaoGostei from "./BotaoGostei";
-import BotaoNaoGostei from "./BotaoNaoGostei";
 import BotaoComentarios from "./BotaoComentarios";
 import MenuComentarios from "./MenuComentarios";
 import TresPontinhos from "../componentes_simples/TresPontinhos";
 import SimpleModal from "@/src/components/modal/SimpleModal";
+import DefaultText from "@/src/components/componentes_simples/DefaultText";
 
 import { comparaTempo } from "@/src/utils/tempo/comparaTempo";
 
@@ -69,9 +68,9 @@ export default function Shitpost ({post}: props) {
             
                 <section className="conteudo-shitpost">
                 
-                    <div className="texto-shitpost">                    
+                    <div>
                         { post.texto.length > 0 && post.texto.split("\n").map((linha: string, index) => 
-                            <p key = { index } >{ linha }</p>
+                            <DefaultText key = { index } classeAdicional="text-xs md:text-sm" >{ linha }</DefaultText>
                         )}                    
                     </div>
 
