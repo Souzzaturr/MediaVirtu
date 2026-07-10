@@ -21,7 +21,7 @@
     justify-content: space-around;
     position: relative;
     height: 88%;
-    width: 7%;
+    width: 6.5%;
     transition: width 0.4s;
     pointer-events: auto;
 }
