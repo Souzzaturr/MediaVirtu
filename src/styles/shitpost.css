@@ -190,19 +190,9 @@
     height: 50px;
 }
 
-.esconder-comentarios {
-    width: 0px;
-    height: 0px;
-    border: 0px;
-}
-
 .comentario {
     font-size: 80%;
     padding: 10px;
-}
-
-.sem-comentarios {
-    margin: 1.5em;
 }
 
 .enviar-comentario {
@@ -219,22 +209,13 @@
     cursor: pointer;
 }
 
-.esconder-comentarios .enviar-comentario, .esconder-comentarios .comentario, .esconder-comentarios p{
-    display: none;
-}
-
-
-
-
-/*altura bloco comentarios*/
-
 
 
 @media screen and (max-width: 800px) {
     .bloco-shitpost {
         grid-template-rows: auto auto auto;
         grid-template-columns: 1fr;
-        width: 88vw;
+        width: 95vw;
     }
 
     .painel-interacao-shitpost {
@@ -247,38 +228,5 @@
         align-items: center;
         min-height: 60px;
         width: 100%;
-    }
-    
-    .icone-gostei, .icone-naogostei {
-        width: 30px;
-    }
-
-    .bloco-comentarios {
-        width: 100%;
-        height: auto;
-        max-height: 40vh;
-    }
-
-    .texto-comentario {
-        font-size: 120%;
-    }
-}
-
-
-@media screen and (max-width: 600px) {
-    .foto-perfil {
-        width: 28px;
-    }
-}
-
-
-@media screen and (max-width: 550px) {
-    .tres-pontinhos {
-        gap: 3px;
-    }
-
-    .tres-pontinhos-ponto {
-        width: 3px;
-        height: 3px;
     }
 }
