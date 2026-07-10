@@ -2,9 +2,11 @@
 
 
 import { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 
 import { getReadmeMediaVirtu } from "@/src/utils/fetch/github";
 import { decodeBase64 } from "@/src/utils/base64";
+import { customRenderers } from "@/src/utils/markdownCustomRenderers";
 
 import adms_supremos from "./adms_supremos.json";
 import CardAdmSupremo from "./CardAdmSupremo";
@@ -30,7 +32,9 @@ export default function Sobre () {
         <h2 className = "titulo-sobre goldman-bold"> Sobre o MediaVirtu </h2>
 
         <div className = "texto-sobre">
-            { texto(descricao) }
+            <ReactMarkdown components={customRenderers} >
+                { descricao }
+            </ReactMarkdown>
         </div>
         
         <h3 className = "goldman-bold">Desenvolvedores:</h3>
@@ -46,5 +50,6 @@ export default function Sobre () {
 
 
 function texto (texto: string) {
-    return texto ? texto.split('\n').map((linha) => <p>{ linha }</p>) : '';
+    // return texto ? texto.split('\n').map((linha) => '<p>' + linha + '</p>') : '';
+    
 }
