@@ -6,8 +6,11 @@ import { BotaoPostar } from "@/src/components/barrasNavegacaoLateral/botoesBarra
 
 
 export function BarraNavegacaoDireita () {
+    const classe = "rgb-border-fade bg-black text-white ";
+
     return <>
-        <section id = "barra-direita" className = "rgb-border-fade bg-black text-white" >
+        <section id = "barra-direita" className = {classe} >
+            <button className = "botao-expandir-barra-lateral rgb-border-fade bg-black"  >{"<"}</button>
 
             <Link id = "" className = "opcao-barra-lateral" href = "/Perfis" data-page = "" >
                 <div className="hover-opcao-color"></div>

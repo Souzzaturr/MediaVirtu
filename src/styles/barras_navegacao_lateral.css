@@ -1,3 +1,8 @@
+/* ============================
+        Barras Laterais
+=============================== */
+
+
 #barras-navegacao-laterais {
     position: fixed;
     z-index: 1;
@@ -31,6 +36,36 @@
     border-radius: 40px 0 0 40px;
 }
 
+
+/* =============================
+    Botão expandir mobile
+=============================== */
+
+
+.botao-expandir-barra-lateral {
+    padding: 10px 8px;
+    position: absolute;
+    display: none;
+}
+
+#barra-esquerda .botao-expandir-barra-lateral {
+    border-radius: 0 100% 100% 0;
+    align-self: end;
+    margin-right: -29px;
+    border-left: 0;
+}
+
+#barra-direita .botao-expandir-barra-lateral {
+    border-radius: 100% 0 0 100%;
+    align-self: start;
+    margin-left: -29px;
+    border-right: 0;
+}
+
+
+/* =========================
+    Opções barras laterais
+=========================== */
 
 .opcao-barra-lateral {
     display: block;
@@ -88,18 +123,21 @@
 
 
 @media screen and (max-width: 600px) {
+    #barra-esquerda, #barra-direita {
+        width: 0;
+        margin-left: -4px;
+        margin-right: -4px;
+    }
+
+    .botao-expandir-barra-lateral {
+        display: flex;
+    }
+
     .texto-opc-lateral {
         display: none;
     }
-    
-    #barra-esquerda:hover, #barra-direita:hover {
-        width: 7%;
-    }
 
-}
-
-@media screen and (min-width: 1200px) {
-    #barra-esquerda, #barra-direita {
-        width: 85px;
+    .icon-barra-ltrl {
+        max-width: 50px;
     }
 }
