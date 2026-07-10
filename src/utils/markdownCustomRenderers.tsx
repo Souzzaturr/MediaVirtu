@@ -1,5 +1,7 @@
 import "react";
 
+import DefaultText from "@/src/components/componentes_simples/DefaultText";
+
 export const customRenderers = {
      // Customização de títulos
     h1: ({ ...props }) => (
@@ -14,7 +16,7 @@ export const customRenderers = {
     
     // Customização de parágrafos normais
     p: ({ ...props }) => (
-      <p className="text-base mb-2 leading-relaxed" {...props} />
+      <DefaultText classeAdicional="leading-relaxed" {...props} />
     ),
     
     // Customização de links
