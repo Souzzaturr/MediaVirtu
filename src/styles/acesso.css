@@ -58,3 +58,23 @@
 #imagem-botao-mudar-nome-email {
     pointer-events: none;
 }
+
+
+/* ============================
+            Select
+============================== */
+
+.select {
+    width: 400px;
+    height: 48px;
+    border: 3px solid white;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.select:hover {
+    background: white;
+    color: black;
+}
