@@ -29,7 +29,7 @@ export default function Sobre () {
 
     return <>
     <section className = "bloco bloco-sobre">
-        <h2 className = "titulo-sobre goldman-bold"> Sobre o MediaVirtu </h2>
+        <h2 className = "goldman-bold text-3xl"> Sobre o MediaVirtu </h2>
 
         <div className = "texto-sobre">
             <ReactMarkdown components={customRenderers} >
@@ -37,7 +37,7 @@ export default function Sobre () {
             </ReactMarkdown>
         </div>
         
-        <h3 className = "goldman-bold">Desenvolvedores:</h3>
+        <h2 className = "goldman-bold text-xl">Criadores:</h2>
 
         <div className = "cards-adms-supremos">
             { adms_supremos.map((adm) => <CardAdmSupremo key = { adm.nome } adm = { adm }/>) }
