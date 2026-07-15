@@ -78,3 +78,10 @@
     background: white;
     color: black;
 }
+
+@media screen and (max-width: 800px) {
+    .select {
+        width: 90%;
+        align-self: center;
+    }
+}
