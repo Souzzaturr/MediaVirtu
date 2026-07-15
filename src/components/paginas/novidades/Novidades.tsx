@@ -46,7 +46,7 @@ export default function Novidades() {
             <Select classeAdicional="self-end " onChange={changeOptionHandler} disable={!contentStatus.ok} >
                 {
                     !contentStatus.ok ? <option value="">{ contentStatus.loading ? "..." : "Error" }</option> :
-                    commits.map((commit) => (<option value={commit.commit.message}>{commit.commit.message.split("\n")[0]}</option>))
+                    commits.map((commit, index) => (<option value={commit.commit.message} key={index+"-option"} >{commit.commit.message.split("\n")[0]}</option>))
                 }
             </Select>
 
