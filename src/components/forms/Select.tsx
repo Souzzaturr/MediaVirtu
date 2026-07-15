@@ -2,7 +2,7 @@ import { ReactElement } from "react"
 
 
 interface props {
-    children?: ReactElement[],
+    children?: ReactElement[] | ReactElement,
     classeAdicional?: string | "",
     name?: string | "",
     id?: string | "",
