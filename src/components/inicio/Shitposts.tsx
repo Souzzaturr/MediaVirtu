@@ -70,7 +70,7 @@ export default function Shitpost ({post}: props) {
                 
                     <div>
                         { post.texto.length > 0 && post.texto.split("\n").map((linha: string, index) => 
-                            <DefaultText key = { index } classeAdicional="text-xs md:text-sm" >{ linha }</DefaultText>
+                            <DefaultText key = { index + "-" + post.codigo_post } classeAdicional="text-xs md:text-sm" >{ linha }</DefaultText>
                         )}                    
                     </div>
 
