@@ -79,6 +79,10 @@
     color: black;
 }
 
+.select option {
+    color: black;
+}
+
 @media screen and (max-width: 800px) {
     .select {
         width: 90%;
