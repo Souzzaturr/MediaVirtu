@@ -1,5 +1,6 @@
 .bloco {
     min-height: 40vh;
+    height: min-content;
     width: calc(68vw + 2em);
     overflow: hidden;
     word-wrap: break-word;
