@@ -123,6 +123,10 @@
     position: relative;
 }
 
+.membrana-container-hover .membrana {
+    display: none;
+}
+
 .membrana-container-hover:hover .membrana {
     display: block;
 }
