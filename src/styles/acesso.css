@@ -85,7 +85,6 @@
 
 @media screen and (max-width: 800px) {
     .select {
-        width: 90%;
-        align-self: center;
+        width: 85vw;
     }
 }
