@@ -2,8 +2,10 @@
 
 
 export async function getReadmeMediaVirtu() {
+    const url = process.env.GITHUB_API_REPOS_URL;
+
     try {
-        const requisicao = await fetch("https://api.github.com/repos/souzzaturr/MediaVirtu/readme");
+        const requisicao = await fetch(`${url}/readme`);
         const status = requisicao.status;
         
         return {status: status, body: await requisicao.json()};
