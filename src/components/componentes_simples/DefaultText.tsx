@@ -10,7 +10,7 @@ interface props {
 
 
 export default function DefaultText({children="", classeAdicional="", key="0"}: props) {
-    const classe = "text-xs md:text-sm " + classeAdicional;
+    const classe = "text-sm md:text-base " + classeAdicional;
 
     return <p className={classe} key={key} >
         {children}
