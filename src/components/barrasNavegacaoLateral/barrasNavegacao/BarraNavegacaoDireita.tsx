@@ -12,7 +12,7 @@ export function BarraNavegacaoDireita () {
         <section id = "barra-direita" className = {classe} >
             <button className = "botao-expandir-barra-lateral rgb-border-fade bg-black"  >{"<"}</button>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Perfis" data-page = "" >
+            <Link id = "" className = "opcao-barra-lateral" href = "/perfis" data-page = "" >
                 <div className="hover-opcao-color"></div>
 
                 <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-perfil.png" alt = "" width = "100%" />

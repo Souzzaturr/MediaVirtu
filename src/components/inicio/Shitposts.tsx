@@ -52,7 +52,7 @@ export default function Shitpost ({post}: props) {
                         <img src = { post.foto_perfil ? post.foto_perfil : "icones/MediaVirtu_icons/MediaVirtu_icon.png" } alt = "foto-perfil" className = "foto-perfil"/>
 
                         <div>
-                            <Link href={ "/Perfis/" + post.nome } className="link-branco">
+                            <Link href={ "/perfis/" + post.nome } className="link-branco">
                                 <h3 className="goldman-bold">{ post.nome }</h3>
                             </Link>
 

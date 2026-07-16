@@ -29,7 +29,7 @@ export default function Home () {
                     opcoesPesquisadas.length > 0 ?
                     opcoesPesquisadas.map((opcao) => 
                         <div className="bloco-opcao-ajuda">
-                                <Link className = "link-titulo-opcao-ajuda" href = { { pathname: "/Ajuda/Solucao", query: { ...opcao },} }>
+                                <Link className = "link-titulo-opcao-ajuda" href = { { pathname: "/ajuda/solucao", query: { ...opcao },} }>
                                     <h3 className="titulo_opcao">{ opcao.titulo.length > 50 ? opcao.titulo.slice(0, 50) + "...?" : opcao.titulo }</h3>
                                 </Link>     
 

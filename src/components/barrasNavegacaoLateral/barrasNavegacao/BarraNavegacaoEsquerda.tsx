@@ -17,7 +17,7 @@ export function BarraNavegacaoEsquerda () {
 
             </a>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Sobre" data-page = "" >
+            <Link id = "" className = "opcao-barra-lateral" href = "/sobre" data-page = "" >
                 <div className="hover-opcao-color"></div>
 
                 <h3 className = "texto-opc-lateral goldman-bold" >Sobre</h3>
@@ -26,7 +26,7 @@ export function BarraNavegacaoEsquerda () {
 
             </Link>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Novidades" data-page = "" >
+            <Link id = "" className = "opcao-barra-lateral" href = "/novidades" data-page = "" >
                 <div className="hover-opcao-color"></div>
 
                 <h3 className = "texto-opc-lateral goldman-bold" >Novidades</h3>
@@ -35,7 +35,7 @@ export function BarraNavegacaoEsquerda () {
 
             </Link>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Ajuda" data-page = "" >
+            <Link id = "" className = "opcao-barra-lateral" href = "/ajuda" data-page = "" >
                 <div className="hover-opcao-color"></div>
 
                 <h3 className = "texto-opc-lateral goldman-bold" >Ajuda</h3>
@@ -44,7 +44,7 @@ export function BarraNavegacaoEsquerda () {
 
             </Link>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Configuracoes" data-page = "" >
+            <Link id = "" className = "opcao-barra-lateral" href = "/configuracoes" data-page = "" >
                 <div className="hover-opcao-color"></div>
 
                 <h3 className = "texto-opc-lateral goldman-bold" >Configurações</h3>

@@ -26,7 +26,7 @@ function SolucaoConteudo() {
 
             )}
 
-            <Link id="botao-voltar-solucao" href="/Ajuda">
+            <Link id="botao-voltar-solucao" href="/ajuda">
                 <p className="goldman-bold">Voltar</p>
             </Link>
             

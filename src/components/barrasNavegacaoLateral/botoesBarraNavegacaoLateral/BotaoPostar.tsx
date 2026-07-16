@@ -35,7 +35,7 @@ export function BotaoPostar({ opcao, imagem }: props) {
 
             fecharPopup();
 
-            router.push("/Acesso/Cadastro");
+            router.push("/acesso/cadastro");
 
             return;
         }

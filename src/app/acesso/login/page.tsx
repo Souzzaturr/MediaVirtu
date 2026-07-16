@@ -120,7 +120,7 @@ export default function Home () {
                 <img src="/icones/MediaVirtu_icons/MediaVirtu_icon.png" alt="" width = "100%" />
             </div>
 
-            <Link href = "/Acesso/Cadastro">Novo por aqui?</Link>
+            <Link className="link transition-colors" href = "/acesso/cadastro">Novo por aqui?</Link>
         </div>
     </>
 }
