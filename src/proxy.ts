@@ -28,9 +28,9 @@ export async function proxy ( request: NextRequest ) {
 
     // Rota pública, porém, sem argumentos, o valor padrão se torna o nome do usuário se ele estiver autenticado (Se não estiver autenticado e não especificar um parâmetro de rota, será enviado de volta para o início);
     if (CURRENT_PATH === "/Perfis") {
-        if (user) return NextResponse.redirect(new URL('/Perfis/' + await buscaNomePorId(user.id), request.url));
+        if (user) return NextResponse.redirect(new URL('/perfis/' + await buscaNomePorId(user.id), request.url));
 
-        return NextResponse.redirect(new URL('/Acesso/Cadastro', request.url));
+        return NextResponse.redirect(new URL('/acesso/cadastro', request.url));
     }
 
 
