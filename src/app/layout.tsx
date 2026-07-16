@@ -5,7 +5,8 @@ import "../styles/barras_navegacao_lateral.css";
 import "../styles/blocos.css";
 import "../styles/linha_divisora.css";
 import "../styles/shitpost.css";
-import "@/src/styles/acesso.css";
+import "@/src/styles/buttons.css";
+import "@/src/styles/form.css";
 import "@/src/styles/popups.css";
 
 import { createClient } from "@/src/lib/supabase/server";
