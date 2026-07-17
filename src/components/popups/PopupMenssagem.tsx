@@ -34,8 +34,8 @@ export default function PopupMenssagem () {
 
 
     return <>
-        <div id="fundo-popup" className = { show ? "" : "hide"} onClick = { clickOutPopup }>
-            <div id="corpo-popup" className = "rgb-border-fade">
+        <div id="fundo-popup" className = { "fundo-popup" + (show ? "" : "hide") } onClick = { clickOutPopup }>
+            <div id="corpo-popup" className = "corpo-popup rgb-border-fade">
                 <h3 className = "goldman-regular">{ titulo }</h3>
 
                 { menssagem.split("\n").map((linha: string) => <p>{ linha }</p>) }

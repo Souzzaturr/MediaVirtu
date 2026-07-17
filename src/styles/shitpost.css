@@ -91,28 +91,6 @@
 
 
 
-/* =================================
-    três pontinhos
-==================================== */
-
-.tres-pontinhos {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    align-items: center;
-    width: 40px;
-    height: min-content;
-}
-
-.tres-pontinhos-ponto {
-    width: 5px;
-    height: 5px;
-    background: white;
-}
-
-
-
-
 /* =========================================
     Imagens do post
 ============================================ */
