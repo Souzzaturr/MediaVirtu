@@ -129,6 +129,7 @@
 
 .membrana-container-hover:hover .membrana {
     display: block;
+    pointer-events: none;
 }
 
 
@@ -141,8 +142,10 @@
     flex-direction: column;
     gap: 6px;
     align-items: center;
+    justify-content: center;
     width: 40px;
-    height: min-content;
+    height: 40px;
+    cursor: pointer;
 }
 
 .tres-pontinhos-ponto {
