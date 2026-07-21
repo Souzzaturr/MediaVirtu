@@ -153,3 +153,27 @@
     height: 5px;
     background: white;
 }
+
+.tres-pontinhos-popup {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: 5px;
+    margin-top: 23px;
+    margin-right: 20px;
+    z-index: 1;
+    min-width: 60px;
+    width: min-content;
+    max-width: 200px;
+    min-height: 30px;
+    height: min-content;
+    background: black;
+    border: 4px solid #0a0046;
+    border-radius: 5px;
+}
+
+.tres-pontinhos-option {
+    text-wrap: nowrap;
+    cursor: pointer;
+    margin: 5px;
+}
