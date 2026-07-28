@@ -159,16 +159,16 @@
     flex-direction: column;
     position: absolute;
     padding: 5px;
-    margin-top: 23px;
-    margin-right: 20px;
+    margin: 20px;
     z-index: 1;
     min-width: 60px;
-    width: min-content;
-    max-width: 200px;
+    max-width: 300px;
     min-height: 30px;
+    max-height: 300px;
     height: min-content;
+    overflow-y: scroll;
     background: black;
-    border: 4px solid #0a0046;
+    border: 3px solid #0a0046;
     border-radius: 5px;
 }
 
