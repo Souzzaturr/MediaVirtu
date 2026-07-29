@@ -19,10 +19,16 @@ export default function TresPontinhos ({classeAdicional="", options=[]}: props) 
     const [ showOptions, setShowOptions ] = useState(false);
     const [ proximoTelaFimX, setProximoTelaFimX ] = useState(false);
     const [ proximoTelaFimY, setProximoTelaFimY ] = useState(false);
+    const componentRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
-        if (!showOptions) {
-            return;
+        if (!showOptions) return;
+
+        if (componentRef.current) {
+            const posicaoComponente = componentRef.current.getBoundingClientRect();
+
+            setProximoTelaFimX(posicaoComponente.left < 310);
+            setProximoTelaFimY(window.innerHeight - posicaoComponente.top < 210);
         }
 
         function detectClickOutsideTresPontinhosPopup(e: any) {
@@ -30,7 +36,7 @@ export default function TresPontinhos ({classeAdicional="", options=[]}: props) 
                 setShowOptions(false);
             }
         }
-
+        
         document.addEventListener("click", detectClickOutsideTresPontinhosPopup);
 
         return () => {
@@ -48,7 +54,7 @@ export default function TresPontinhos ({classeAdicional="", options=[]}: props) 
     return <>
         <Membrana hover classeAdicional={classeAdicional} >
             <div className={"relative " + popupPosicionamento} >
-                <button className = "tres-pontinhos" onClick={handleOptions} >
+                <button ref = {componentRef} className = "tres-pontinhos" onClick={handleOptions} >
                     <div className = "tres-pontinhos-ponto"></div>
                     <div className = "tres-pontinhos-ponto"></div>
                     <div className = "tres-pontinhos-ponto"></div>

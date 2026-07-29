@@ -167,6 +167,7 @@
     max-height: 300px;
     height: min-content;
     overflow-y: scroll;
+    overflow-x: hidden;
     background: black;
     border: 3px solid #0a0046;
     border-radius: 5px;
