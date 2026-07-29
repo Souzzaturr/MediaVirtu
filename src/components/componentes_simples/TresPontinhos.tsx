@@ -45,7 +45,9 @@ export default function TresPontinhos ({classeAdicional="", options=[]}: props) 
         
     }, [showOptions])
 
-    const popupPosicionamento = `flex flex-col${proximoTelaFimY ? "-reverse" : ""} items-${proximoTelaFimX ? "end" : "start"}`;
+    const posicaoVertical = proximoTelaFimY ? "flex-col-reverse" : "flex-col";
+    const posicaoHorizontal = proximoTelaFimX ? "items-end" : "items-start";
+    const popupPosicionamento = `flex ${posicaoVertical} ${posicaoHorizontal}`;
 
     function handleOptions() {
         setShowOptions(prev => !prev)
