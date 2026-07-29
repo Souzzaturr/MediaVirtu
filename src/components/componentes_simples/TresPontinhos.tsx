@@ -12,7 +12,7 @@ interface props {
             optionName: string | "",
             optionFunction: () => void
         }[] | []
-}
+    }
 
 
 export default function TresPontinhos ({classeAdicional="", options=[]}: props) {
@@ -21,15 +21,12 @@ export default function TresPontinhos ({classeAdicional="", options=[]}: props) 
     const [ proximoTelaFimY, setProximoTelaFimY ] = useState(false);
     const componentRef = useRef<HTMLButtonElement>(null);
 
+    const posicaoVertical = proximoTelaFimY ? "flex-col-reverse" : "flex-col";
+    const posicaoHorizontal = proximoTelaFimX ? "items-end" : "items-start";
+    const popupPosicionamento = `flex ${posicaoVertical} ${posicaoHorizontal}`;
+    
     useEffect(() => {
         if (!showOptions) return;
-
-        if (componentRef.current) {
-            const posicaoComponente = componentRef.current.getBoundingClientRect();
-
-            setProximoTelaFimX(posicaoComponente.left < 310);
-            setProximoTelaFimY(window.innerHeight - posicaoComponente.top < 210);
-        }
 
         function detectClickOutsideTresPontinhosPopup(e: any) {
             if (e.target.className !== "tres-pontinhos-popup" && !e.target.closest(".tres-pontinhos-popup")) {
@@ -44,12 +41,14 @@ export default function TresPontinhos ({classeAdicional="", options=[]}: props) 
         }
         
     }, [showOptions])
-
-    const posicaoVertical = proximoTelaFimY ? "flex-col-reverse" : "flex-col";
-    const posicaoHorizontal = proximoTelaFimX ? "items-end" : "items-start";
-    const popupPosicionamento = `flex ${posicaoVertical} ${posicaoHorizontal}`;
-
+    
     function handleOptions() {
+        if (componentRef.current) {
+            const posicaoComponente = componentRef.current.getBoundingClientRect();
+            setProximoTelaFimX(window.innerWidth - posicaoComponente.left < 300);
+            setProximoTelaFimY(window.innerHeight - posicaoComponente.top < 210);
+        }
+        
         setShowOptions(prev => !prev)
     }
 
