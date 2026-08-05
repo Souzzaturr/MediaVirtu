@@ -6,14 +6,21 @@ interface textAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     placeholder?: string,
     onChange?: (() => void) | ((e: any) => void),
     autoResize?: boolean,
+    resize?: boolean,
     maxLines?: number,
     ref?: any
 }
 
 
-export default function TextArea({value="", className="", placeholder="", onChange, autoResize=true, maxLines, ref, ...props}: textAreaProps) {
+export default function TextArea({value="", className="", placeholder="", onChange, autoResize=true, resize=true, maxLines, ref, ...props}: textAreaProps) {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const classe = "textarea " + className;
+
+    useEffect(() => {
+        if (!resize && textAreaRef.current) {
+            textAreaRef.current.style.resize = "none";
+        }
+    }, [resize])
 
     useEffect(() => {
         if (textAreaRef.current && maxLines) {
