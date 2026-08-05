@@ -1,4 +1,4 @@
-import { useRef, useEffect, TextareaHTMLAttributes } from 'react';
+import React, { useRef, useEffect, TextareaHTMLAttributes, ReactNode } from 'react';
 
 
 interface textAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -7,10 +7,11 @@ interface textAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     onChange?: (() => void) | ((e: any) => void),
     autoResize?: boolean,
     maxLines?: number,
+    ref?: any
 }
 
 
-export default function TextArea({value="", placeholder="", onChange, autoResize=true, maxLines, ...props}: textAreaProps) {
+export default function TextArea({value="", placeholder="", onChange, autoResize=true, maxLines, ref, ...props}: textAreaProps) {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const classe = "textarea " + props.className;
 
@@ -33,8 +34,16 @@ export default function TextArea({value="", placeholder="", onChange, autoResize
         }
 
     }, [value])
+
+    function multipleRef(node: HTMLTextAreaElement | null) {
+        textAreaRef.current = node;
+
+        if (ref) {
+            ref.current = node;
+        }
+    }
  
     return <>
-        <textarea ref={textAreaRef} className={classe} value={value} placeholder={placeholder} onChange={onChange} {...props} ></textarea>
+        <textarea ref={(node) => multipleRef(node)} className={classe} value={value} placeholder={placeholder} onChange={onChange} {...props} ></textarea>
     </>
 }
