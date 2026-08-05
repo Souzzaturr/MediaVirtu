@@ -1,19 +1,18 @@
 "use client";
 
-import { ReactElement } from "react";
+import { ButtonHTMLAttributes, ReactElement } from "react";
 
-interface props {
+interface defaultButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactElement | string,
-    type: string,
-    style: "default" | "danger" | "disable",
     disabled?: boolean,
-    onClickAction?: () => void,
-    onBlurAction?: () => void,
+    ref?: any,
 }
 
 
-export default function DefaultButton ({children, type, style, disabled}: props) {
-    return <button className={style}>
+export default function DefaultButton ({children, className="", disabled, ref, ...props}: defaultButtonProps) {
+    const classe = "botao-fundo-transparente " + className;
+    
+    return <button ref={ref} className={classe} {...props} >
         {children}
     </button>
 }
