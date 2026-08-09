@@ -24,7 +24,10 @@ interface props {
 export default function MenuComentarios ({codigo_post, classeAdicional}: props) {
     const [showTextAreaComentar, setShowTextAreaComentar] = useState(false);
     const [textareaCommentValue, setTextareaCommentValue] = useState("");
+    const [showSendComment, setShowSendComment] = useState(false);
+    const [cursorInSendComment, setCursorInSendComment] = useState(false);
     const textareaComentarRef = useRef<HTMLTextAreaElement>(null);
+    const botaoEnviarComentarioRef = useRef<HTMLButtonElement>(null);
     const classe = "bloco-comentarios" + " " + classeAdicional;
 
     const lista_comentarios = banco_comentarios.filter((comentario: comentario) =>
@@ -32,7 +35,11 @@ export default function MenuComentarios ({codigo_post, classeAdicional}: props) 
     )
 
     useEffect(() => {
-        if (!showTextAreaComentar || !textareaComentarRef.current) return;
+        setShowSendComment(textareaCommentValue.length > 0);
+    }, [textareaCommentValue])
+
+    useEffect(() => {
+        if (!showTextAreaComentar || !textareaComentarRef.current || !botaoEnviarComentarioRef.current) return;
 
         const textarea = textareaComentarRef.current;
 
@@ -68,9 +75,14 @@ export default function MenuComentarios ({codigo_post, classeAdicional}: props) 
                 }
             </div>
 
-            <div className = "absolute self-center bottom-[3px] w-[90%] overflow-y-hidden rounded-[10px]">
+            <div className = "absolute self-center bottom-[3px] w-[90%] overflow-hidden rounded-[10px]">
                 <div className="regular flex justify-center" >
                     <TextArea ref={textareaComentarRef} className="textareaComentar" value={textareaCommentValue} resize={false} onChange={(e) => setTextareaCommentValue(e.target.value)} maxLines={5} ></TextArea>
+
+                    <DefaultButton 
+                    ref={botaoEnviarComentarioRef} className={"absolute !min-w-[40px] !min-h-[40px] bottom-2 transition-[right] duration-300 " + (showSendComment ? "right-[6px]" : "right-[-50px]")} onMouseEnter={() => setCursorInSendComment(true)} onMouseLeave={() => setCursorInSendComment(false)} >
+                        <img className="max-w-[30px] pointer-events-none" src={"icones/envio/icon-send-60px-" + (cursorInSendComment ? "black" : "white") + ".png"} alt="" />
+                    </DefaultButton>
 
                     <DefaultButton className={"absolute goldman-bold self-center !w-[100%] h-[58px] !bg-black hover:!bg-white active:!bg-gray-300 transition-[bottom] duration-300 " + (showTextAreaComentar ? "bottom-[-60px]" : "bottom-[0px]")} onClick={() =>setShowTextAreaComentar(true)} >Escreva um comentário:</DefaultButton>
                 </div>
