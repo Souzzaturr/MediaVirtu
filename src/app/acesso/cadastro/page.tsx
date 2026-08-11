@@ -2,6 +2,7 @@
 
 // Importa componentes
 import { CampoFormulario } from "@/src/components/forms/CampoFormulario";
+import DefaultButton from "@/src/components/buttons/DefaultButton";
 
 // importa hooks
 import { useControllerCadastro } from "@/src/hooks/useContollerCadastro";
@@ -95,11 +96,11 @@ export default function Home () {
                             />
 
                     <div className="botoes-formulario-acesso">                        
-                        <button type = "button" className = "botao-fundo-transparente" onClick = {() => setShowPassword(!showPassword) }>{ showPassword ? "Esconder" : "Exibir" } senha</button>
+                        <DefaultButton type = "button" onClick = {() => setShowPassword(!showPassword) }>{ showPassword ? "Esconder senha" : "Exibir senha" }</DefaultButton>
                     
-                        <button type = "reset" className = "botao-fundo-transparente" onClick = { limparDadosForm }>Limpar</button>
+                        <DefaultButton type = "reset" onClick = { limparDadosForm }>Limpar</DefaultButton>
 
-                        <button type = "submit" className = "botao-fundo-transparente" onClick = { enviarDadosForm } disabled = { isPending } >Cadastrar-se</button>
+                        <DefaultButton type = "submit" onClick = { enviarDadosForm } disabled = { isPending } >Cadastrar-se</DefaultButton>
                     </div>
                 </form>
 
