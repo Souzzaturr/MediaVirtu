@@ -39,17 +39,11 @@ export default function Sobre () {
         
         <h2 className = "goldman-bold text-xl">Criadores:</h2>
 
-        <div className = "cards-adms-supremos">
+        <div className = "flex flex-wrap gap-16 justify-center">
             { adms_supremos.map((adm) => <CardAdmSupremo key = { adm.nome } adm = { adm }/>) }
         </div>
 
         <h4 className = "goldman-regular">©MediaVirtu Todos os Direitos Reservados</h4>
     </section>
     </>
-}
-
-
-function texto (texto: string) {
-    // return texto ? texto.split('\n').map((linha) => '<p>' + linha + '</p>') : '';
-    
 }
