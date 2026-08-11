@@ -2,7 +2,7 @@
         Botao com fundo transparente (default)
 =================================================== */
 
-.botao-fundo-transparente {
+.botao-fundo-transparente, .botao-fundo-transparente-danger, .botao-fundo-transparente-sucess {
     min-height: 40px;
     min-width: 100px;
     padding: 5px;
@@ -19,8 +19,41 @@
 }
 
 .botao-fundo-transparente:active {
-    background: rgb(204, 204, 204);
-    border-color: rgb(204, 204, 204);
+    background: rgb(200, 200, 200);
+    border-color: rgb(200, 200, 200);
+}
+
+.botao-fundo-transparente-danger {
+    border-color: red;
+    background: rgba(50, 0, 0, 0.349);
+    color: red;
+}
+
+.botao-fundo-transparente-danger:hover {
+    background: red;
+    color: white;
+}
+
+.botao-fundo-transparente-danger:active {
+    background: rgb(200, 0, 0);
+    border-color: rgb(200, 0, 0);
+}
+
+.botao-fundo-transparente-sucess {
+    border-color: rgb(0, 255, 0);
+    background: rgba(0, 50, 0, 0.349);
+    color: rgb(0, 255, 0);
+
+}
+
+.botao-fundo-transparente-sucess:hover {
+    background: rgb(0, 255, 0);
+    color: white;
+}
+
+.botao-fundo-transparente-sucess:active {
+    background: rgb(0, 200, 0);
+    border-color: rgb(0, 200, 0);
 }
 
 
