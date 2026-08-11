@@ -3,6 +3,8 @@
 
 import banco_comentarios from "@/src/data/comentarios.json";
 
+import { onlyThisCharInString } from "@/src/utils/string/stringContent";
+
 import TextArea from "@/src/components/forms/TextArea";
 import DefaultButton from "@/src/components/buttons/DefaultButton";
 
@@ -35,7 +37,7 @@ export default function MenuComentarios ({codigo_post, classeAdicional}: props) 
     )
 
     useEffect(() => {
-        setShowSendComment(textareaCommentValue.length > 0);
+        setShowSendComment(textareaCommentValue.length > 0 && !onlyThisCharInString(textareaCommentValue, ["\n", " "]));
     }, [textareaCommentValue])
 
     useEffect(() => {
