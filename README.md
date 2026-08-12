@@ -19,4 +19,4 @@ Atualmente, o código-fonte do MediaVirtu está salvo no GitHub, disponível [ne
 
 ### Preview
 
-![Tela inicial do MediaVirtu](/public/pictures/preview.png)
+![Tela inicial do MediaVirtu](/public/pictures/preview.jpg)
