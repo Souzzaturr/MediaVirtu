@@ -15,3 +15,8 @@ Esse site iniciou como um projeto acadêmico criado pelos alunos [Artur da Silva
 ### Atualmente
 
 Atualmente, o código-fonte do MediaVirtu está salvo no GitHub, disponível [neste repositório](https://github.com/Souzzaturr/MediaVirtu). O projeto segue sendo gerido e constantemente evoluído pelo desenvolvedor e criador [Artur da Silva Souza](https://ifpb.github.io/projects/people/202514320010/).
+
+
+### Preview
+
+![Tela inicial do MediaVirtu](/public/pictures/preview.png)
