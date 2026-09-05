@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { PopupShitpost } from "../components/popups/PopupShitpost";
+import React, { ExoticComponent, FragmentProps } from "react";
 
 
 interface PopupMenssagem {
@@ -28,11 +28,18 @@ interface PopupShitpost {
 }
 
 
+interface Modal {
+    show: boolean,
+    children: React.ReactNode
+}
+
+
 interface PopupState {
     // Estado
     popupMensagem: PopupMenssagem;
     popupPostForm: PopupPostForm;
     popupShitpost: PopupShitpost;
+    modal: Modal;
     // Ações
     setPopupMenssagem: (novaMenssagem: Partial<PopupMenssagem>) => void;
     closePopupMenssagem: () => void;
@@ -43,6 +50,9 @@ interface PopupState {
     setPopupShitpost: (shitpost: Partial<PopupShitpost>) => void;
     openPopupShitpost: () => void;
     closePopupShitpost: () => void;
+
+    setModal: (children: React.ReactNode) => void;
+    closeModal: () => void;
 }
 
 
@@ -71,6 +81,11 @@ export const usePopupStore = create<PopupState>((set) => ({
             name: "",
             avatar: ""
         }
+    },
+
+    modal: {
+        show: true,
+        children: null
     },
 
     // Ação: Define uma nova mensagem (faz merge com o que já existe)
@@ -110,5 +125,13 @@ export const usePopupStore = create<PopupState>((set) => ({
     closePopupShitpost: () =>
         set((state) => ({
             popupShitpost: { ...state.popupShitpost, show: false }
-        }))
+        })),
+
+    setModal: (children: React.ReactNode) => set((state) => ({
+        modal: {children: children, show: true}
+    })),
+
+    closeModal: () => set((state) => ({
+        modal: { show: false, children: null }
+    }))
 }));

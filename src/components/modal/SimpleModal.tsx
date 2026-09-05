@@ -1,11 +1,11 @@
 "use client"
 
-import { ReactElement } from "react";
+import React from "react";
 
 import ButtonCloseX from "@/src/components/buttons/ButtonCloseX";
 
 interface props {
-    children: ReactElement,
+    children: React.ReactNode,
     id?: string | "",
     classeAdicional?: string | "",
     classeAdicionalBotaoX?: string | "",
