@@ -28,6 +28,14 @@
 }
 
 
+@media screen and (max-width: 400px) {
+    .corpo-modal {
+        min-width: 80vw;
+        width: 80vw;
+    }
+}
+
+
 /* ==============================
             Pop-ups
 ================================ */
