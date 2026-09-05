@@ -15,7 +15,7 @@ interface props {
 
 
 export default function SimpleModal({children, id, classeAdicional, classeAdicionalBotaoX, classeAdicionalFundo, closeModalFunction}: props) {
-    const classe = "corpo-modal" + " " + classeAdicional;
+    const classe = "corpo-modal rgb-border-fade " + " " + classeAdicional;
     const classeFundo = "fundo-modal" + " " + classeAdicionalFundo;
 
     const clickOnFundo = (e: any) => {
