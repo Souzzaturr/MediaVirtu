@@ -84,7 +84,7 @@ export const usePopupStore = create<PopupState>((set) => ({
     },
 
     modal: {
-        show: true,
+        show: false,
         children: null
     },
 
