@@ -82,8 +82,8 @@ export default function MenuComentarios ({codigo_post, classeAdicional}: props) 
                     <TextArea ref={textareaComentarRef} className="textareaComentar" value={textareaCommentValue} resize={false} onChange={(e) => setTextareaCommentValue(e.target.value)} maxLines={5} ></TextArea>
 
                     <DefaultButton 
-                    ref={botaoEnviarComentarioRef} className={"absolute !min-w-[40px] !min-h-[40px] bottom-2 transition-[right] duration-300 " + (showSendComment ? "right-[6px]" : "right-[-50px]")} onMouseEnter={() => setCursorInSendComment(true)} onMouseLeave={() => setCursorInSendComment(false)} >
-                        <img className="max-w-[30px] pointer-events-none" src={"icones/envio/icon-send-60px-" + (cursorInSendComment ? "black" : "white") + ".png"} alt="" />
+                    ref={botaoEnviarComentarioRef} className={"absolute !min-w-[40px] !min-h-[40px] bottom-2 !bg-white hover:!bg-gray-300 hover:!border-gray-300 transition-[right] duration-300 " + (showSendComment ? "right-[6px]" : "right-[-50px]")} onMouseEnter={() => setCursorInSendComment(true)} onMouseLeave={() => setCursorInSendComment(false)} >
+                        <img className="max-w-[30px] pointer-events-none" src="icones/envio/icon-send-60px-black.png" alt="" />
                     </DefaultButton>
 
                     <DefaultButton className={"absolute goldman-bold self-center !w-[100%] h-[58px] !bg-black hover:!bg-white active:!bg-gray-300 transition-[bottom] duration-300 " + (showTextAreaComentar ? "bottom-[-60px]" : "bottom-[0px]")} onClick={() =>setShowTextAreaComentar(true)} >Escreva um comentário:</DefaultButton>
