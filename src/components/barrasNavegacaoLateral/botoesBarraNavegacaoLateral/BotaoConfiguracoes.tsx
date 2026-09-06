@@ -8,7 +8,7 @@ export default function BotaoConfiguracoes() {
     const setMenssagem = usePopupStore((state) => state.setPopupMenssagem);
 
     function showMessage() {
-        setMenssagem({titulo: "Funcionalidade não implementada", menssagem: "Ainda não implementamos essa funcionalidade. \nAssim que possível atualizaremos isso!"});
+        setMenssagem({titulo: "Funcionalidade não implementada", menssagem: "Essa funcionalidade ainda não foi implementada :( \nAssim que possível isso será atualizado!"});
     }
 
     // trocar tag button por tag Link do next/Link e adicionar endereçamento para nova página
