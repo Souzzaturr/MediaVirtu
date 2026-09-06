@@ -5,16 +5,16 @@ import React, { ExoticComponent, FragmentProps } from "react";
 interface PopupMenssagem {
     titulo: string;
     menssagem: string;
-    show: boolean;
+    show?: boolean;
 }
 
 interface PopupPostForm {
-    show: boolean;
+    show?: boolean;
 };
 
 
 interface PopupShitpost {
-    show: boolean,
+    show?: boolean,
     id: string,
     autor_id: string,
     description: string,
