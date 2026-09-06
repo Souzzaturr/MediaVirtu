@@ -3,6 +3,8 @@
 import { usePopupStore } from "@/src/store/usePopupStore";
 import { useAuthStore } from "@/src/store/useAuthStore";
 
+import MensagemSimplesFormModal from "@/src/components/modal/modelos_de_conteudo/MensagemSimplesFormModal";
+
 import { useRouter } from "next/navigation";
 
 import DefaultButton from "@/src/components/buttons/DefaultButton";
@@ -37,18 +39,15 @@ export function BotaoPostar({ opcao, imagem }: props) {
         } else if (!user) {
 
             abrirModal(
-                <article className="flex flex-col gap-5 w-[400px] max-w-[100%] text-center text-white text-wrap">
-                    <h1 className="goldman-bold text-2xl" >Conta necessária</h1>
-                    <p>Você precisa de uma conta para poder realizar uma postagem!</p>
-                    <p>Deseja ir para a página de cadastro?</p>
-                    <div className="flex flex-wrap gap-3 justify-center">
-                        <DefaultButton onClick={fecharModal} >Não</DefaultButton>
-                        <DefaultButton onClick={() => {
-                            router.push("/acesso/cadastro");
-                            fecharModal();
-                        }} >Sim</DefaultButton>
-                    </div>
-                </article>
+                <MensagemSimplesFormModal titulo="Conta necessária"
+                    mensagem={`Você precisa de uma conta para poder realizar uma postagem!
+                        Deseja ir para a página de cadastro?`}
+                    simFunction={() => {
+                        router.push("/acesso/cadastro");
+                        fecharModal();
+                    }}
+                    naoFunction={fecharModal}
+                />
             );
 
             return;
