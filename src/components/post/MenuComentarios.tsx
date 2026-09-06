@@ -10,6 +10,7 @@ import { useAuthStore } from "@/src/store/useAuthStore";
 
 import TextArea from "@/src/components/forms/TextArea";
 import DefaultButton from "@/src/components/buttons/DefaultButton";
+import MensagemSimplesFormModal from "@/src/components/modal/modelos_de_conteudo/MensagemSimplesFormModal";
 
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -31,7 +32,6 @@ export default function MenuComentarios ({codigo_post, classeAdicional}: props) 
     const [showTextAreaComentar, setShowTextAreaComentar] = useState(false);
     const [textareaCommentValue, setTextareaCommentValue] = useState("");
     const [showSendComment, setShowSendComment] = useState(false);
-    const [cursorInSendComment, setCursorInSendComment] = useState(false);
     const textareaComentarRef = useRef<HTMLTextAreaElement>(null);
     const botaoEnviarComentarioRef = useRef<HTMLButtonElement>(null);
     const router = useRouter();
@@ -74,19 +74,16 @@ export default function MenuComentarios ({codigo_post, classeAdicional}: props) 
     function sendComment() {
         if (!user) {
             setModal(
-                <article className="flex flex-col gap-5 w-[400px] max-w-[100%] text-center text-white">
-                    <h1 className="goldman-bold text-2xl" >Conta necessária</h1>
-                    <p>Você precisa de uma conta para poder comentar em um post!</p>
-                    <p>Deseja ir para a página de cadastro?</p>
-                    <div className="flex flex-wrap gap-3 justify-center">
-                        <DefaultButton onClick={fecharModal} >Não</DefaultButton>
-                        <DefaultButton onClick={() => {
-                            router.push("/acesso/cadastro");
-                            fecharModal();
-                        }} >Sim</DefaultButton>
-                    </div>
-                </article>
-            );
+                <MensagemSimplesFormModal titulo="Conta necessária"
+                    mensagem={`Você precisa de uma conta para poder comentar em um post!
+                    Deseja ir para a página de cadastro?`}
+                    simFunction={() => {
+                        router.push("/acesso/cadastro");
+                        fecharModal();
+                    }}
+                    naoFunction={fecharModal}
+                 />
+            )
         }
     }
 
@@ -109,7 +106,7 @@ export default function MenuComentarios ({codigo_post, classeAdicional}: props) 
                     <TextArea ref={textareaComentarRef} className="textareaComentar" value={textareaCommentValue} resize={false} onChange={(e) => setTextareaCommentValue(e.target.value)} maxLines={5} ></TextArea>
 
                     <DefaultButton 
-                    ref={botaoEnviarComentarioRef} className={"absolute !min-w-[40px] !min-h-[40px] bottom-2 !bg-white hover:!bg-gray-300 hover:!border-gray-300 transition-[right] duration-300 " + (showSendComment ? "right-[6px]" : "right-[-50px]")} onClick={sendComment} onMouseEnter={() => setCursorInSendComment(true)} onMouseLeave={() => setCursorInSendComment(false)} >
+                    ref={botaoEnviarComentarioRef} className={"absolute !min-w-[40px] !min-h-[40px] bottom-2 !bg-white hover:!bg-gray-300 hover:!border-gray-300 transition-[right] duration-300 " + (showSendComment ? "right-[6px]" : "right-[-50px]")} onClick={sendComment} >
                         <img className="max-w-[30px] pointer-events-none" src="icones/envio/icon-send-60px-black.png" alt="" />
                     </DefaultButton>
 
