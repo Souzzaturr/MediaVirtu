@@ -93,7 +93,7 @@ export default function Shitpost ({post}: props) {
 
                 {modalComentariosOpen && 
                     <SimpleModal id={"modal-" + post.codigo_post} classeAdicionalFundo="hideOnDesktop notApplyAvancaRetornaSessoesEvent" closeModalFunction={closeComentariosModal} >
-                        <MenuComentarios classeAdicional="!w-[90vw] !h-[88dvh] max-w-[100%]" codigo_post={ post.codigo_post } />
+                        <MenuComentarios classeAdicional="!w-[90vw] !h-[580px] max-w-[100%]" codigo_post={ post.codigo_post } />
                     </SimpleModal>
                 }
             
