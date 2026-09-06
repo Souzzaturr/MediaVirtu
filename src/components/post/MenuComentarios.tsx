@@ -64,7 +64,7 @@ export default function MenuComentarios ({codigo_post, classeAdicional}: props) 
     }, [showTextAreaComentar])
 
     return <>
-        <section id = { "bloco-comentarios" + codigo_post } className = {classe}>
+        <section id = { "bloco-comentarios " + codigo_post } className = {classe}>
             <div className="flex flex-col overflow-y-scroll h-[100%]" >
                 { lista_comentarios.length === 0 ?
                     <p className = "sem-comentarios self-center ">Ninguem comentou nada ainda...</p> :
