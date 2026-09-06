@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { BotaoSair } from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoSair";
 import { BotaoPostar } from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoPostar";
+import BotaoPerfil from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoPerfil";
 
 
 export function BarraNavegacaoDireita () {
@@ -12,14 +13,8 @@ export function BarraNavegacaoDireita () {
         <section id = "barra-direita" className = {classe} >
             <button className = "botao-expandir-barra-lateral rgb-border-fade bg-black"  >{"<"}</button>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/perfis" data-page = "" >
-                <div className="hover-opcao-color"></div>
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-perfil.png" alt = "" width = "100%" />
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Meu Perfil</h3>
-
-            </Link>
+            {/* <BotaoPerfil /> */}
+            <BotaoPerfil />
 
             <BotaoPostar opcao = {"Postar"} imagem = {"/icones/menu_lateral_icons/icone-postar.png" } />
 
