@@ -35,13 +35,15 @@ export default function PopupMenssagem () {
 
     return <>
         <div id="fundo-popup" className = { "fundo-popup" + (show ? "" : "hide") } onClick = { clickOutPopup }>
-            <div id="corpo-popup" className = "corpo-popup rgb-border-fade">
-                <h3 className = "goldman-regular">{ titulo }</h3>
+            <section id="corpo-popup" className = "corpo-popup rgb-border-fade">
+                <h1 className = "goldman-bold text-2xl text-center">{ titulo }</h1>
 
-                { menssagem.split("\n").map((linha: string) => <p>{ linha }</p>) }
+                <div className="flex flex-col gap-1 items-center overflow-y-scroll w-[100%] text-center" >
+                    { menssagem.split("\n").map((linha: string) => <p>{ linha }</p>) }
+                </div>
 
                 <button className = "botao-fundo-transparente" onClick = { close }>Ok</button>
-            </div>
+            </section>
         </div>
     </>
 }
