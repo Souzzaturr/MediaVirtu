@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BotaoSair } from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoSair";
 import { BotaoPostar } from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoPostar";
 import BotaoPerfil from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoPerfil";
+import BotaoMensagens from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoMensagens";
 
 
 export function BarraNavegacaoDireita () {
@@ -17,14 +18,7 @@ export function BarraNavegacaoDireita () {
 
             <BotaoPostar opcao = {"Postar"} imagem = {"/icones/menu_lateral_icons/icone-postar.png" } />
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/user/mensagens" data-page = "" >
-                <div className="hover-opcao-color"></div>
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-mensagens.png" alt = "" width = "100%" />
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Mensagens</h3>
-
-            </Link>
+            <BotaoMensagens />
 
             <Link id = "" className = "opcao-barra-lateral" href = "/Excluir" data-page = "" >
                 <div className="hover-opcao-color"></div>
