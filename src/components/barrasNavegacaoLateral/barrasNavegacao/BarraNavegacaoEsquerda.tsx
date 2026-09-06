@@ -1,6 +1,9 @@
 import Link from "next/link";
 
 
+import BotaoConfiguracoes from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoConfiguracoes";
+
+
 export function BarraNavegacaoEsquerda () {
     const classe = "rgb-border-fade bg-black text-white ";
 
@@ -44,14 +47,7 @@ export function BarraNavegacaoEsquerda () {
 
             </Link>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/configuracoes" data-page = "" >
-                <div className="hover-opcao-color"></div>
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Configurações</h3>
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-configuracoes.svg" alt="" width = "100%" />
-
-            </Link>
+            <BotaoConfiguracoes />
 
         </section>
     </>
