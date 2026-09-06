@@ -5,6 +5,7 @@ import { BotaoSair } from "@/src/components/barrasNavegacaoLateral/botoesBarraNa
 import { BotaoPostar } from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoPostar";
 import BotaoPerfil from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoPerfil";
 import BotaoMensagens from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoMensagens";
+import BotaoExcluir from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoExcluir";
 
 
 export function BarraNavegacaoDireita () {
@@ -20,14 +21,7 @@ export function BarraNavegacaoDireita () {
 
             <BotaoMensagens />
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Excluir" data-page = "" >
-                <div className="hover-opcao-color"></div>
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-excluir.svg" alt = "" width = "100%" />
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Excluir</h3>
-
-            </Link>
+            <BotaoExcluir />
 
             <BotaoSair opcao = { "Sair" } imagem = { "/icones/menu_lateral_icons/icone-sair.png" } />
 
