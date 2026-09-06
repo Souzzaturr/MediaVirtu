@@ -13,7 +13,6 @@ export function BarraNavegacaoDireita () {
         <section id = "barra-direita" className = {classe} >
             <button className = "botao-expandir-barra-lateral rgb-border-fade bg-black"  >{"<"}</button>
 
-            {/* <BotaoPerfil /> */}
             <BotaoPerfil />
 
             <BotaoPostar opcao = {"Postar"} imagem = {"/icones/menu_lateral_icons/icone-postar.png" } />
