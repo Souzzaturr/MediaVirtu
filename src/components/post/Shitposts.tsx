@@ -1,8 +1,11 @@
 "use client"
 
+
+import { usePopupStore } from "@/src/store/usePopupStore";
+
 import BotaoComentarios from "./BotaoComentarios";
 import MenuComentarios from "./MenuComentarios";
-import TresPontinhos from "../componentes_simples/TresPontinhos";
+import TresPontinhos from "@/src/components/componentes_simples/TresPontinhos";
 import SimpleModal from "@/src/components/modal/SimpleModal";
 import DefaultText from "@/src/components/componentes_simples/DefaultText";
 
@@ -11,6 +14,8 @@ import { comparaTempo } from "@/src/utils/tempo/comparaTempo";
 import { useState } from "react";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 interface post {
     nome: string;
@@ -27,8 +32,11 @@ interface props {
     post: post;
 }
 
+
 export default function Shitpost ({post}: props) {
     const [modalComentariosOpen, setModalComentariosOpen] = useState(false);
+    const setPopupMenssagem = usePopupStore((state) => state.setPopupMenssagem);
+    const router = useRouter();
 
     const openComentariosModal = () => {
         setModalComentariosOpen(true);
@@ -62,7 +70,24 @@ export default function Shitpost ({post}: props) {
 
                     </div>
 
-                    <TresPontinhos/>
+                    <TresPontinhos options={[
+                        {
+                            optionName: "Perfil do criador",
+                            optionFunction: () => {
+                                router.push(`/perfis/${post.nome}`);
+                            }
+                        },
+                        {
+                            optionName: "Denunciar",
+                            optionFunction: () => {
+                                setPopupMenssagem({
+                                    titulo: "Funcionalidade não implementada",
+                                    menssagem: `Essa funcionalidade ainda não foi implementada :(
+                                    Assim que possível isso será resolvido!`
+                                })
+                            }
+                        }
+                    ]} />
                 
                 </section>
             
