@@ -1,5 +1,7 @@
-"use client"
+"use client";
 
+
+import { SYSTEM_CONFIG } from "@/src/globals/config";
 
 import { useState, useEffect } from "react";
 
@@ -41,7 +43,7 @@ export default function Novidades() {
 
             <h1 className="goldman-bold text-3xl text-center" >Novidades</h1>
 
-            <DefaultText classeAdicional="text-center" >Nesta página você pode ver o que chega de novidade em cada update do MediaVirtu.</DefaultText>
+            <DefaultText classeAdicional="text-center" >{`Nesta página você pode ver o que chega de novidade em cada update do ${ SYSTEM_CONFIG.name }.`}</DefaultText>
 
             <Select classeAdicional="self-center md:self-end" onChange={changeOptionHandler} disable={!contentStatus.ok} >
                 {

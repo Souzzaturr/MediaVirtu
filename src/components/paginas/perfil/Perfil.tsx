@@ -1,5 +1,8 @@
 "use client";
 
+
+import { SYSTEM_CONFIG } from "@/src/globals/config";
+
 import { buscaPerfilPorNome } from "@/src/services/supabase/buscas/buscaPerfilPorNome";
 
 import { usePopupStore } from "@/src/store/usePopupStore";
@@ -64,7 +67,7 @@ export default function Perfil({userName}: props) {
             <section className = "cabecalho-perfil ">
 
                 <Membrana hideMembrana={!fetchStatus.loading && !fetchStatus.failed} >
-                    <img className = "min-w-[200px] rounded-[100%]" src = { data.avatar || "/pictures/MediaVirtu_icon.png" } alt="" />
+                    <img className = "min-w-[200px] rounded-[100%]" src = { data.avatar || SYSTEM_CONFIG.logoPrincipal } alt="" />
                 </Membrana>
 
                 <div className="flex justify-between grow" >

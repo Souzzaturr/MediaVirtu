@@ -1,3 +1,5 @@
+import { SYSTEM_CONFIG } from "@/src/globals/config";
+
 import { create } from "zustand";
 import { User } from "@supabase/supabase-js";
 
@@ -19,11 +21,11 @@ export const useAuthStore = create<AuthState>((set) => ({
     user: null,
     loading: true,
     name: "",
-    avatarUrl: "/pictures/MediaVirtu_icon.png",
+    avatarUrl: SYSTEM_CONFIG.logoPrincipal,
 
     setUser: (user) => set({ user, loading: false }),
 
-    setProfile: (name="", avatarUrl="/pictures/MediaVirtu_icon.png") => set({
+    setProfile: (name="", avatarUrl=SYSTEM_CONFIG.logoPrincipal) => set({
         name: name,
         avatarUrl: avatarUrl
     })

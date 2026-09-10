@@ -1,5 +1,8 @@
 "use client";
 
+
+import { SYSTEM_CONFIG } from "@/src/globals/config";
+
 // Componentes
 import { CampoFormulario } from "@/src/components/forms/CampoFormulario";
 
@@ -18,7 +21,7 @@ export default function Home () {
     return <>
         <div className="bloco">
             <h2 className="titulo-form goldman-bold">É um veterano por aqui?</h2>
-            <p className="texto-acesso">Faça login e volte a aproveitar o melhor do MediaVirtu!</p>
+            <p className="texto-acesso">Faça login e volte a aproveitar o melhor do { SYSTEM_CONFIG.name }!</p>
 
             <div id="container-formulario-imagem">
                 <form className = "formulario-acesso" action="">
@@ -117,7 +120,7 @@ export default function Home () {
                     </div>
                 </form>
 
-                <img src="/icones/MediaVirtu_icons/MediaVirtu_icon.png" alt="" width = "100%" />
+                <img src={ SYSTEM_CONFIG.logoPrincipal } alt="" width = "100%" />
             </div>
 
             <Link className="link transition-colors" href = "/acesso/cadastro">Novo por aqui?</Link>

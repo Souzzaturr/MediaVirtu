@@ -1,6 +1,8 @@
 "use client"
 
 
+import { SYSTEM_CONFIG } from "@/src/globals/config";
+
 import { usePopupStore } from "@/src/store/usePopupStore";
 
 import BotaoComentarios from "./BotaoComentarios";
@@ -57,7 +59,7 @@ export default function Shitpost ({post}: props) {
             
                     <div className="autor-info">
                     
-                        <img src = { post.foto_perfil ? post.foto_perfil : "icones/MediaVirtu_icons/MediaVirtu_icon.png" } alt = "foto-perfil" className = "foto-perfil"/>
+                        <img src = { post.foto_perfil || SYSTEM_CONFIG.logoPrincipal } alt = "foto-perfil" className = "foto-perfil"/>
 
                         <div>
                             <Link href={ "/perfis/" + post.nome } className="link-branco">

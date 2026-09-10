@@ -1,6 +1,8 @@
 "use client"
 
 
+import { SYSTEM_CONFIG } from "@/src/globals/config";
+
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 
@@ -29,7 +31,7 @@ export default function Sobre () {
 
     return <>
     <section className = "bloco bloco-sobre">
-        <h2 className = "goldman-bold text-3xl"> Sobre o MediaVirtu </h2>
+        <h2 className = "goldman-bold text-3xl"> Sobre o { SYSTEM_CONFIG.name } </h2>
 
         <div className = "texto-sobre">
             <ReactMarkdown components={customRenderers} >
