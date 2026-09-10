@@ -1,3 +1,4 @@
+import { SYSTEM_CONFIG } from "@/src/globals/config";
 
 import { Metadata } from "next";
 
@@ -10,10 +11,10 @@ export async function generateMetadata ( { params }: { params: Promise <{ nomeus
 
 
     return {
-        title: `Perfil de ${ nomeusuario } | MediaVirtu`,
+        title: `Perfil de ${ nomeusuario } | ${ SYSTEM_CONFIG.name }`,
         description: `Veja os posts e amigos de ${ nomeusuario } na nossa plataforma!!`,
         openGraph: {
-            images: ["https://github.com/Souzzaturr/MediaVirtu/raw/main/MediaVirtu/public/icones/MediaVirtu_icons/MediaVirtu_icon.png?raw=true",]
+            images: [SYSTEM_CONFIG.logoPrincipal,]
         },
     }
 }
