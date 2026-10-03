@@ -5,9 +5,9 @@
     overflow: hidden;
     word-wrap: break-word;
     padding: 1em;
-    color: white;
+    color: var(--text-primary);
     border: 3px solid rgb(35, 35, 43);
-    background: #060124;
+    background: var(--bg-secondary);
     scroll-margin-top: 15vh;
 }
 

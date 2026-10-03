@@ -10,7 +10,7 @@ interface props {
 
 
 export default function MensagemSimplesFormModal({titulo, mensagem, simFunction, naoFunction}: props) {
-    return <article className="flex flex-col gap-5 w-[400px] max-w-[100%] text-center text-white">
+    return <article className="flex flex-col gap-5 w-[400px] max-w-[100%] text-center">
                 <h1 className="goldman-bold text-2xl" >{titulo}</h1>
                 {
                     mensagem.split("\n").map((line, index) => <p key={index}>{line}</p>)

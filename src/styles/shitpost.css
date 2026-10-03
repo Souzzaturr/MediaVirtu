@@ -5,7 +5,7 @@
 
 /* link sem coloração azul ou roxa, apenas com underline */
 .link-branco {
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
 }
 
@@ -27,9 +27,9 @@
     max-height: 600px;
     height: calc(75vh + 1em);
     width: calc(68vw + 2em);
-    color: white;
+    color: var(--text-primary);
     border: 3px solid rgb(35, 35, 43);
-    background: #060124;
+    background: var(--bg-secondary);
     scroll-margin-top: 15vh;
 }
 
@@ -159,7 +159,7 @@
     min-height: 100%;
     scroll-behavior: contain;
     padding: 5px;
-    background: rgb(0, 0, 0);
+    background: var(--bg-navigation);
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
 }
 

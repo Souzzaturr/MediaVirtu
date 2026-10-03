@@ -9,10 +9,9 @@ import BotaoExcluir from "@/src/components/barrasNavegacaoLateral/botoesBarraNav
 
 
 export function BarraNavegacaoDireita () {
-    const classe = "rgb-border-fade bg-black text-white ";
 
     return <>
-        <section id = "barra-direita" className = {classe} >
+        <section id = "barra-direita" className = "rgb-border-fade" >
             <button className = "botao-expandir-barra-lateral rgb-border-fade bg-black"  >{"<"}</button>
 
             <BotaoPerfil />

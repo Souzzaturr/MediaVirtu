@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(8, 8, 17);
+    background-color: var(--bg-primary);
 }
 
 
@@ -36,6 +36,9 @@
     --bg-navigation: black;
     --bg-primary: rgb(8, 8, 17);
     --bg-secondary: rgb(6, 1, 36);
+    --bg-ternary: rgb(10, 0, 70);
+
+    --bg-blur: rgba(0, 0, 0, 0.527);
 
     --text-primary: white;
 }
@@ -70,8 +73,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: white;
+    background-color: var(--bg-navigation);
+    color: var(--text-primary);
     z-index: 11;
     transition: height 1s ease-in-out;
     overflow: hidden;
@@ -91,14 +94,15 @@
 ========================== */
 
 .link {
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
     text-decoration: underline;
 
 }
 
-.link:hover {
-    color: rgba(255, 255, 255, 0.89);
+.background-blur {
+    background: var(--bg-blur);
+    backdrop-filter: blur(4px);
 }
 
 .notApplyAvancaRetornaSessoesEvent {
@@ -173,7 +177,7 @@
 .tres-pontinhos-ponto {
     width: 5px;
     height: 5px;
-    background: white;
+    background: var(--text-primary);
 }
 
 .tres-pontinhos-popup {
@@ -190,8 +194,8 @@
     height: min-content;
     overflow-y: scroll;
     overflow-x: hidden;
-    background: black;
-    border: 3px solid #0a0046;
+    background: var(--bg-navigation);
+    border: 3px solid var(--bg-ternary);
     border-radius: 5px;
 }
 

@@ -5,10 +5,9 @@ import BotaoConfiguracoes from "@/src/components/barrasNavegacaoLateral/botoesBa
 
 
 export function BarraNavegacaoEsquerda () {
-    const classe = "rgb-border-fade bg-black text-white ";
 
     return <>
-        <section id = "barra-esquerda" className = {classe} >
+        <section id = "barra-esquerda" className = "rgb-border-fade" >
             <button className = "botao-expandir-barra-lateral rgb-border-fade bg-black" >{">"}</button>
 
             <a id = "" className = "opcao-barra-lateral" href = "/" data-page = "" >

@@ -24,6 +24,8 @@
     width: 6.5%;
     transition: width 0.4s;
     pointer-events: auto;
+    background-color: var(--bg-navigation);
+    color: var(--text-primary);
 }
 
 #barra-esquerda {
