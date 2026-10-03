@@ -2,7 +2,10 @@
 
 @import "tailwindcss";
 
-/*Configurações visuais padrões do site*/
+
+/* ===========================================
+    Configurações visuais padrões do site
+==============================================*/
 
 * {
     margin: 0;
@@ -25,7 +28,9 @@
 }
 
 
-/*Tipografia*/
+/* ==========================
+        Tipografia
+============================ */
 
 .goldman-bold {
     font-family: "Goldman", sans-serif;
@@ -40,7 +45,9 @@
 }
 
 
-/*Preloader*/
+/* ========================
+        Preloader
+========================== */
 
 .preloader {
     position: fixed;
@@ -66,7 +73,9 @@
 }
 
 
-/* Genéricos */
+/* ========================
+        Genéricos
+========================== */
 
 .link {
     color: white;
