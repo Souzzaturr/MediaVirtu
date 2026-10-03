@@ -28,6 +28,19 @@
 }
 
 
+/* ====================================
+        Temas da Aplicação
+====================================== */
+
+:root, [data-theme="dark"] {
+    --bg-navigation: black;
+    --bg-primary: rgb(8, 8, 17);
+    --bg-secondary: rgb(6, 1, 36);
+
+    --text-primary: white;
+}
+
+
 /* ==========================
         Tipografia
 ============================ */
