@@ -1,17 +1,23 @@
 "use client"
 
-import BotaoGostei from "./BotaoGostei";
-import BotaoNaoGostei from "./BotaoNaoGostei";
+
+import { SYSTEM_CONFIG } from "@/src/globals/config";
+
+import { usePopupStore } from "@/src/store/usePopupStore";
+
 import BotaoComentarios from "./BotaoComentarios";
 import MenuComentarios from "./MenuComentarios";
-import TresPontinhos from "../componentes_simples/TresPontinhos";
+import TresPontinhos from "@/src/components/componentes_simples/TresPontinhos";
 import SimpleModal from "@/src/components/modal/SimpleModal";
+import DefaultText from "@/src/components/componentes_simples/DefaultText";
 
 import { comparaTempo } from "@/src/utils/tempo/comparaTempo";
 
 import { useState } from "react";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 interface post {
     nome: string;
@@ -28,8 +34,11 @@ interface props {
     post: post;
 }
 
+
 export default function Shitpost ({post}: props) {
     const [modalComentariosOpen, setModalComentariosOpen] = useState(false);
+    const setPopupMenssagem = usePopupStore((state) => state.setPopupMenssagem);
+    const router = useRouter();
 
     const openComentariosModal = () => {
         setModalComentariosOpen(true);
@@ -50,10 +59,10 @@ export default function Shitpost ({post}: props) {
             
                     <div className="autor-info">
                     
-                        <img src = { post.foto_perfil ? post.foto_perfil : "icones/MediaVirtu_icons/MediaVirtu_icon.png" } alt = "foto-perfil" className = "foto-perfil"/>
+                        <img src = { post.foto_perfil || SYSTEM_CONFIG.logoPrincipal } alt = "foto-perfil" className = "foto-perfil"/>
 
                         <div>
-                            <Link href={ "/Perfis/" + post.nome } className="link-branco">
+                            <Link href={ "/perfis/" + post.nome } className="link-branco">
                                 <h3 className="goldman-bold">{ post.nome }</h3>
                             </Link>
 
@@ -63,15 +72,32 @@ export default function Shitpost ({post}: props) {
 
                     </div>
 
-                    <TresPontinhos/>
+                    <TresPontinhos options={[
+                        {
+                            optionName: "Perfil do criador",
+                            optionFunction: () => {
+                                router.push(`/perfis/${post.nome}`);
+                            }
+                        },
+                        {
+                            optionName: "Denunciar",
+                            optionFunction: () => {
+                                setPopupMenssagem({
+                                    titulo: "Funcionalidade não implementada",
+                                    menssagem: `Essa funcionalidade ainda não foi implementada :(
+                                    Assim que possível isso será resolvido!`
+                                })
+                            }
+                        }
+                    ]} />
                 
                 </section>
             
                 <section className="conteudo-shitpost">
                 
-                    <div className="texto-shitpost">                    
+                    <div>
                         { post.texto.length > 0 && post.texto.split("\n").map((linha: string, index) => 
-                            <p key = { index } >{ linha }</p>
+                            <DefaultText key = { index + "-" + post.codigo_post } classeAdicional="text-xs md:text-sm" >{ linha }</DefaultText>
                         )}                    
                     </div>
 
@@ -94,7 +120,7 @@ export default function Shitpost ({post}: props) {
 
                 {modalComentariosOpen && 
                     <SimpleModal id={"modal-" + post.codigo_post} classeAdicionalFundo="hideOnDesktop notApplyAvancaRetornaSessoesEvent" closeModalFunction={closeComentariosModal} >
-                        <MenuComentarios codigo_post={ post.codigo_post } />
+                        <MenuComentarios classeAdicional="!w-[90vw] !h-[580px] max-w-[100%]" codigo_post={ post.codigo_post } />
                     </SimpleModal>
                 }
             

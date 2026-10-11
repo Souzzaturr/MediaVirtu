@@ -1,10 +1,14 @@
-
 import Link from "next/link";
 
 
+import BotaoConfiguracoes from "@/src/components/barrasNavegacaoLateral/botoesBarraNavegacaoLateral/BotaoConfiguracoes";
+
+
 export function BarraNavegacaoEsquerda () {
+
     return <>
-        <section id = "barra-esquerda" className = "rgb-border-fade bg-black text-white" >
+        <section id = "barra-esquerda" className = "rgb-border-fade" >
+            <button className = "botao-expandir-barra-lateral rgb-border-fade bg-black" >{">"}</button>
 
             <a id = "" className = "opcao-barra-lateral" href = "/" data-page = "" >
                 <div className="hover-opcao-color"></div>
@@ -15,7 +19,7 @@ export function BarraNavegacaoEsquerda () {
 
             </a>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Sobre" data-page = "" >
+            <Link id = "" className = "opcao-barra-lateral" href = "/sobre" data-page = "" >
                 <div className="hover-opcao-color"></div>
 
                 <h3 className = "texto-opc-lateral goldman-bold" >Sobre</h3>
@@ -24,7 +28,16 @@ export function BarraNavegacaoEsquerda () {
 
             </Link>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Ajuda" data-page = "" >
+            <Link id = "" className = "opcao-barra-lateral" href = "/novidades" data-page = "" >
+                <div className="hover-opcao-color"></div>
+
+                <h3 className = "texto-opc-lateral goldman-bold" >Novidades</h3>
+
+                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-novidades.png" alt="" width = "100%" />
+
+            </Link>
+
+            <Link id = "" className = "opcao-barra-lateral" href = "/ajuda" data-page = "" >
                 <div className="hover-opcao-color"></div>
 
                 <h3 className = "texto-opc-lateral goldman-bold" >Ajuda</h3>
@@ -33,23 +46,7 @@ export function BarraNavegacaoEsquerda () {
 
             </Link>
 
-            <Link id = "" className = "opcao-barra-lateral" href = "/Feedback" data-page = "" >
-                <div className="hover-opcao-color"></div>
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Feedback</h3>
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-feedback.png" alt="" width = "100%" />
-
-            </Link>
-
-            <Link id = "" className = "opcao-barra-lateral" href = "/Configuracoes" data-page = "" >
-                <div className="hover-opcao-color"></div>
-
-                <h3 className = "texto-opc-lateral goldman-bold" >Configurações</h3>
-
-                <img className = "icon-barra-ltrl" src = "/icones/menu_lateral_icons/icone-configuracoes.svg" alt="" width = "100%" />
-
-            </Link>
+            <BotaoConfiguracoes />
 
         </section>
     </>

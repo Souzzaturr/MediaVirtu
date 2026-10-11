@@ -3,7 +3,11 @@
 import { usePopupStore } from "@/src/store/usePopupStore";
 import { useAuthStore } from "@/src/store/useAuthStore";
 
+import MensagemSimplesFormModal from "@/src/components/modal/modelos_de_conteudo/MensagemSimplesFormModal";
+
 import { useRouter } from "next/navigation";
+
+import DefaultButton from "@/src/components/buttons/DefaultButton";
 
 
 interface props {
@@ -15,6 +19,8 @@ interface props {
 // Botão de sair
 export function BotaoPostar({ opcao, imagem }: props) {
     const abrirPopup = usePopupStore((state) => state.openPopupPostForm);
+    const abrirModal = usePopupStore((state) => state.setModal);
+    const fecharModal = usePopupStore((state) => state.closeModal);
     const fecharPopup = usePopupStore((state) => state.closePopupPostForm);
     const Menssagem = usePopupStore((state) => state.setPopupMenssagem);
     const show = usePopupStore((state) => state.popupPostForm.show);
@@ -31,11 +37,18 @@ export function BotaoPostar({ opcao, imagem }: props) {
             router.refresh();
 
         } else if (!user) {
-            Menssagem({ titulo: "Você precisa criar uma conta!", menssagem: "Para postar um shitpost, você precisa ter uma conta!\nVocê será redirecionado para a página de Cadastro..."});
 
-            fecharPopup();
-
-            router.push("/Acesso/Cadastro");
+            abrirModal(
+                <MensagemSimplesFormModal titulo="Conta necessária"
+                    mensagem={`Você precisa de uma conta para poder realizar uma postagem!
+                        Deseja ir para a página de cadastro?`}
+                    simFunction={() => {
+                        router.push("/acesso/cadastro");
+                        fecharModal();
+                    }}
+                    naoFunction={fecharModal}
+                />
+            );
 
             return;
         }

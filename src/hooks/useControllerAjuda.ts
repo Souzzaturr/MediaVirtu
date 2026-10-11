@@ -1,7 +1,7 @@
 
 
 import { useState, useEffect } from "react";
-import lista_opcoes from "@/src/app/Ajuda/ajuda_opcoes.json";
+import lista_opcoes from "@/src/app/ajuda/ajuda_opcoes.json";
 
 
 

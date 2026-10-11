@@ -1,9 +1,73 @@
-export default function TresPontinhos () {
+"use client"
+
+
+import { useState, useEffect, useRef } from "react";
+
+import Membrana from "@/src/components/componentes_simples/Membrana";
+
+
+interface props {
+    classeAdicional?: string | "",
+    options?:{
+            optionName: string | "",
+            optionFunction: () => void
+        }[] | []
+    }
+
+
+export default function TresPontinhos ({classeAdicional="", options=[]}: props) {
+    const [ showOptions, setShowOptions ] = useState(false);
+    const [ proximoTelaFimX, setProximoTelaFimX ] = useState(false);
+    const [ proximoTelaFimY, setProximoTelaFimY ] = useState(false);
+    const componentRef = useRef<HTMLButtonElement>(null);
+
+    const posicaoVertical = proximoTelaFimY ? "flex-col-reverse" : "flex-col";
+    const posicaoHorizontal = proximoTelaFimX ? "items-end" : "items-start";
+    const popupPosicionamento = `flex ${posicaoVertical} ${posicaoHorizontal}`;
+    
+    useEffect(() => {
+        if (!showOptions) return;
+
+        function detectClickOutsideTresPontinhosPopup(e: any) {
+            if (e.target.className !== "tres-pontinhos-popup" && !e.target.closest(".tres-pontinhos-popup")) {
+                setShowOptions(false);
+            }
+        }
+        
+        document.addEventListener("click", detectClickOutsideTresPontinhosPopup);
+
+        return () => {
+            document.removeEventListener("click", detectClickOutsideTresPontinhosPopup);
+        }
+        
+    }, [showOptions])
+    
+    function handleOptions() {
+        if (componentRef.current) {
+            const posicaoComponente = componentRef.current.getBoundingClientRect();
+            setProximoTelaFimX(window.innerWidth - posicaoComponente.left < 300);
+            setProximoTelaFimY(window.innerHeight - posicaoComponente.top < 210);
+        }
+        
+        setShowOptions(prev => !prev)
+    }
+
     return <>
-        <div className = "tres-pontinhos">
-            <div className = "tres-pontinhos-ponto"></div>
-            <div className = "tres-pontinhos-ponto"></div>
-            <div className = "tres-pontinhos-ponto"></div>
-        </div>
+        <Membrana hover classeAdicional={classeAdicional} >
+            <div className={"relative " + popupPosicionamento} >
+                <button ref = {componentRef} className = "tres-pontinhos" onClick={handleOptions} >
+                    <div className = "tres-pontinhos-ponto"></div>
+                    <div className = "tres-pontinhos-ponto"></div>
+                    <div className = "tres-pontinhos-ponto"></div>
+                </button>
+
+                <>{ showOptions && 
+                <section className="tres-pontinhos-popup" >
+                    { options.map((option, index) => <button className="tres-pontinhos-option" onClick={option.optionFunction} key={"option-" + index} >{option.optionName}</button> ) }
+                </section>
+                }</>
+
+            </div>
+        </Membrana>
     </>
 }

@@ -1,7 +1,11 @@
 "use client";
 
+
+import { SYSTEM_CONFIG } from "@/src/globals/config";
+
 // Importa componentes
 import { CampoFormulario } from "@/src/components/forms/CampoFormulario";
+import DefaultButton from "@/src/components/buttons/DefaultButton";
 
 // importa hooks
 import { useControllerCadastro } from "@/src/hooks/useContollerCadastro";
@@ -17,7 +21,7 @@ export default function Home () {
         <div className="bloco">
             <h2 className="titulo-form goldman-bold">Junte-se à nossa comunidade</h2>
 
-            <p className = "texto-acesso">Cadastre-se e começe hoje mesmo a criar conteúdo no MediaVirtu!</p>
+            <p className = "texto-acesso">Cadastre-se e começe hoje mesmo a criar conteúdo no { SYSTEM_CONFIG.name }!</p>
 
             <div id="container-formulario-imagem">
                 <form className = "formulario-acesso" action="" onSubmit = { enviarDadosForm }>
@@ -95,18 +99,18 @@ export default function Home () {
                             />
 
                     <div className="botoes-formulario-acesso">                        
-                        <button type = "button" className = "botao-fundo-transparente" onClick = {() => setShowPassword(!showPassword) }>{ showPassword ? "Esconder" : "Exibir" } senha</button>
+                        <DefaultButton type = "button" onClick = {() => setShowPassword(!showPassword) }>{ showPassword ? "Esconder senha" : "Exibir senha" }</DefaultButton>
                     
-                        <button type = "reset" className = "botao-fundo-transparente" onClick = { limparDadosForm }>Limpar</button>
+                        <DefaultButton type = "reset" onClick = { limparDadosForm }>Limpar</DefaultButton>
 
-                        <button type = "submit" className = "botao-fundo-transparente" onClick = { enviarDadosForm } disabled = { isPending } >Cadastrar-se</button>
+                        <DefaultButton type = "submit" onClick = { enviarDadosForm } disabled = { isPending } >Cadastrar-se</DefaultButton>
                     </div>
                 </form>
 
-                <img src = "/icones/MediaVirtu_icons/MediaVirtu_icon.png" width = "100%"/>
+                <img src = { SYSTEM_CONFIG.logoPrincipal } width = "100%"/>
             </div>
 
-            <Link href = "/Acesso/Login">Já possui uma conta?</Link>
+            <Link className="link transition-colors" href = "/acesso/login">Já possui uma conta?</Link>
         </div>
     </>
 }

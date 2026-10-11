@@ -1,38 +1,51 @@
+"use client"
+
+
+import { SYSTEM_CONFIG } from "@/src/globals/config";
+
+import { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+
+import { getReadmeMediaVirtu } from "@/src/utils/fetch/github";
+import { decodeBase64 } from "@/src/utils/base64";
+import { customRenderers } from "@/src/utils/markdownCustomRenderers";
+
 import adms_supremos from "./adms_supremos.json";
 import CardAdmSupremo from "./CardAdmSupremo";
 
+
 export default function Sobre () {
+    const [ descricao, setDescricao ] = useState("Carregando...");
+
+    useEffect(() => {
+        async function fetchDescricao() {
+            const response = await getReadmeMediaVirtu();
+            if (response.status === 200) {
+                setDescricao(decodeBase64(response.body.content));
+                return;
+            }
+            setDescricao("Ocorreu um erro ao buscar a descrição.");
+        }
+        fetchDescricao();
+    }, []);
+
     return <>
     <section className = "bloco bloco-sobre">
-        <h2 className = "titulo-sobre goldman-bold"> Sobre o MediaVirtu </h2>
+        <h2 className = "goldman-bold text-3xl"> Sobre o { SYSTEM_CONFIG.name } </h2>
 
         <div className = "texto-sobre">
-            { texto(texto_apresentacao) }
+            <ReactMarkdown components={customRenderers} >
+                { descricao }
+            </ReactMarkdown>
         </div>
         
-        <h3 className = "goldman-bold">Desenvolvedores:</h3>
+        <h2 className = "goldman-bold text-xl">Criadores:</h2>
 
-        <div className = "cards-adms-supremos">
+        <div className = "flex flex-wrap gap-16 justify-center">
             { adms_supremos.map((adm) => <CardAdmSupremo key = { adm.nome } adm = { adm }/>) }
-        </div> 
-
-        <h3 className = "goldman-bold">Mais sobre o site:</h3>
-
-        <div className = "texto-sobre">
-            { texto(mais_sobre_site) }
         </div>
 
         <h4 className = "goldman-regular">©MediaVirtu Todos os Direitos Reservados</h4>
     </section>
     </>
 }
-
-
-function texto (texto: string) {
-    return texto ? texto.split('\n').map((linha) => <p>{ linha }</p>) : '';
-}
-
-
-const texto_apresentacao = `MediaVirtu é uma rede social de shitposts, onde o foco principal são os posts de merda de nossos queridos usuários. Navegue por este belíssimo site, descubra os mais incríveis shitposts que você pode encontrar, enjoy!!!`
-
-const mais_sobre_site = `Este site é um projeto feito para a disciplina de Programação para Web II, do curso de Engenharia de Software, IFPB. Neste site, foi implementado na prática a combinação de HTML, CSS & JavaScript para a construção de uma aplicação web dinâmica, explorando todas as propriedades da árvore DOM, manipulando eventos, armazenamento local no navegador, e o uso de componentes para o reaproveitamento de código.`

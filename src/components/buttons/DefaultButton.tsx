@@ -1,19 +1,29 @@
-"use client";
+import { ButtonHTMLAttributes, ReactElement } from "react";
 
-import { ReactElement } from "react";
 
-interface props {
+interface defaultButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactElement | string,
-    type: string,
-    style: "default" | "danger" | "disable",
     disabled?: boolean,
-    onClickAction?: () => void,
-    onBlurAction?: () => void,
+    variant?: "standart" | "danger" | "sucess",
+    ref?: any,
 }
 
 
-export default function DefaultButton ({children, type, style, disabled}: props) {
-    return <button className={style}>
+const buttonsVariants = {
+    standart: "",
+    danger: "-danger",
+    sucess: "-sucess"
+}
+
+
+export default function DefaultButton ({children, className="", disabled, variant="standart", ref, ...props}: defaultButtonProps) {
+
+    type ChaveButtonsVariants = keyof typeof buttonsVariants;
+    let chaveVariant: ChaveButtonsVariants = variant;
+    
+    const classe = `botao-fundo-transparente${buttonsVariants[chaveVariant]} ` + className;
+    
+    return <button ref={ref} className={classe} {...props} >
         {children}
     </button>
 }

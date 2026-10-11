@@ -5,7 +5,11 @@ import "../styles/barras_navegacao_lateral.css";
 import "../styles/blocos.css";
 import "../styles/linha_divisora.css";
 import "../styles/shitpost.css";
+import "@/src/styles/buttons.css";
+import "@/src/styles/form.css";
 import "@/src/styles/popups.css";
+
+import { SYSTEM_CONFIG } from "@/src/globals/config";
 
 import { createClient } from "@/src/lib/supabase/server";
 
@@ -17,11 +21,11 @@ import Preloader from "../components/Preloader";
 
 
 export const metadata = {
-  title: "MediaVirtu",
-  description: "Um ótimo lugar para seus posts de merda",
+  title: SYSTEM_CONFIG.name,
+  description: SYSTEM_CONFIG.description,
   viewport: "whidth = device-width, initial-scale = 1.0",
   icons: {
-    icon: "/icones/MediaVirtu_icons/MediaVirtu_icon.png"
+    icon: SYSTEM_CONFIG.logoPrincipal
   }
 };
 
